@@ -1,0 +1,1913 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI in Enterprise IT — Research Tracker</title>
+<style>
+  :root {
+    --paper: #eff1ec;
+    --paper-raised: #ffffff;
+    --paper-sunken: #e6e9e2;
+    --ink: #1b1f1d;
+    --ink-muted: #5b625c;
+    --ink-faint: #8b9189;
+    --line: #d8dcd5;
+    --line-strong: #c3c8bd;
+    --accent: #2a4b6b;
+    --accent-ink: #1d3549;
+    --accent-soft: #e4eaf0;
+    --amber: #b8752a;
+    --amber-soft: #f3e6d3;
+    --score-1: #b3483f;
+    --score-2: #c07a3e;
+    --score-3: #b79a3b;
+    --score-4: #5c8c52;
+    --score-5: #2f7a55;
+    --score-1-soft: #f4e2df;
+    --score-2-soft: #f3e6d6;
+    --score-3-soft: #f0ead1;
+    --score-4-soft: #e2ecdf;
+    --score-5-soft: #dceae2;
+    --shadow: 0 1px 2px rgba(27,31,29,0.06), 0 6px 20px rgba(27,31,29,0.05);
+    --font-display: "Iowan Old Style", "Palatino Linotype", Palatino, "URW Palladio L", Georgia, serif;
+    --font-body: -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+    --font-mono: ui-monospace, "SF Mono", "Cascadia Mono", "Roboto Mono", Menlo, Consolas, monospace;
+  }
+
+  /* Light is the committed default regardless of OS preference; the viewer's manual
+     dark-mode toggle (which stamps data-theme="dark") is still honored below. */
+  :root[data-theme="dark"] {
+    --paper: #14171a; --paper-raised: #1b1f23; --paper-sunken: #101315;
+    --ink: #e9ece7; --ink-muted: #9ba39a; --ink-faint: #6d746c;
+    --line: #2b302e; --line-strong: #383e3b;
+    --accent: #8bb0dd; --accent-ink: #cfe0f2; --accent-soft: rgba(139,176,221,0.12);
+    --amber: #d79a52; --amber-soft: rgba(215,154,82,0.14);
+    --score-1: #d96257; --score-2: #db9a5c; --score-3: #d4b85a; --score-4: #7fb374; --score-5: #4fa377;
+    --score-1-soft: rgba(217,98,87,0.14); --score-2-soft: rgba(219,154,92,0.14); --score-3-soft: rgba(212,184,90,0.14);
+    --score-4-soft: rgba(127,179,116,0.14); --score-5-soft: rgba(79,163,119,0.14);
+    --shadow: 0 1px 2px rgba(0,0,0,0.3), 0 6px 24px rgba(0,0,0,0.35);
+  }
+  :root[data-theme="light"] {
+    --paper: #eff1ec; --paper-raised: #ffffff; --paper-sunken: #e6e9e2;
+    --ink: #1b1f1d; --ink-muted: #5b625c; --ink-faint: #8b9189;
+    --line: #d8dcd5; --line-strong: #c3c8bd;
+    --accent: #2a4b6b; --accent-ink: #1d3549; --accent-soft: #e4eaf0;
+    --amber: #b8752a; --amber-soft: #f3e6d3;
+    --score-1: #b3483f; --score-2: #c07a3e; --score-3: #b79a3b; --score-4: #5c8c52; --score-5: #2f7a55;
+    --score-1-soft: #f4e2df; --score-2-soft: #f3e6d6; --score-3-soft: #f0ead1; --score-4-soft: #e2ecdf; --score-5-soft: #dceae2;
+    --shadow: 0 1px 2px rgba(27,31,29,0.06), 0 6px 20px rgba(27,31,29,0.05);
+  }
+
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--font-body);
+    font-size: 16.5px;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: var(--accent); }
+  ::selection { background: var(--accent-soft); }
+
+  .skip { position: absolute; left: -999px; }
+  .skip:focus { left: 8px; top: 8px; z-index: 100; background: var(--paper-raised); padding: 8px 12px; border-radius: 4px; }
+
+  :focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+  /* ---------- Masthead ---------- */
+  header.masthead {
+    border-bottom: 1px solid var(--line);
+    background: var(--paper-raised);
+    position: sticky;
+    top: 0;
+    z-index: 20;
+  }
+  .masthead-inner {
+    max-width: 1320px;
+    margin: 0 auto;
+    padding: 22px 28px 18px;
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 24px;
+    flex-wrap: wrap;
+  }
+  .masthead-title-group { display: flex; align-items: baseline; gap: 14px; flex-wrap: wrap; }
+  h1 {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 29px;
+    letter-spacing: 0.2px;
+    margin: 0;
+    text-wrap: balance;
+  }
+  .kicker {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+  }
+  .masthead-meta {
+    font-family: var(--font-mono);
+    font-size: 13.5px;
+    color: var(--ink-muted);
+    display: flex;
+    gap: 18px;
+    flex-wrap: wrap;
+    font-variant-numeric: tabular-nums;
+  }
+  .masthead-meta strong { color: var(--ink); font-weight: 600; }
+  .masthead-sub {
+    max-width: 1320px;
+    margin: 0 auto;
+    padding: 0 28px 18px;
+    color: var(--ink-muted);
+    font-size: 15px;
+  }
+
+  /* ---------- Filter bar ---------- */
+  .filter-bar-wrap {
+    position: sticky;
+    top: 0;
+    z-index: 15;
+    background: var(--paper-raised);
+    border-bottom: 1px solid var(--line);
+  }
+  .filter-bar {
+    max-width: 1320px;
+    margin: 0 auto;
+    padding: 14px 28px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+  .search-input {
+    width: 240px;
+    max-width: 100%;
+    padding: 9px 11px;
+    border: 1px solid var(--line-strong);
+    border-radius: 7px;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--font-body);
+    font-size: 15px;
+  }
+  .search-input:focus { border-color: var(--accent); }
+
+  .multiselect { position: relative; }
+  .multiselect-toggle {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    font-family: var(--font-mono);
+    font-size: 13px;
+    padding: 8px 12px;
+    border-radius: 7px;
+    border: 1px solid var(--line-strong);
+    background: var(--paper);
+    color: var(--ink);
+    cursor: pointer;
+    white-space: nowrap;
+  }
+  .multiselect-toggle::after { content: "▾"; font-size: 10px; color: var(--ink-faint); }
+  .multiselect-toggle:hover { border-color: var(--accent); }
+  .multiselect-toggle[aria-expanded="true"] {
+    border-color: var(--accent);
+    background: var(--accent-soft);
+    color: var(--accent-ink);
+  }
+  .ms-count {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    font-weight: 700;
+    background: var(--accent);
+    color: var(--paper-raised);
+    border-radius: 999px;
+    padding: 1px 6px;
+    line-height: 1.5;
+  }
+  .multiselect-panel {
+    position: absolute;
+    top: calc(100% + 6px);
+    left: 0;
+    min-width: 250px;
+    max-height: 320px;
+    overflow-y: auto;
+    background: var(--paper-raised);
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+    padding: 6px;
+    z-index: 30;
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+  }
+  .multiselect-panel[hidden] { display: none; }
+  .ms-option {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    padding: 7px 9px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 13.5px;
+  }
+  .ms-option:hover { background: var(--paper-sunken); }
+  .ms-option input { accent-color: var(--accent); width: 15px; height: 15px; flex: none; }
+
+  select.bar-select {
+    padding: 8px 10px;
+    border-radius: 7px;
+    border: 1px solid var(--line-strong);
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--font-body);
+    font-size: 13.5px;
+  }
+
+  .bar-reset {
+    font-family: var(--font-mono);
+    font-size: 12.5px;
+    color: var(--ink-muted);
+    background: none;
+    border: none;
+    text-decoration: underline;
+    cursor: pointer;
+    padding: 8px 4px;
+    margin-left: auto;
+  }
+  .bar-reset:hover { color: var(--accent); }
+
+  .legend-bar {
+    max-width: 1320px;
+    margin: 0 auto;
+    padding: 0 28px 12px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+    font-size: 12px;
+    color: var(--ink-muted);
+  }
+  .legend-label {
+    font-family: var(--font-mono);
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    font-size: 10.5px;
+    color: var(--ink-faint);
+  }
+  .legend-row { display: inline-flex; align-items: center; gap: 6px; }
+  .legend-swatch { width: 10px; height: 10px; border-radius: 3px; flex: none; }
+
+  /* ---------- Main column ---------- */
+  main.content {
+    max-width: 1320px;
+    margin: 0 auto;
+    padding: 24px 28px 80px;
+    min-width: 0;
+  }
+
+  details.whats-new {
+    margin-bottom: 30px;
+    padding: 14px 18px;
+    border: 1px solid var(--amber);
+    background: var(--amber-soft);
+    border-radius: 10px;
+  }
+  details.whats-new > summary {
+    cursor: pointer;
+    font-family: var(--font-mono);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--amber);
+    list-style: none;
+  }
+  details.whats-new > summary::-webkit-details-marker { display: none; }
+  details.whats-new > summary::before { content: "▸ "; }
+  details.whats-new[open] > summary::before { content: "▾ "; }
+  details.whats-new > summary:hover { color: var(--accent-ink); }
+  .whats-new ul { margin: 12px 0 0; padding-left: 18px; }
+  .whats-new li { margin-bottom: 4px; font-size: 15px; }
+
+  .results-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 14px;
+    font-family: var(--font-mono);
+    font-size: 13px;
+    color: var(--ink-muted);
+  }
+
+  .empty-state {
+    border: 1px dashed var(--line-strong);
+    border-radius: 10px;
+    padding: 48px 28px;
+    text-align: center;
+    color: var(--ink-muted);
+    font-size: 15.5px;
+  }
+  .empty-state strong { display: block; color: var(--ink); font-family: var(--font-display); font-size: 19.5px; margin-bottom: 8px; font-weight: 600; }
+
+  .card-list { display: flex; flex-direction: column; gap: 14px; }
+
+  article.card {
+    background: var(--paper-raised);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 20px 22px;
+    box-shadow: var(--shadow);
+  }
+  .card-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 16px;
+  }
+  .card-heading { flex: 1 1 auto; min-width: 0; }
+  .card-title {
+    font-family: var(--font-display);
+    font-size: 21px;
+    font-weight: 600;
+    margin: 0 0 6px;
+    text-wrap: balance;
+  }
+  .card-dates {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    color: var(--ink-faint);
+    font-variant-numeric: tabular-nums;
+  }
+  .badge-row { display: flex; gap: 8px; align-items: center; flex: none; }
+
+  .score-badge {
+    font-family: var(--font-mono);
+    font-size: 12.5px;
+    font-weight: 600;
+    padding: 4px 8px;
+    border-radius: 6px;
+    white-space: nowrap;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .maturity-track { display: flex; align-items: center; gap: 5px; margin: 4px 0 2px; }
+  .maturity-label { font-family: var(--font-mono); font-size: 12px; color: var(--ink-muted); margin-right: 4px; }
+  .maturity-ticks { display: flex; gap: 3px; }
+  .tick { width: 16px; height: 6px; border-radius: 2px; background: var(--line-strong); }
+  .tick.filled { background: var(--accent); }
+  .maturity-declining {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    color: var(--score-1);
+    background: var(--score-1-soft);
+    padding: 3px 8px;
+    border-radius: 6px;
+    font-weight: 600;
+  }
+
+  .tag-row { display: flex; flex-wrap: wrap; gap: 6px; margin: 12px 0 4px; }
+  .tag {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    padding: 3px 8px;
+    border-radius: 999px;
+    border: 1px solid var(--line-strong);
+    color: var(--ink-muted);
+  }
+  .tag.role { border-color: var(--accent); color: var(--accent-ink); background: var(--accent-soft); }
+
+  .card-summary { margin: 12px 0 4px; font-size: 15.5px; color: var(--ink); }
+  .card-summary p { margin: 0 0 8px; }
+  .card-summary p:last-child { margin-bottom: 0; }
+
+  .card-summary-short { margin: 12px 0 4px; font-size: 15.5px; color: var(--ink); }
+
+  details.full-summary { margin: 4px 0 0; }
+  details.full-summary > summary {
+    cursor: pointer;
+    font-family: var(--font-mono);
+    font-size: 12.5px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--accent);
+    list-style: none;
+  }
+  details.full-summary > summary::-webkit-details-marker { display: none; }
+  details.full-summary > summary::before { content: "▸ "; }
+  details.full-summary[open] > summary::before { content: "▾ "; }
+  details.full-summary > summary:hover { color: var(--accent-ink); }
+  details.full-summary .card-summary { margin-top: 10px; }
+
+  details.evidence { margin-top: 14px; border-top: 1px solid var(--line); padding-top: 10px; }
+  details.evidence > summary {
+    cursor: pointer;
+    font-family: var(--font-mono);
+    font-size: 12.5px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--ink-muted);
+    list-style: none;
+  }
+  details.evidence > summary::-webkit-details-marker { display: none; }
+  details.evidence > summary::before { content: "▸ "; }
+  details.evidence[open] > summary::before { content: "▾ "; }
+  details.evidence > summary:hover { color: var(--accent); }
+
+  .evidence-list { display: flex; flex-direction: column; gap: 10px; margin-top: 12px; }
+  .evidence-item {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    gap: 10px;
+    align-items: start;
+    padding: 10px 12px;
+    background: var(--paper-sunken);
+    border-radius: 7px;
+    font-size: 14.5px;
+  }
+  .evidence-source { font-weight: 600; }
+  .evidence-source a { text-decoration: none; }
+  .evidence-source a:hover { text-decoration: underline; }
+  .evidence-what { color: var(--ink-muted); margin-top: 2px; }
+  .evidence-date { font-family: var(--font-mono); font-size: 12px; color: var(--ink-faint); white-space: nowrap; font-variant-numeric: tabular-nums; }
+
+  .archive-toggle-wrap { margin-top: 34px; border-top: 1px solid var(--line); padding-top: 18px; }
+  details.archive-section > summary {
+    cursor: pointer;
+    font-family: var(--font-mono);
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    color: var(--ink-faint);
+    list-style: none;
+  }
+  details.archive-section > summary::-webkit-details-marker { display: none; }
+  details.archive-section > summary::before { content: "▸ "; }
+  details.archive-section[open] > summary::before { content: "▾ "; }
+
+  footer.page-footer {
+    max-width: 1320px;
+    margin: 40px auto 0;
+    padding: 20px 28px 40px;
+    color: var(--ink-faint);
+    font-size: 13px;
+    border-top: 1px solid var(--line);
+  }
+  footer.page-footer a { color: var(--ink-muted); }
+</style>
+</head>
+<body>
+<a href="#main" class="skip">Skip to content</a>
+
+<header class="masthead">
+  <div class="masthead-inner">
+    <div class="masthead-title-group">
+      <h1>AI in Enterprise IT — Research Tracker</h1>
+      <span class="kicker">Org Design &amp; Effectiveness</span>
+    </div>
+    <div class="masthead-meta" id="masthead-meta"></div>
+  </div>
+  <p class="masthead-sub">A living catalog of how AI is reshaping enterprise IT roles, team structures, and operating models — sourced only from government, academic, top-tier consulting, and IT analyst research published in the trailing 12 months, scored for source reliability and strength of evidence.</p>
+</header>
+
+<div class="filter-bar-wrap" id="filter-bar-wrap">
+  <div class="filter-bar" aria-label="Filters">
+    <input type="text" class="search-input" id="search-input" placeholder="Search opportunities…" />
+
+    <div class="multiselect" data-key="role">
+      <button type="button" class="multiselect-toggle" id="role-toggle" aria-expanded="false" aria-haspopup="true">Role<span class="ms-count" id="role-count" hidden></span></button>
+      <div class="multiselect-panel" id="role-panel" hidden></div>
+    </div>
+
+    <div class="multiselect" data-key="dimension">
+      <button type="button" class="multiselect-toggle" id="dimension-toggle" aria-expanded="false" aria-haspopup="true">Dimension<span class="ms-count" id="dimension-count" hidden></span></button>
+      <div class="multiselect-panel" id="dimension-panel" hidden></div>
+    </div>
+
+    <div class="multiselect" data-key="maturity">
+      <button type="button" class="multiselect-toggle" id="maturity-toggle" aria-expanded="false" aria-haspopup="true">Maturity<span class="ms-count" id="maturity-count" hidden></span></button>
+      <div class="multiselect-panel" id="maturity-panel" hidden></div>
+    </div>
+
+    <select class="bar-select" id="min-score-select">
+      <option value="1">Evidence: 1 — any</option>
+      <option value="2">Evidence: 2+</option>
+      <option value="3">Evidence: 3+</option>
+      <option value="4">Evidence: 4+</option>
+      <option value="5">Evidence: 5 only</option>
+    </select>
+
+    <select class="bar-select" id="sort-select">
+      <option value="updated">Sort: Recently updated</option>
+      <option value="evidence">Sort: Evidence score</option>
+      <option value="maturity">Sort: Maturity</option>
+      <option value="title">Sort: Title A–Z</option>
+    </select>
+
+    <button class="bar-reset" id="reset-filters">Reset filters</button>
+  </div>
+  <div class="legend-bar">
+    <span class="legend-label">Evidence score</span>
+    <span class="legend-row"><span class="legend-swatch" style="background: var(--score-5)"></span>5 corroborated, quantified, multi-org</span>
+    <span class="legend-row"><span class="legend-swatch" style="background: var(--score-4)"></span>4 one documented case / rigorous study</span>
+    <span class="legend-row"><span class="legend-swatch" style="background: var(--score-3)"></span>3 directional survey evidence</span>
+    <span class="legend-row"><span class="legend-swatch" style="background: var(--score-2)"></span>2 expert POV, no empirical backing</span>
+  </div>
+</div>
+
+<main id="main" class="content">
+  <details class="whats-new" id="whats-new" hidden>
+    <summary id="whats-new-summary">What's new this run</summary>
+    <ul id="whats-new-list"></ul>
+  </details>
+
+  <div class="results-bar">
+    <span id="results-count"></span>
+    <span id="run-status"></span>
+  </div>
+
+  <div id="card-list" class="card-list"></div>
+
+  <div class="archive-toggle-wrap" id="archive-wrap" hidden>
+    <details class="archive-section">
+      <summary id="archive-summary">Archived — aged out of the 12-month window</summary>
+      <div class="card-list" id="archive-list" style="margin-top: 14px;"></div>
+    </details>
+  </div>
+</main>
+
+<footer class="page-footer">
+  Methodology: sources are limited to a fixed allowlist of government, academic, top-tier consulting, and IT analyst institutions; every finding must be published within the trailing 12 months and clear a minimum reliability bar to be cited. Full rubric maintained alongside this tracker. Generated and updated by a scheduled research run — see the source list in the filters above for what's currently in scope.
+</footer>
+
+<script type="application/json" id="rubric-snapshot">
+{
+  "recencyWindowMonths": 12,
+  "maturityLadder": ["Leading Edge/Experimental", "Emerging Practice", "Growing Adoption", "Common/Mainstream", "Legacy/Declining"],
+  "roleTags": ["Product Management", "Program/Project Management", "Software Engineering", "Data Engineering", "Data Science/ML Engineering", "Cloud/Platform Engineering", "Network Engineering", "Help Desk/IT Support", "IT Operations/SRE", "Enterprise/Solution Architecture", "QA/Test Engineering", "Security/InfoSec", "IT Leadership/Org Design & Strategy"],
+  "dimensionTags": ["Team Structure & Span of Control", "Operating Model & Governance", "Skills & Upskilling Pathways", "Workforce Planning & Sizing", "Role Redesign/Job Architecture", "AI Tooling & Enablement"],
+  "reliabilityScale": { "5": "Government/central bank primary data or peer-reviewed academic research, disclosed methodology", "4": "University research center or flagship consulting institute research, disclosed methodology", "3": "Standard top-tier consulting publication or analyst research note with named methodology", "2": "Analyst commentary/blog with no disclosed methodology, or vendor case study about its own product", "1": "No disclosed methodology, no independence — excluded" },
+  "evidenceScale": { "5": "Multiple independent large-enterprise case studies, corroborated quantified outcomes", "4": "One well-documented large-enterprise case study or rigorous academic study", "3": "Cross-company survey showing directional trend", "2": "Expert POV/forecast without empirical backing", "1": "Single anecdotal/vendor claim — excluded" }
+}
+</script>
+
+<script type="application/json" id="sources-snapshot">
+{
+  "tiers": {
+    "government_intergovernmental": {
+      "baseReliability": 5,
+      "institutions": [
+        {
+          "name": "U.S. Bureau of Labor Statistics",
+          "domains": [
+            "bls.gov"
+          ]
+        },
+        {
+          "name": "Federal Reserve Board",
+          "domains": [
+            "federalreserve.gov"
+          ]
+        },
+        {
+          "name": "Federal Reserve Bank of St. Louis",
+          "domains": [
+            "research.stlouisfed.org",
+            "fred.stlouisfed.org",
+            "stlouisfed.org"
+          ]
+        },
+        {
+          "name": "Federal Reserve Bank of San Francisco",
+          "domains": [
+            "frbsf.org"
+          ]
+        },
+        {
+          "name": "Federal Reserve Bank of New York",
+          "domains": [
+            "newyorkfed.org"
+          ]
+        },
+        {
+          "name": "U.S. Government Accountability Office",
+          "domains": [
+            "gao.gov"
+          ]
+        },
+        {
+          "name": "OECD",
+          "domains": [
+            "oecd.org",
+            "oecd-ilibrary.org",
+            "oecd.ai"
+          ]
+        },
+        {
+          "name": "World Economic Forum",
+          "domains": [
+            "weforum.org"
+          ]
+        },
+        {
+          "name": "European Commission",
+          "domains": [
+            "ec.europa.eu",
+            "eurostat.ec.europa.eu"
+          ]
+        },
+        {
+          "name": "U.S. Bureau of Economic Analysis",
+          "domains": [
+            "bea.gov"
+          ]
+        }
+      ]
+    },
+    "academic_research": {
+      "baseReliability": 4,
+      "institutions": [
+        {
+          "name": "MIT Sloan Management Review",
+          "domains": [
+            "sloanreview.mit.edu"
+          ]
+        },
+        {
+          "name": "MIT (CSAIL / IDE / Work of the Future)",
+          "domains": [
+            "ide.mit.edu",
+            "csail.mit.edu",
+            "workofthefuture.mit.edu"
+          ]
+        },
+        {
+          "name": "Stanford HAI",
+          "domains": [
+            "hai.stanford.edu"
+          ]
+        },
+        {
+          "name": "Stanford Digital Economy Lab",
+          "domains": [
+            "digitaleconomy.stanford.edu"
+          ]
+        },
+        {
+          "name": "Harvard Business School / HBR",
+          "domains": [
+            "hbswk.hbs.edu",
+            "hbs.edu",
+            "hbr.org"
+          ]
+        },
+        {
+          "name": "Wharton School",
+          "domains": [
+            "ai.wharton.upenn.edu",
+            "mackinstitute.wharton.upenn.edu",
+            "knowledge.wharton.upenn.edu"
+          ]
+        },
+        {
+          "name": "NBER",
+          "domains": [
+            "nber.org"
+          ]
+        },
+        {
+          "name": "Brookings Institution",
+          "domains": [
+            "brookings.edu"
+          ]
+        }
+      ]
+    },
+    "top_tier_consulting": {
+      "baseReliability": 3,
+      "institutions": [
+        {
+          "name": "McKinsey & Company / McKinsey Global Institute",
+          "domains": [
+            "mckinsey.com"
+          ]
+        },
+        {
+          "name": "BCG / BCG Henderson Institute",
+          "domains": [
+            "bcg.com"
+          ]
+        },
+        {
+          "name": "Bain & Company",
+          "domains": [
+            "bain.com"
+          ]
+        },
+        {
+          "name": "Deloitte Insights",
+          "domains": [
+            "deloitte.com"
+          ]
+        },
+        {
+          "name": "PwC",
+          "domains": [
+            "pwc.com"
+          ]
+        },
+        {
+          "name": "EY",
+          "domains": [
+            "ey.com"
+          ]
+        },
+        {
+          "name": "Accenture Research",
+          "domains": [
+            "accenture.com"
+          ]
+        }
+      ]
+    },
+    "it_analyst_firms": {
+      "baseReliability": 3,
+      "institutions": [
+        {
+          "name": "Gartner",
+          "domains": [
+            "gartner.com"
+          ]
+        },
+        {
+          "name": "Forrester",
+          "domains": [
+            "forrester.com"
+          ]
+        },
+        {
+          "name": "IDC",
+          "domains": [
+            "idc.com"
+          ]
+        }
+      ]
+    }
+  }
+}
+</script>
+
+<script type="application/json" id="opportunities-snapshot">
+{
+  "generatedBy": "manual seed run (first dry run)",
+  "lastRunDate": "2026-07-08",
+  "opportunities": [
+    {
+      "id": "agentic-ai-governance-outpaces-readiness",
+      "title": "Agentic AI Adoption Is Outpacing Governance, Oversight, and Workforce Readiness",
+      "summary": "The single most corroborated pattern in this catalog, spanning government, consulting, and analyst-firm research independently: organizations are deploying AI agents faster than they are building the governance and staffing capacity to control them. A July 2025 GAO federal audit (not a survey of intentions, but an audit) found generative AI use across federal agencies grew ninefold in one year, while 10 of 12 audited agencies cited policy obstacles and 6 of 12 reported explicit difficulty attracting or developing generative AI expertise.\n\nThe same pattern repeats at enterprise scale. Deloitte's survey of 3,235 IT and business leaders across 24 countries found only 21% report a mature governance model for agentic AI despite 74% expecting moderate-to-extensive agent usage by 2027. EY's survey of 500 US technology-sector leaders sharpens the risk: 52% of department-level AI initiatives operate without formal approval or oversight, 78% say AI adoption is outpacing their ability to manage business risk, and 45% report confirmed or suspected sensitive-data leaks from unauthorized third-party AI tools. Deloitte's 2026 Global Human Capital Trends (9,000+ leaders, 89 countries, with Oxford Economics) adds that 66% of C-suite leaders say functions including IT must fundamentally change, but only 7% report real progress.\n\nGartner's survey of 360 IT application leaders corroborates from the analyst-firm side: 75% are piloting, deploying, or have deployed some AI agent, but only 15% are pursuing fully autonomous agents, and only 14% report strong IT-business-leadership alignment on what problems agents should solve. Forrester's June 2026 commentary adds that more than half of enterprises using the NIST AI Risk Management Framework still report incidents after adoption. For IT leadership, this reframes the near-term mandate away from AI enablement alone and toward building the governance and oversight control plane the pace of adoption has already outrun.",
+      "maturity": "Growing Adoption",
+      "evidenceScore": 5,
+      "roleTags": [
+        "IT Leadership/Org Design & Strategy",
+        "Security/InfoSec",
+        "Enterprise/Solution Architecture"
+      ],
+      "dimensionTags": [
+        "Operating Model & Governance",
+        "Workforce Planning & Sizing",
+        "Skills & Upskilling Pathways"
+      ],
+      "evidence": [
+        {
+          "sourceName": "U.S. Government Accountability Office",
+          "sourceTier": "government_intergovernmental",
+          "reliabilityScore": 5,
+          "url": "https://www.gao.gov/products/gao-25-107653",
+          "publishedDate": "2025-07-29",
+          "whatItShows": "Federal audit finding generative AI use at agencies grew 9x in one year; 10 of 12 selected agencies cited policy obstacles and 6 of 12 reported difficulty attracting/developing generative AI expertise."
+        },
+        {
+          "sourceName": "Deloitte Insights",
+          "sourceTier": "top_tier_consulting",
+          "reliabilityScore": 4,
+          "url": "https://www.deloitte.com/us/en/insights/topics/emerging-technologies/ai-agents-scaling-faster.html",
+          "publishedDate": "2026-04-24",
+          "whatItShows": "Survey of 3,235 IT/business leaders across 24 countries finds only 21% have mature agentic-AI governance despite 74% expecting moderate-to-extensive agent usage by 2027."
+        },
+        {
+          "sourceName": "EY",
+          "sourceTier": "top_tier_consulting",
+          "reliabilityScore": 3,
+          "url": "https://www.ey.com/en_us/newsroom/2026/03/ey-survey-autonomous-ai-adoption-surges-at-tech-companies-as-oversight-falls-behind",
+          "publishedDate": "2026-03-04",
+          "whatItShows": "Survey of 500 US tech-sector leaders finds 52% of department-level AI initiatives lack formal oversight and 45% experienced confirmed/suspected data leaks from unauthorized AI tools."
+        },
+        {
+          "sourceName": "Deloitte Insights (Global Human Capital Trends)",
+          "sourceTier": "top_tier_consulting",
+          "reliabilityScore": 4,
+          "url": "https://www.deloitte.com/us/en/about/press-room/deloitte-report-winning-organizations-will-build-the-human-advantage.html",
+          "publishedDate": "2026-03-04",
+          "whatItShows": "9,000+ leader, 89-country survey with Oxford Economics: 66% say functions like IT must fundamentally change, only 7% report real progress."
+        },
+        {
+          "sourceName": "Gartner",
+          "sourceTier": "it_analyst_firms",
+          "reliabilityScore": 3,
+          "url": "https://www.gartner.com/en/newsroom/press-releases/2025-09-30-gartner-survey-finds-just-15-percent-of-it-application-leaders-are-considering-piloting-or-deploying-fully-autonomous-ai-agents",
+          "publishedDate": "2025-09-30",
+          "whatItShows": "Survey of 360 IT application leaders: 75% piloting/deploying some agent, only 15% pursuing full autonomy, only 14% report strong cross-functional alignment on agent use cases."
+        },
+        {
+          "sourceName": "Forrester",
+          "sourceTier": "it_analyst_firms",
+          "reliabilityScore": 2,
+          "url": "https://www.forrester.com/blogs/the-state-of-agentic-ai-in-2026-companies-are-chasing-few-are-catching/",
+          "publishedDate": "2026-06-03",
+          "whatItShows": "Corroborates the adoption-vs-production-readiness gap from an independent survey base; notes over half of NIST AI RMF adopters still report incidents post-adoption."
+        }
+      ],
+      "firstSeen": "2026-07-08",
+      "lastUpdated": "2026-07-08",
+      "status": "active",
+      "shortSummary": "Organizations are deploying AI agents faster than they're building the governance and staffing capacity to control them, confirmed independently by a GAO federal audit, Deloitte, EY, Gartner, and Forrester. Deloitte finds only 21% of enterprises have a mature agentic-AI governance model despite 74% expecting extensive agent use by 2027."
+    },
+    {
+      "id": "ai-productivity-reallocated-not-cut",
+      "title": "AI Productivity Gains Are Being Reinvested Into Skilled Technical Roles, Not Broad IT Headcount Cuts",
+      "summary": "Contrary to a straightforward automation-eliminates-jobs narrative, the strongest available evidence \u2014 spanning academic labor economics, a Federal Reserve regional bank, and three independent consulting surveys \u2014 shows enterprises reinvesting AI-driven productivity gains into new capability rather than aggressively cutting technology headcount. A March 2026 NBER working paper (survey of ~750 corporate executives) found little evidence of near-term aggregate employment decline from AI, but substantial compositional change beneath that stability: declining routine clerical positions alongside rising demand for skilled technical roles (engineers, data analysts, scientists). A Federal Reserve Bank of St. Louis analysis of occupational AI exposure found a positive association between AI exposure and employment growth specifically in high-computer-use occupations \u2014 the category most enterprise IT roles fall into.\n\nConsulting-tier surveys corroborate the same reallocation pattern with harder numbers. EY's Wave 4 AI Pulse Survey (500 US senior leaders) found 96% of AI-investing organizations reported productivity gains, yet only 17% of those organizations reduced headcount \u2014 instead, 47% expanded AI capabilities, 41% strengthened cybersecurity, and 38% funded upskilling. Accenture's Pulse of Change survey (3,650 C-suite executives plus 3,350 workers, 20 industries/countries) found 86% of leaders plan increased 2026 AI investment, but only 32% report sustained enterprise-wide impact, with talent and workforce alignment \u2014 not infrastructure \u2014 cited as the primary constraint.\n\nBCG Henderson Institute's occupational modeling (roughly 1,500 occupation types, 165 million US jobs) puts a number on the reshaping-versus-elimination distinction: 50-55% of US jobs will be reshaped over the next two to three years, versus only 10-15% genuinely vulnerable to elimination. For workforce planning, the practical implication is that a blunt \"AI reduces IT headcount\" model is not what five independent, methodologically disclosed sources are finding \u2014 the near-term story is internal reallocation toward higher-skill technical work, not net contraction.",
+      "maturity": "Growing Adoption",
+      "evidenceScore": 5,
+      "roleTags": [
+        "IT Leadership/Org Design & Strategy",
+        "Data Engineering",
+        "Software Engineering"
+      ],
+      "dimensionTags": [
+        "Workforce Planning & Sizing",
+        "Skills & Upskilling Pathways"
+      ],
+      "evidence": [
+        {
+          "sourceName": "National Bureau of Economic Research (NBER Working Paper w34984)",
+          "sourceTier": "academic_research",
+          "reliabilityScore": 5,
+          "url": "https://www.nber.org/papers/w34984",
+          "publishedDate": "2026-03-01",
+          "whatItShows": "Survey of ~750 corporate executives finding little near-term aggregate employment decline but clear compositional reallocation toward skilled technical roles and away from routine clerical positions."
+        },
+        {
+          "sourceName": "Federal Reserve Bank of St. Louis",
+          "sourceTier": "government_intergovernmental",
+          "reliabilityScore": 5,
+          "url": "https://www.stlouisfed.org/on-the-economy/2025/aug/is-ai-contributing-unemployment-evidence-occupational-variation",
+          "publishedDate": "2025-08-01",
+          "whatItShows": "Occupational-variation analysis finding a positive association between AI exposure and employment growth in high-computer-use occupations (most enterprise IT roles)."
+        },
+        {
+          "sourceName": "EY",
+          "sourceTier": "top_tier_consulting",
+          "reliabilityScore": 3,
+          "url": "https://www.ey.com/en_us/newsroom/2025/12/ai-driven-productivity-is-fueling-reinvestment-over-workforce-reductions",
+          "publishedDate": "2025-12-09",
+          "whatItShows": "Survey of 500 US senior leaders: 96% report AI productivity gains, only 17% of those reduced headcount; reinvestment went to AI capabilities, cybersecurity, upskilling."
+        },
+        {
+          "sourceName": "Accenture",
+          "sourceTier": "top_tier_consulting",
+          "reliabilityScore": 4,
+          "url": "https://www.accenture.com/us-en/insights/pulse-of-change",
+          "publishedDate": "2026-01-15",
+          "whatItShows": "Dual global survey of 3,650 C-suite executives and 3,350 workers: 86% plan increased 2026 AI investment, only 32% report sustained enterprise-wide impact; talent alignment is the binding constraint."
+        },
+        {
+          "sourceName": "BCG",
+          "sourceTier": "top_tier_consulting",
+          "reliabilityScore": 4,
+          "url": "https://www.bcg.com/publications/2026/ai-will-reshape-more-jobs-than-it-replaces",
+          "publishedDate": "2026-04-03",
+          "whatItShows": "Occupational modeling across ~1,500 occupation types (~165M US jobs): 50-55% of jobs reshaped vs. only 10-15% vulnerable to elimination over 2-3 years."
+        }
+      ],
+      "firstSeen": "2026-07-08",
+      "lastUpdated": "2026-07-08",
+      "status": "active",
+      "shortSummary": "Five independent sources \u2014 NBER, the St. Louis Fed, EY, Accenture, and BCG \u2014 find AI productivity gains are being reinvested into skilled technical capability rather than driving broad IT headcount cuts. EY's survey found 96% of AI-investing firms saw productivity gains, but only 17% reduced headcount."
+    },
+    {
+      "id": "ai-compresses-engineering-team-size-junior-pipeline",
+      "title": "AI Compresses Software Engineering Team Size and the Junior-to-Senior Talent Pipeline",
+      "summary": "Five independent sources across consulting and analyst tiers converge on the same structural pattern: software engineering teams are getting smaller and more senior-weighted as agentic AI absorbs routine coding work. McKinsey's technology practice describes leading organizations \"hiring fewer technologists overall, but far more selective about who they bring in,\" with rising demand for people who can define standards and orchestrate work across internal teams, vendors, and agents. Gartner's July 2026 research predicts 60% of organizations will adopt smaller software engineering teams at scale by 2029, up from a stated 15% baseline in 2026 \u2014 teams of four to five members today, with some organizations already at two to three.\n\nThe pattern shows up in hard labor-market data, not just consulting POV. PwC's 2026 Global AI Jobs Barometer, built on analysis of over one billion job postings, finds AI-exposed entry-level roles are now seven times more likely to require traditionally senior skills (leadership, creativity, judgment), and these \"seniorised\" entry-level postings have grown 35% since 2019 while other entry-level postings shrank 10%. Deloitte's 2025 Tech Executive Survey (622 US technology leaders) corroborates from the supply side: AI architect roles are expected to nearly double from 30% to 58% of tech organizations within two years.\n\nNotably, Gartner's research explicitly warns against cutting junior-level hiring in response to this trend, flagging risks to knowledge transfer, internal talent pipelines, and future senior-role recruiting costs \u2014 a specific, actionable caution for organizations tempted to freeze entry-level engineering hiring as this pattern plays out. See also the related, more causally cautious finding on economy-wide entry-level hiring contraction.",
+      "maturity": "Growing Adoption",
+      "evidenceScore": 5,
+      "roleTags": [
+        "Software Engineering",
+        "Enterprise/Solution Architecture",
+        "IT Leadership/Org Design & Strategy"
+      ],
+      "dimensionTags": [
+        "Workforce Planning & Sizing",
+        "Role Redesign/Job Architecture",
+        "Skills & Upskilling Pathways",
+        "Team Structure & Span of Control"
+      ],
+      "evidence": [
+        {
+          "sourceName": "McKinsey & Company",
+          "sourceTier": "top_tier_consulting",
+          "reliabilityScore": 3,
+          "url": "https://www.mckinsey.com/capabilities/mckinsey-technology/our-insights/designing-an-end-to-end-technology-workforce-for-the-ai-first-era",
+          "publishedDate": "2026-04-06",
+          "whatItShows": "Leading organizations hiring fewer, more senior technologists as agentic AI absorbs work that previously justified large junior-developer headcounts."
+        },
+        {
+          "sourceName": "PwC (Global AI Jobs Barometer)",
+          "sourceTier": "top_tier_consulting",
+          "reliabilityScore": 4,
+          "url": "https://www.pwc.com/gx/en/issues/artificial-intelligence/job-barometer/2026/2026-global-ai-jobs-barometer-full-report.pdf",
+          "publishedDate": "2026-06-01",
+          "whatItShows": "Analysis of 1B+ job postings: AI-exposed entry-level roles are 7x more likely to require senior-level skills; 'seniorised' entry roles grew 35% since 2019 vs. -10% for other entry-level postings."
+        },
+        {
+          "sourceName": "Deloitte Insights",
+          "sourceTier": "top_tier_consulting",
+          "reliabilityScore": 3,
+          "url": "https://www.deloitte.com/us/en/insights/topics/technology-management/tech-trends/2026/ai-future-it-function.html",
+          "publishedDate": "2025-12-09",
+          "whatItShows": "Survey of 622 US tech leaders: AI architect roles expected to nearly double from 30% to 58% of tech organizations within two years."
+        },
+        {
+          "sourceName": "McKinsey & Company",
+          "sourceTier": "top_tier_consulting",
+          "reliabilityScore": 3,
+          "url": "https://www.mckinsey.com/capabilities/people-and-organizational-performance/our-insights/the-organization-blog/rethinking-early-career-talent-in-the-agentic-organization",
+          "publishedDate": "2026-05-18",
+          "whatItShows": "Org-design analysis of how AI automation of research, documentation, and basic coding disrupts traditional early-career skill-building pathways."
+        },
+        {
+          "sourceName": "Gartner",
+          "sourceTier": "it_analyst_firms",
+          "reliabilityScore": 2,
+          "url": "https://www.gartner.com/en/newsroom/press-releases/2026-07-07-gartner-predicts-60-percent-of-organizations-will-adopt-smaller-software-engineering-teams-by-2029",
+          "publishedDate": "2026-07-07",
+          "whatItShows": "Predicts 60% of organizations adopt smaller AI-augmented engineering teams by 2029 (up from 15% in 2026); explicitly warns against cutting junior hiring."
+        }
+      ],
+      "firstSeen": "2026-07-08",
+      "lastUpdated": "2026-07-08",
+      "status": "active",
+      "shortSummary": "Software engineering teams are getting smaller and more senior-weighted as AI absorbs routine coding work, per McKinsey, PwC, Deloitte, and Gartner. Gartner predicts 60% of organizations will adopt smaller, AI-augmented teams by 2029 (up from 15% today), while PwC finds entry-level roles increasingly require senior-level skills."
+    },
+    {
+      "id": "ai-bifurcates-it-staffing-support-contracts-infra-grows",
+      "title": "AI Deflection Bifurcates IT Staffing: Frontline Support Contracts While Infrastructure & Data Roles Expand",
+      "summary": "Official U.S. government projections and real early-adopter case data agree on a clear bifurcation within IT occupations tied to automatability. The Bureau of Labor Statistics' 2024-34 Employment Projections show computer support specialists at -3% employment change through 2034 as organizations deploy chatbots for troubleshooting, and customer service representatives at -5%, driven by self-service systems \u2014 though both retain substantial replacement-driven annual openings. By contrast, infrastructure- and data-adjacent roles are projected to grow well above the all-occupation average: computer network architects at +12% (explicitly tied to AI-driven infrastructure and cloud expansion), database administrators at +8.2%, and database architects at +10.8%. The broader computer/mathematical occupational group is projected to grow 10.1% over the decade, with data scientists the fourth-fastest-growing occupation in the entire economy at +33.5%.\n\nForrester's service desk research puts real numbers behind the contraction side of this projection at specific organizations: a financial services firm reduced frontline support from 30 to 12 agents (a 60% cut) while maintaining service levels; a retail organization automated one-third of 57,000 annual service requests; a global technology company's virtual agent now resolves 65% of initial contacts without human intervention. Forrester frames this as a structural break from the traditional three-tier service desk model, with the critical enabling factor being investment in knowledge base quality \u2014 AI effectiveness tracked directly with how well-curated underlying knowledge articles were.\n\nThis is the most concretely quantified reallocation signal in the catalog: not a uniform AI-reduces-IT-jobs story, but a specific, government-confirmed and case-validated split between automatable, low-complexity support/service work (contracting) and infrastructure, data, and AI-adjacent technical work (expanding sharply) \u2014 directly actionable for workforce sizing decisions.",
+      "maturity": "Common/Mainstream",
+      "evidenceScore": 5,
+      "roleTags": [
+        "Help Desk/IT Support",
+        "Network Engineering",
+        "Data Engineering",
+        "Cloud/Platform Engineering",
+        "IT Operations/SRE"
+      ],
+      "dimensionTags": [
+        "Workforce Planning & Sizing",
+        "Role Redesign/Job Architecture",
+        "Team Structure & Span of Control"
+      ],
+      "evidence": [
+        {
+          "sourceName": "U.S. Bureau of Labor Statistics, Occupational Outlook Handbook",
+          "sourceTier": "government_intergovernmental",
+          "reliabilityScore": 5,
+          "url": "https://www.bls.gov/ooh/computer-and-information-technology/computer-support-specialists.htm",
+          "publishedDate": "2025-08-28",
+          "whatItShows": "Official federal projection of -3% employment change for computer support specialists 2024-34, tied in part to chatbot/automated-troubleshooting adoption."
+        },
+        {
+          "sourceName": "U.S. Bureau of Labor Statistics, Occupational Outlook Handbook",
+          "sourceTier": "government_intergovernmental",
+          "reliabilityScore": 5,
+          "url": "https://www.bls.gov/ooh/computer-and-information-technology/computer-network-architects.htm",
+          "publishedDate": "2025-08-28",
+          "whatItShows": "Official federal projection of +12% growth for computer network architects 2024-34, tied explicitly to AI-driven infrastructure and cloud expansion."
+        },
+        {
+          "sourceName": "U.S. Bureau of Labor Statistics, Occupational Outlook Handbook",
+          "sourceTier": "government_intergovernmental",
+          "reliabilityScore": 5,
+          "url": "https://www.bls.gov/ooh/computer-and-information-technology/database-administrators.htm",
+          "publishedDate": "2025-08-28",
+          "whatItShows": "Official federal projections of +8.2% (DB administrators) and +10.8% (DB architects) growth 2024-34, weighing AI task automation against rising data-infrastructure demand."
+        },
+        {
+          "sourceName": "U.S. Bureau of Labor Statistics, Monthly Labor Review",
+          "sourceTier": "government_intergovernmental",
+          "reliabilityScore": 5,
+          "url": "https://www.bls.gov/opub/mlr/2026/article/industry-and-occupational-employment-projections-overview.htm",
+          "publishedDate": "2026-01-01",
+          "whatItShows": "Confirms computer/mathematical occupations projected to grow 10.1% (2nd fastest of 22 groups, 2024-34) and data scientists at +33.5%, 4th-fastest in the economy."
+        },
+        {
+          "sourceName": "Forrester",
+          "sourceTier": "it_analyst_firms",
+          "reliabilityScore": 2,
+          "url": "https://www.forrester.com/blogs/early-adopters-share-ai-centric-service-desk-results/",
+          "publishedDate": "2025-08-12",
+          "whatItShows": "Named early-adopter case data: 30-to-12 agent frontline support reduction, 57K request automation, 65% AI-resolved initial contacts."
+        }
+      ],
+      "firstSeen": "2026-07-08",
+      "lastUpdated": "2026-07-08",
+      "status": "active",
+      "shortSummary": "Official BLS projections and Forrester case data agree: frontline IT support roles are contracting (-3% to -5% through 2034) while infrastructure and data roles expand sharply (network architects +12%, data scientists +33.5%). Forrester documents real early-adopter cases, including one team cut from 30 to 12 agents while maintaining service levels."
+    },
+    {
+      "id": "ai-automates-tier1-security-operations",
+      "title": "AI Automates Tier-1 Security Operations, Reshaping the Cybersecurity Talent Pipeline",
+      "summary": "World Economic Forum reporting through late 2025 and 2026, corroborated by a McKinsey enterprise-buyer survey, documents a two-sided shift in the security workforce. On one side, a persistent structural talent gap: current estimates place the global cybersecurity workforce shortfall at 2.8 to 4.8 million professionals, with 95% of 2024 data breaches tied to human error. On the other, rapid operational AI adoption: 97% of organizations are using or planning AI-enabled cybersecurity solutions, concentrated in threat detection/prevention and security automation, with organizations extensively using AI in security reporting materially lower breach costs.\n\nMcKinsey's Cybersecurity Customer Survey (104 confirmed cybersecurity-purchasing decision-makers at enterprises with 5,000+ employees and $1B+ revenue) quantifies the Tier-1 displacement specifically: 35% of respondents anticipate AI agents will replace their tier-one SOC analysts, and nearly 50% expect AI embedded across the broader cyber stack in the same forward-looking window. This is a forward-looking expectation, not a documented before/after organizational change, but it is directionally consistent with WEF's framing of AI as an \"abstraction layer\" in cybersecurity \u2014 letting professionals express security intent in natural language rather than requiring deep technical/scripting expertise \u2014 which WEF argues could widen the talent pipeline against the persistent shortage rather than shrink it.\n\nFor IT leadership, this signals security operations as one of the more concretely named near-term targets for AI-driven tier compression, with a genuinely open question \u2014 not yet resolved by the evidence \u2014 about whether that compression widens or narrows the overall size of the security talent pool an organization needs.",
+      "maturity": "Emerging Practice",
+      "evidenceScore": 4,
+      "roleTags": [
+        "Security/InfoSec",
+        "IT Operations/SRE"
+      ],
+      "dimensionTags": [
+        "AI Tooling & Enablement",
+        "Skills & Upskilling Pathways",
+        "Workforce Planning & Sizing",
+        "Role Redesign/Job Architecture"
+      ],
+      "evidence": [
+        {
+          "sourceName": "World Economic Forum",
+          "sourceTier": "government_intergovernmental",
+          "reliabilityScore": 3,
+          "url": "https://www.weforum.org/stories/2026/05/how-ai-could-open-up-cybersecurity-to-a-wider-workforce/",
+          "publishedDate": "2026-05-01",
+          "whatItShows": "Argues AI is becoming an abstraction layer lowering technical entry barriers in cybersecurity, potentially widening the talent pipeline against a 2.8-4.8M global shortfall."
+        },
+        {
+          "sourceName": "World Economic Forum",
+          "sourceTier": "government_intergovernmental",
+          "reliabilityScore": 3,
+          "url": "https://www.weforum.org/stories/2025/11/cybersecurity-ai-professionals-workers/",
+          "publishedDate": "2025-11-01",
+          "whatItShows": "Discusses shift of Tier-1 triage and initial incident response to autonomous/AI-driven systems, redirecting human analysts to higher-judgment work."
+        },
+        {
+          "sourceName": "World Economic Forum (Empowering Defenders: AI for Cybersecurity)",
+          "sourceTier": "government_intergovernmental",
+          "reliabilityScore": 3,
+          "url": "https://reports.weforum.org/docs/WEF_Empowering_Defenders_AI_for_Cybersecurity_2026.pdf",
+          "publishedDate": "2026-05-01",
+          "whatItShows": "97% of organizations using or planning AI-enabled cybersecurity solutions, concentrated in threat detection and security automation."
+        },
+        {
+          "sourceName": "McKinsey & Company",
+          "sourceTier": "top_tier_consulting",
+          "reliabilityScore": 3,
+          "url": "https://www.mckinsey.com/capabilities/risk-and-resilience/our-insights/securing-the-agentic-enterprise-opportunities-for-cybersecurity-providers",
+          "publishedDate": "2026-03-24",
+          "whatItShows": "Survey of 104 enterprise cybersecurity decision-makers: 35% anticipate AI agents replacing tier-one SOC analysts, ~50% expect AI embedded across the cyber stack."
+        }
+      ],
+      "firstSeen": "2026-07-08",
+      "lastUpdated": "2026-07-08",
+      "status": "active",
+      "shortSummary": "AI is automating Tier-1 security operations work, with McKinsey finding 35% of enterprise security buyers expect AI agents to replace tier-one SOC analysts. WEF frames this as potentially widening the cybersecurity talent pipeline against a persistent 2.8-4.8 million worker global shortage, rather than shrinking it."
+    },
+    {
+      "id": "coding-productivity-gains-attenuate-at-shipping",
+      "title": "AI Coding Tools Drive Large Task-Level Output Gains That Shrink Sharply By the Time Software Ships",
+      "summary": "A May 2026 NBER working paper (Demirer, Musolff, and Yang) tracked over 100,000 GitHub developers across three generations of AI coding tools using a matched event-study design. Commit activity rose 40% with autocomplete tools, 140% with interactive coding agents, and 180% cumulatively with autonomous coding agents. But that gain attenuated moving down the production pipeline: completed-project gains fell from 180% to roughly 50%, and actual shipped releases showed only about 30% improvement. The researchers estimated an elasticity of substitution of only 0.25 between AI and human effort \u2014 evidence of strong complementarity rather than substitution.\n\nThis \"leaky pipeline\" pattern is corroborated directionally by worker-facing reporting: a January 2026 World Economic Forum feature on software developers found 65% expect their role to be redefined in 2026 \u2014 shifting from routine coding toward architecture, integration, and AI-enabled decision-making \u2014 while 37% say AI has already expanded (not narrowed) their career opportunities.\n\nFor IT leadership, the implication is that raw AI-assisted coding throughput metrics (commits, PRs, lines generated) are poor proxies for delivered business value; the bottleneck is shifting downstream to integration, review, and release engineering capacity.",
+      "maturity": "Growing Adoption",
+      "evidenceScore": 4,
+      "roleTags": [
+        "Software Engineering",
+        "Cloud/Platform Engineering",
+        "QA/Test Engineering"
+      ],
+      "dimensionTags": [
+        "AI Tooling & Enablement",
+        "Role Redesign/Job Architecture"
+      ],
+      "evidence": [
+        {
+          "sourceName": "National Bureau of Economic Research (NBER Working Paper w35275)",
+          "sourceTier": "academic_research",
+          "reliabilityScore": 5,
+          "url": "https://www.nber.org/papers/w35275",
+          "publishedDate": "2026-05-01",
+          "whatItShows": "Matched event-study of 100,000+ GitHub developers across three AI coding-tool generations; commit-level gains of 40-180% attenuate to ~30% at shipped, used software."
+        },
+        {
+          "sourceName": "World Economic Forum",
+          "sourceTier": "government_intergovernmental",
+          "reliabilityScore": 3,
+          "url": "https://www.weforum.org/stories/2026/01/software-developers-ai-work/",
+          "publishedDate": "2026-01-01",
+          "whatItShows": "65% of developers expect role redefinition toward architecture/integration work in 2026; 37% report AI expanded their career opportunities."
+        }
+      ],
+      "firstSeen": "2026-07-08",
+      "lastUpdated": "2026-07-08",
+      "status": "active",
+      "shortSummary": "An NBER study of 100,000+ GitHub developers found AI coding tools drive commit-level gains of up to 180%, but that shrinks to roughly 30% by the time software actually ships. WEF reporting corroborates a shift in developer role toward architecture and integration work rather than raw coding output."
+    },
+    {
+      "id": "genai-adoption-plateau-scaling-gap",
+      "title": "Generative AI Adoption Is Now Majority-Mainstream Among Large Firms, But Scaling Beyond Pilots Remains Rare",
+      "summary": "OECD firm-level survey data show AI adoption more than doubled in two years: 20.2% of OECD firms reported using AI in 2025, up from 14.2% in 2024 and 8.7% in 2023. Adoption is sharply skewed by size and sector: 52.0% of large firms use AI versus 17.4% of small firms, and ICT leads at 57.3% adoption.\n\nDespite this breadth, depth of usage lags. An NBER working paper surveying roughly 6,000 senior executives across the US, UK, Germany, and Australia found that while 69% of firms actively employ AI, 90% report no employment or productivity impact over the preceding three years, and executives personally use AI only about 1.5 hours per week on average. A June 2026 MIT Sloan Management Review study \u2014 a three-year field study of 23 Swiss companies based on 87 in-depth interviews \u2014 reached the same conclusion from the inside: most organizations get stuck at personal-productivity-level GenAI use and struggle to scale beyond isolated pilots into process-level value.\n\nThree independent, methodologically disclosed sources (an intergovernmental firm-level statistical series, a large executive survey, and a multi-year qualitative field study) converge on the same shape: broad trial adoption, thin realized impact, and a \"pilot-to-scale\" execution gap that is now the primary constraint on enterprise IT's AI roadmap rather than access to the technology itself.",
+      "maturity": "Growing Adoption",
+      "evidenceScore": 5,
+      "roleTags": [
+        "IT Leadership/Org Design & Strategy",
+        "Enterprise/Solution Architecture",
+        "Program/Project Management"
+      ],
+      "dimensionTags": [
+        "Operating Model & Governance",
+        "Workforce Planning & Sizing"
+      ],
+      "evidence": [
+        {
+          "sourceName": "OECD",
+          "sourceTier": "government_intergovernmental",
+          "reliabilityScore": 5,
+          "url": "https://www.oecd.org/en/about/news/announcements/2026/01/ai-use-by-individuals-surges-across-the-oecd-as-adoption-by-firms-continues-to-expand.html",
+          "publishedDate": "2026-01-01",
+          "whatItShows": "Firm-level statistical series: AI adoption reached 20.2% of OECD firms in 2025 (up from 8.7% in 2023), concentrated among large firms (52.0%) and ICT (57.3%)."
+        },
+        {
+          "sourceName": "National Bureau of Economic Research (NBER Working Paper w34836)",
+          "sourceTier": "academic_research",
+          "reliabilityScore": 5,
+          "url": "https://www.nber.org/papers/w34836",
+          "publishedDate": "2026-03-01",
+          "whatItShows": "Survey of ~6,000 senior executives across 4 countries: 69% of firms use AI but 90% report no realized employment/productivity impact; execs average 1.5 hrs/week personal AI use."
+        },
+        {
+          "sourceName": "MIT Sloan Management Review",
+          "sourceTier": "academic_research",
+          "reliabilityScore": 4,
+          "url": "https://sloanreview.mit.edu/article/create-generative-ai-value-at-scale/",
+          "publishedDate": "2026-06-02",
+          "whatItShows": "Three-year field study (87 interviews, 23 Swiss companies): most enterprises stuck at personal-productivity GenAI use, fail to scale into org-wide value."
+        }
+      ],
+      "firstSeen": "2026-07-08",
+      "lastUpdated": "2026-07-08",
+      "status": "active",
+      "shortSummary": "OECD data shows GenAI firm adoption more than doubled in two years to 20.2% in 2025, but NBER and MIT Sloan research find most organizations remain stuck at personal-productivity-level use and struggle to scale into real process value. 90% of firms in one large executive survey report no realized productivity impact from AI over the past three years."
+    },
+    {
+      "id": "ai-spine-cross-functional-operating-model",
+      "title": "Cross-Functional \"AI Spine\" Operating Models Outperform Siloed Pilots and Centralized COEs for Scaling GenAI",
+      "summary": "A three-year MIT Sloan Management Review field study (Schmitt, Vial, and Blohm; 23 Swiss companies across banking, insurance, energy, law, and manufacturing; 87 in-depth interviews plus 10+ consortium workshops) identifies a specific structural pattern that distinguishes organizations that successfully scale generative AI from those that stall at pilot stage. Rather than a traditional centralized Center of Excellence or fully decentralized team-by-team experimentation, high performers build an \"AI spine\": a flexible, cross-functional core structure connecting business-unit users, domain experts, and technical teams to a shared technical backbone for implementing, evolving, and \u2014 critically \u2014 abandoning LLM use cases.\n\nThe study identifies three behaviors separating spine-model adopters from laggards: broadening scope (expanding use cases across whole processes rather than isolated tasks), treating deployment as continuous work rather than a one-time rollout, and quickly killing underperforming use cases rather than letting them linger. This moves beyond the traditional hub-and-spoke governance model by enabling lateral sharing of ideas across business units.\n\nFor org-design purposes, this is a specific, evidence-backed alternative to both the \"AI Center of Excellence\" and \"every team for itself\" models that dominate current enterprise IT operating-model conversations, though as a single (if rigorous) multi-year study, it should be treated as emerging rather than proven pending independent replication.",
+      "maturity": "Emerging Practice",
+      "evidenceScore": 4,
+      "roleTags": [
+        "IT Leadership/Org Design & Strategy",
+        "Enterprise/Solution Architecture"
+      ],
+      "dimensionTags": [
+        "Operating Model & Governance",
+        "Team Structure & Span of Control"
+      ],
+      "evidence": [
+        {
+          "sourceName": "MIT Sloan Management Review",
+          "sourceTier": "academic_research",
+          "reliabilityScore": 4,
+          "url": "https://sloanreview.mit.edu/article/create-generative-ai-value-at-scale/",
+          "publishedDate": "2026-06-02",
+          "whatItShows": "Three-year, 23-company, 87-interview field study identifying the cross-functional 'AI spine' operating model as the pattern distinguishing firms that scale GenAI value from those stuck at pilot stage."
+        }
+      ],
+      "firstSeen": "2026-07-08",
+      "lastUpdated": "2026-07-08",
+      "status": "active",
+      "shortSummary": "A three-year MIT Sloan field study of 23 companies identifies a cross-functional \"AI spine\" operating model \u2014 not a centralized COE or fully decentralized approach \u2014 as the pattern distinguishing organizations that scale GenAI value from those stuck at pilot stage. High performers broaden use-case scope, treat deployment as continuous work, and quickly kill underperforming use cases."
+    },
+    {
+      "id": "middle-management-overload-compression",
+      "title": "Middle Managers Are Absorbing New AI-Output Validation and Coaching Duties Without Added Support",
+      "summary": "Three independently authored, research-based Harvard Business Review pieces published within a four-month window in 2026 converge on the same emerging pattern: AI is intensifying middle-management workload rather than relieving it. A June 2026 article by Julia Shin and Sandra Sucher (Harvard Business School), based on 18 semi-structured interviews at two consulting firms, found middle managers newly responsible for validating AI outputs, catching errors, and coaching teams on AI skills \u2014 all under unchanged or increased delivery pressure and with no formal support structures created for the added work.\n\nA February 2026 HBR article by UC Berkeley Haas researchers reports new research finding AI tools intensify rather than reduce workload, contrary to a common adoption promise. A May 2026 HBR piece similarly documents managers struggling to keep pace with AI-driven output volume, illustrated by one manager's account of reviewing AI-generated deliverables every 30 minutes.\n\nNone of these three pieces discloses a large quantitative sample, so this should be read as a well-corroborated but still qualitative/emerging signal \u2014 three separate research teams independently documenting the same organizational strain \u2014 rather than a firm-level statistical trend. Notably, this is consistent with McKinsey's own caution (see the related span-of-control finding) that spans may narrow before they widen early in an AI adoption journey.",
+      "maturity": "Emerging Practice",
+      "evidenceScore": 3,
+      "roleTags": [
+        "IT Leadership/Org Design & Strategy",
+        "Program/Project Management"
+      ],
+      "dimensionTags": [
+        "Team Structure & Span of Control",
+        "Role Redesign/Job Architecture"
+      ],
+      "evidence": [
+        {
+          "sourceName": "Harvard Business Review (Harvard Business School authors)",
+          "sourceTier": "academic_research",
+          "reliabilityScore": 3,
+          "url": "https://hbr.org/2026/06/ai-adoption-is-overloading-your-middle-managers",
+          "publishedDate": "2026-06-26",
+          "whatItShows": "18 semi-structured interviews at two consulting firms documenting middle managers taking on AI-output validation and coaching duties without formal support."
+        },
+        {
+          "sourceName": "Harvard Business Review (UC Berkeley Haas authors)",
+          "sourceTier": "academic_research",
+          "reliabilityScore": 3,
+          "url": "https://hbr.org/2026/02/ai-doesnt-reduce-work-it-intensifies-it",
+          "publishedDate": "2026-02-09",
+          "whatItShows": "Cites new research finding AI tools intensify rather than reduce workload, contrary to a common adoption promise."
+        },
+        {
+          "sourceName": "Harvard Business Review",
+          "sourceTier": "academic_research",
+          "reliabilityScore": 3,
+          "url": "https://hbr.org/2026/05/managers-are-struggling-to-keep-up-with-the-ai-productivity-boom",
+          "publishedDate": "2026-05-25",
+          "whatItShows": "Documents managers overwhelmed by pace/volume of AI-generated output requiring review."
+        }
+      ],
+      "firstSeen": "2026-07-08",
+      "lastUpdated": "2026-07-08",
+      "status": "active",
+      "shortSummary": "Three independent Harvard Business Review pieces document AI intensifying middle-management workload rather than relieving it, as managers take on new duties validating AI outputs and coaching teams. None of the three studies discloses a large sample, so this is a well-corroborated qualitative signal rather than a statistical trend."
+    },
+    {
+      "id": "entry-level-hiring-contraction-mixed-evidence",
+      "title": "Entry-Level Hiring Is Contracting Alongside AI Adoption, But Causal Attribution to AI Remains Contested",
+      "summary": "A January 2026 World Economic Forum report developed with PwC finds entry-level roles down 35% in the US, that more than one in three young workers globally hold jobs with medium-to-high AI task exposure, and that unemployment among early-career workers aged 22-27 stands at 7.1% \u2014 roughly three points above the overall workforce rate. Only 53% of entry-level workers report feeling secure in their roles despite 76% saying job security is their top priority.\n\nHowever, a more causally-oriented May 2026 Federal Reserve Bank of New York analysis complicates a clean AI-attribution story. Combining an Anthropic-derived occupational AI-exposure metric with Lightcast job-postings data from 2018 through January 2026, researchers found that postings for AI-exposed occupations did decline, but the decline began before ChatGPT's late-2022 release and the AI-exposed/non-exposed divergence plateaued after 2023 \u2014 suggesting pre-existing structural hiring-slowdown factors, not AI specifically, drove much of the trend. Junior and senior roles within high-AI-exposure occupations showed parallel declines, with no evidence of AI disproportionately hitting entry-level demand specifically.\n\nFor workforce planners, the practical takeaway is that entry-level hiring pipelines are visibly under strain, but leaders should be cautious about attributing that strain solely to AI substitution versus broader hiring-market softness \u2014 the two leading research threads on this question do not fully agree. Contrast with the more IT-specific and better-corroborated finding on engineering team-size compression.",
+      "maturity": "Emerging Practice",
+      "evidenceScore": 3,
+      "roleTags": [
+        "Software Engineering",
+        "Program/Project Management",
+        "IT Leadership/Org Design & Strategy"
+      ],
+      "dimensionTags": [
+        "Workforce Planning & Sizing",
+        "Role Redesign/Job Architecture"
+      ],
+      "evidence": [
+        {
+          "sourceName": "World Economic Forum (with PwC)",
+          "sourceTier": "government_intergovernmental",
+          "reliabilityScore": 3,
+          "url": "https://www.weforum.org/publications/artificial-intelligence-and-the-future-of-entry-level-work-a-framework-for-safeguarding-and-reinventing-early-career-pathways/",
+          "publishedDate": "2026-01-01",
+          "whatItShows": "Entry-level roles down 35% in the US, 1-in-3 young workers in medium/high AI-exposure occupations, 7.1% unemployment among 22-27 year-olds."
+        },
+        {
+          "sourceName": "Federal Reserve Bank of New York, Liberty Street Economics",
+          "sourceTier": "government_intergovernmental",
+          "reliabilityScore": 5,
+          "url": "https://libertystreeteconomics.newyorkfed.org/2026/05/do-job-postings-show-early-labor-market-effects-of-ai/",
+          "publishedDate": "2026-05-14",
+          "whatItShows": "Job-postings analysis (2018-2026) finding AI-exposed occupation posting declines predate ChatGPT and junior/senior roles decline in parallel, casting doubt on AI as the specific driver."
+        }
+      ],
+      "firstSeen": "2026-07-08",
+      "lastUpdated": "2026-07-08",
+      "status": "active",
+      "shortSummary": "A WEF/PwC report finds entry-level US roles down 35% and unemployment elevated among 22-27 year-olds, but a more causally rigorous NY Fed analysis finds the decline predates ChatGPT and hits junior and senior roles in parallel. The two leading research threads on this question don't fully agree on how much AI specifically is driving the contraction."
+    },
+    {
+      "id": "ai-adoption-access-gap-income-education",
+      "title": "Workplace AI Adoption and Training Access Are Sharply Stratified By Income and Education",
+      "summary": "An April 2026 Federal Reserve Bank of New York analysis, using supplemental questions in the November 2025 Survey of Consumer Expectations (a representative US sample), found 39% of employed workers used AI tools at work in the past year \u2014 with stark disparities: college graduates at 58.7% adoption versus non-graduates at 22.9%, and workers earning over $200,000 at 66.3% versus those earning under $50,000 at only 15.9%.\n\nThe access gap compounds the usage gap: only 15.9% of workers have access to employer-provided AI training even though 38% consider it important; 37% work at organizations without AI tools at all, and 11% face outright employer prohibitions on AI use. Workers without training access said they would accept an 11.4% salary reduction to gain it, while workers who already have access would demand a 24.2% raise to give it up. Among workers who do use AI, 66% report increased personal productivity.\n\nFor enterprise IT organizations \u2014 where lower-wage, often non-degree roles like Tier-1 support and service-desk staff overlap with the population least likely to have AI access or training \u2014 this data point directly foreshadows a widening capability gap between AI-enabled technical/professional staff and the operational workforce beneath them unless training access is deliberately extended downward.",
+      "maturity": "Growing Adoption",
+      "evidenceScore": 4,
+      "roleTags": [
+        "IT Leadership/Org Design & Strategy",
+        "Help Desk/IT Support"
+      ],
+      "dimensionTags": [
+        "Skills & Upskilling Pathways",
+        "Workforce Planning & Sizing"
+      ],
+      "evidence": [
+        {
+          "sourceName": "Federal Reserve Bank of New York, Liberty Street Economics",
+          "sourceTier": "government_intergovernmental",
+          "reliabilityScore": 5,
+          "url": "https://libertystreeteconomics.newyorkfed.org/2026/04/use-of-gen-ai-in-the-workplace-and-the-value-of-access-to-training/",
+          "publishedDate": "2026-04-14",
+          "whatItShows": "Representative national survey quantifying AI adoption gaps by income (66.3% vs 15.9%) and education (58.7% vs 22.9%), and the monetary value workers place on training access."
+        }
+      ],
+      "firstSeen": "2026-07-08",
+      "lastUpdated": "2026-07-08",
+      "status": "active",
+      "shortSummary": "A NY Fed survey finds workplace AI adoption is sharply stratified by income (66.3% vs. 15.9%) and education (58.7% vs. 22.9%), with only 15.9% of workers having access to employer-provided AI training. This foreshadows a widening capability gap between AI-enabled staff and the operational workforce beneath them, including lower-wage IT support roles."
+    },
+    {
+      "id": "product-squads-replace-project-teams",
+      "title": "Product-Oriented Cross-Functional Squads Replace Project-Based IT Delivery",
+      "summary": "IT organizations are moving away from project-based delivery teams toward lean, product-oriented, cross-functional squads aligned to value streams rather than time-boxed projects. Deloitte's 2025 Tech Executive Survey of 622 US technology leaders found 57% of respondents already transitioning from project-based teams to this squad model, with \"forward-deployed engineers\" embedded directly alongside product teams rather than sitting in a separate delivery organization.\n\nBCG's 2026 operating-model research reinforces the same structural direction: most organizations that deploy copilots and bots without redesigning the underlying \"operating system of work\" fail to capture value at scale (BCG cites 60% still stuck at this stage), whereas organizations that redesign end-to-end processes around agentic workflows report substantially better outcomes. BCG's own client examples cite up to a three-fold productivity increase and 60%+ cost reduction for \"early agentic\" redesigns, though the number and rigor of underlying case studies is not disclosed.\n\nTogether, a large, methodologically disclosed executive survey (Deloitte) and directional operating-model guidance (BCG) point to the same shift: the unit of IT organization design is moving from the project to the persistent, cross-functional product/value-stream squad.",
+      "maturity": "Growing Adoption",
+      "evidenceScore": 4,
+      "roleTags": [
+        "Program/Project Management",
+        "Software Engineering",
+        "IT Leadership/Org Design & Strategy"
+      ],
+      "dimensionTags": [
+        "Team Structure & Span of Control",
+        "Operating Model & Governance"
+      ],
+      "evidence": [
+        {
+          "sourceName": "Deloitte Insights",
+          "sourceTier": "top_tier_consulting",
+          "reliabilityScore": 3,
+          "url": "https://www.deloitte.com/us/en/insights/topics/technology-management/tech-trends/2026/ai-future-it-function.html",
+          "publishedDate": "2025-12-09",
+          "whatItShows": "622-leader survey finds 57% of organizations shifting from project-based teams to cross-functional product squads with embedded 'forward-deployed engineers.'"
+        },
+        {
+          "sourceName": "BCG",
+          "sourceTier": "top_tier_consulting",
+          "reliabilityScore": 2,
+          "url": "https://www.bcg.com/publications/2026/reinventing-the-operating-system-of-work-with-ai",
+          "publishedDate": "2026-01-01",
+          "whatItShows": "Operating-model POV on why task-level AI adoption without structural redesign fails to scale, citing undisclosed 'early agentic client' examples with 3x productivity and 60%+ cost reduction."
+        }
+      ],
+      "firstSeen": "2026-07-08",
+      "lastUpdated": "2026-07-08",
+      "status": "active",
+      "shortSummary": "IT organizations are shifting from project-based delivery teams to lean, cross-functional product squads aligned to value streams \u2014 Deloitte finds 57% of organizations already making this transition. BCG's operating-model research reinforces that redesigning workflows around agentic AI, not just layering AI onto existing structures, is what captures value at scale."
+    },
+    {
+      "id": "flatter-orgs-wider-spans-of-control",
+      "title": "AI Renews the Push to Flatten Management Layers and Widen Spans of Control",
+      "summary": "McKinsey's flagship State of Organizations 2026 research \u2014 a survey of 10,018 senior executives across 15 countries and 16 industries \u2014 documents that most companies have added at least one management layer between CEO and front line over the past decade, which McKinsey ties directly to slower decision-making. The same research frames AI as a potential corrective: giving managers 'superhuman capacity' to manage across bigger scopes, enabling flatter structures, and identifying an emerging 'M-shaped' orchestrator archetype \u2014 broad generalists fluent in AI who coordinate agents and hybrid human-agent teams across domains.\n\nMcKinsey's companion organization-design commentary is more cautious about the transition path: it notes spans of control may actually narrow early in an organization's AI journey, as leaders take on more direct coaching and relationship-building roles, before widening later as tools and trust mature. This nuance is consistent with the separate, independently-sourced finding on middle-management overload \u2014 different research teams describing the same early-stage narrowing from different angles.\n\nThis opportunity is evidenced by a single (though very large and well-disclosed) research program rather than independently corroborating firms, so it should be read as an emerging, not yet mainstream, organizational thesis.",
+      "maturity": "Emerging Practice",
+      "evidenceScore": 3,
+      "roleTags": [
+        "IT Leadership/Org Design & Strategy"
+      ],
+      "dimensionTags": [
+        "Team Structure & Span of Control",
+        "Operating Model & Governance"
+      ],
+      "evidence": [
+        {
+          "sourceName": "McKinsey & Company",
+          "sourceTier": "top_tier_consulting",
+          "reliabilityScore": 4,
+          "url": "https://www.mckinsey.com/capabilities/people-and-organizational-performance/our-insights/the-state-of-organizations",
+          "publishedDate": "2026-02-19",
+          "whatItShows": "Survey of 10,018 senior executives (15 countries, 16 industries): companies added management layers over the past decade; AI could widen spans of control via an 'M-shaped' orchestrator archetype."
+        },
+        {
+          "sourceName": "McKinsey & Company",
+          "sourceTier": "top_tier_consulting",
+          "reliabilityScore": 3,
+          "url": "https://www.mckinsey.com/capabilities/people-and-organizational-performance/our-insights/the-organization-blog/rethink-management-and-talent-for-agentic-ai",
+          "publishedDate": "2025-11-03",
+          "whatItShows": "Notes spans of control may narrow early in AI adoption (more direct coaching) before widening as organizations mature into agent orchestration."
+        }
+      ],
+      "firstSeen": "2026-07-08",
+      "lastUpdated": "2026-07-08",
+      "status": "active",
+      "shortSummary": "McKinsey's survey of over 10,000 executives finds most companies added management layers over the past decade, and frames AI as a potential corrective that could widen spans of control via an emerging \"M-shaped\" AI-orchestrator manager archetype. McKinsey's own companion research cautions that spans may actually narrow early in an AI adoption journey before widening later."
+    },
+    {
+      "id": "ai-infrastructure-network-skills-gap",
+      "title": "AI-Optimized Infrastructure Build-Out Creates a Network and Cloud Engineering Skills Gap",
+      "summary": "Deloitte's enterprise AI infrastructure survey \u2014 515 US director-level-and-above leaders at companies with $500M+ revenue \u2014 quantifies a real capability gap in scaling AI infrastructure: 81% of respondents believe IT teams have the technical and financial acumen to navigate AI scaling, versus only 65% for business and product teams, a 16-point gap. The same survey identifies specific shortages in AI/ML 'agent operations engineers,' security and compliance specialists, and change-management expertise as the binding constraints on scaling 'AI factory' and edge-AI deployments (which over 70% of respondents expect to scale by 2028).\n\nA companion Deloitte piece on compute strategy adds qualitative texture from named practitioner interviews: years of cloud migration hollowed out internal data-center expertise, leaving network architects unprepared for AI-first traffic patterns \u2014 GPU-to-GPU communication, high-bandwidth/low-latency networking, specialized cooling \u2014 that differ fundamentally from traditional enterprise networking. This companion piece has no disclosed survey methodology and functions as directional color rather than independent evidence.\n\nTogether these establish a well-evidenced, still-early-stage opportunity: infrastructure, network, and cloud engineering are the parts of IT most acutely short-staffed for the AI transition, in contrast to the heavier research attention paid to software engineering roles. Related to the I&O cost-optimization and ROI-stall finding from Gartner.",
+      "maturity": "Emerging Practice",
+      "evidenceScore": 4,
+      "roleTags": [
+        "Cloud/Platform Engineering",
+        "Network Engineering",
+        "IT Operations/SRE"
+      ],
+      "dimensionTags": [
+        "Skills & Upskilling Pathways",
+        "Workforce Planning & Sizing",
+        "Role Redesign/Job Architecture"
+      ],
+      "evidence": [
+        {
+          "sourceName": "Deloitte Insights",
+          "sourceTier": "top_tier_consulting",
+          "reliabilityScore": 4,
+          "url": "https://www.deloitte.com/us/en/insights/topics/technology-management/ai-infrastructure-survey.html",
+          "publishedDate": "2026-03-30",
+          "whatItShows": "515 US director-level+ leaders: 16-point capability gap between IT and business teams on AI-scaling readiness; specific shortages in AI/ML agent-operations engineers and security/compliance specialists."
+        },
+        {
+          "sourceName": "Deloitte Insights",
+          "sourceTier": "top_tier_consulting",
+          "reliabilityScore": 2,
+          "url": "https://www.deloitte.com/us/en/insights/topics/technology-management/tech-trends/2026/ai-infrastructure-compute-strategy.html",
+          "publishedDate": "2025-12-10",
+          "whatItShows": "Expert-interview piece describing how cloud migration hollowed out data-center expertise, leaving network architects unprepared for AI-first traffic and GPU cluster demands."
+        }
+      ],
+      "firstSeen": "2026-07-08",
+      "lastUpdated": "2026-07-08",
+      "status": "active",
+      "shortSummary": "Deloitte's survey of 515 infrastructure leaders finds a 16-point capability gap between IT and business teams on AI-scaling readiness, with specific shortages in AI/ML agent-operations engineers and security/compliance specialists. A companion piece describes how years of cloud migration left network architects unprepared for AI-first traffic patterns like GPU cluster networking."
+    },
+    {
+      "id": "engineers-shift-to-orchestration-oversight",
+      "title": "Software Engineers Shift from Code Production to AI Orchestration and Spec/Architecture Oversight",
+      "summary": "Deloitte's analysis of the AI-native software development lifecycle documents concrete, role-by-role shifts: software architects using LLMs to generate and edit standardized diagrams, developers producing initial designs directly from GenAI-converted user stories, data engineers automating pipeline optimization, DevSecOps engineers embedding security earlier via AI-accelerated delivery, and QA teams cutting manual effort through synthetic test-data and automated test-scenario generation. The piece cites a GitHub survey of roughly 2,000 global developers in which 97% had used AI coding tools at work and 88% of US developers reported at least some company support for AI use.\n\nMcKinsey's companion research on 'rewiring software delivery for the agentic era' describes the same shift from the organizational-design side: as agentic AI takes on more end-to-end execution, engineers are pushed toward full-stack fluency, structured specification-writing, and architectural/systems trade-off judgment, rather than being valued primarily for code output.\n\nBoth firms describe this as an active, already-underway shift rather than a future prediction, but neither publishes a quantified, controlled case study isolating the org-design outcome, so the evidence base sits at 'well-documented directional trend' rather than case-study-grade proof.",
+      "maturity": "Growing Adoption",
+      "evidenceScore": 3,
+      "roleTags": [
+        "Software Engineering",
+        "QA/Test Engineering",
+        "Enterprise/Solution Architecture"
+      ],
+      "dimensionTags": [
+        "Role Redesign/Job Architecture",
+        "AI Tooling & Enablement",
+        "Skills & Upskilling Pathways"
+      ],
+      "evidence": [
+        {
+          "sourceName": "Deloitte",
+          "sourceTier": "top_tier_consulting",
+          "reliabilityScore": 3,
+          "url": "https://www.deloitte.com/us/en/Industries/tmt/articles/ai-software-development-engineering-roles-being-rewritten.html",
+          "publishedDate": "2025-08-08",
+          "whatItShows": "Concrete AI-driven role shifts across architects, developers, data engineers, DevSecOps, QA; cites GitHub survey where 97% of ~2,000 developers used AI coding tools at work."
+        },
+        {
+          "sourceName": "McKinsey & Company",
+          "sourceTier": "top_tier_consulting",
+          "reliabilityScore": 3,
+          "url": "https://www.mckinsey.com/capabilities/mckinsey-technology/our-insights/rewiring-software-delivery-for-the-agentic-era",
+          "publishedDate": "2026-05-28",
+          "whatItShows": "Analysis of how agentic AI pushes software engineers toward full-stack fluency, spec-writing, and architectural oversight rather than raw code production."
+        }
+      ],
+      "firstSeen": "2026-07-08",
+      "lastUpdated": "2026-07-08",
+      "status": "active",
+      "shortSummary": "Deloitte and McKinsey both document software engineers shifting from raw code production toward AI orchestration, specification-writing, and architectural oversight across the SDLC. A GitHub survey cited by Deloitte found 97% of developers had used AI coding tools at work."
+    },
+    {
+      "id": "it-io-teams-adopt-ai-cost-optimization-stall-roi",
+      "title": "Infrastructure & Operations Teams Adopt AI for Cost Optimization, But ROI and Skills Gaps Stall Scaling",
+      "summary": "Two Gartner survey waves show a consistent pattern: infrastructure and operations leaders are adopting AI primarily as a cost lever, and most are not yet seeing returns. A survey of 253 I&O respondents (US, UK, India, Germany) found 54% cited cost optimization as their top goal for AI adoption. A follow-on survey of 782 I&O leaders found only 28% of AI use cases in I&O fully succeed and meet ROI expectations, while 20% fail outright \u2014 with integration difficulties (48%), budget constraints (50%), skill gaps (38%), and poor data quality (38%) cited as the main blockers.\n\nThe same research describes a directional shift in role composition rather than headcount: as agentic AI automates more routine infrastructure tasks, Gartner frames the I&O operator's role as moving from 'doer' to supervisor and orchestrator, with rising demand for AI strategists, engineers, and governance specialists. On AIOps specifically, 51% of leaders want it for centralized visibility, but adoption is hampered by false positives (49%), data management (44%), and alert fatigue (39%).\n\nThis is best read as a large, well-described survey pattern showing real but early and uneven adoption \u2014 organizations are actively restructuring I&O AI investment around cost and observability use cases, but the operating model and skills base to convert pilots into reliable production value is still catching up. Related to the Deloitte network/cloud skills-gap finding.",
+      "maturity": "Growing Adoption",
+      "evidenceScore": 4,
+      "roleTags": [
+        "IT Operations/SRE",
+        "Cloud/Platform Engineering",
+        "Network Engineering"
+      ],
+      "dimensionTags": [
+        "Workforce Planning & Sizing",
+        "AI Tooling & Enablement",
+        "Role Redesign/Job Architecture",
+        "Operating Model & Governance"
+      ],
+      "evidence": [
+        {
+          "sourceName": "Gartner",
+          "sourceTier": "it_analyst_firms",
+          "reliabilityScore": 3,
+          "url": "https://www.gartner.com/en/newsroom/press-releases/2025-10-29-gartner-survey-54-percent-of-infrastructure-and-operations-leaders-are-adopting-artificial-intelligence-to-cut-costs",
+          "publishedDate": "2025-10-29",
+          "whatItShows": "253 I&O leaders: cost optimization is the dominant driver of AI adoption in infrastructure teams, not capability transformation."
+        },
+        {
+          "sourceName": "Gartner",
+          "sourceTier": "it_analyst_firms",
+          "reliabilityScore": 3,
+          "url": "https://www.gartner.com/en/newsroom/press-releases/2026-04-07-gartner-says-artificial-intelligence-projects-in-infrastructure-and-operations-stall-ahead-of-meaningful-roi-returns",
+          "publishedDate": "2026-04-07",
+          "whatItShows": "782 I&O leaders: quantifies ROI failure rates and adoption blockers; describes the operator-to-orchestrator role shift."
+        }
+      ],
+      "firstSeen": "2026-07-08",
+      "lastUpdated": "2026-07-08",
+      "status": "active",
+      "shortSummary": "Two Gartner surveys of infrastructure and operations leaders find AI adoption is driven primarily by cost optimization, but only 28% of AI use cases in I&O fully meet ROI expectations while 20% fail outright. Gartner frames the I&O operator's evolving role as shifting from \"doer\" to supervisor and orchestrator."
+    },
+    {
+      "id": "ceo-mandate-ai-operational-capability-overhaul",
+      "title": "CEOs Direct AI-Driven Overhaul of Operating Capabilities, Pushing Beyond Task-Level Automation",
+      "summary": "Gartner's CEO and Senior Business Executive Survey \u2014 469 CEOs and senior business executives worldwide, fielded across three quarters ending Q4 2025 \u2014 found 80% of CEOs expect AI to force a high-to-medium degree of change to their organization's operational capabilities, describing a shift from 'digital business' to 'autonomous business.' Currently 54% of CEOs say their organization's automation is limited to specific tasks; by the end of 2028 only 13% expect to still be at that limited stage. Looking forward, 32% expect to deploy self-learning, adaptable AI tools to assist human decision-making, and 27% expect to operate primarily without human intervention in at least some functions.\n\nThis is CEO/business-executive-level sentiment rather than IT-department-specific data, but it is directly relevant to IT organization design because it signals the scale of operating-model mandate IT leadership should expect from the top: not incremental automation of discrete tasks, but a broader capability redesign. The 469-respondent sample and disclosed multi-quarter fielding period make this one of the more rigorously described surveys in this batch.\n\nBecause this measures stated executive expectation rather than observed organizational change, it should be read as a leading indicator of mandate rather than confirmation that operating models have already been redesigned \u2014 worth checking against the related pilot-to-scale execution gap finding to see whether CEO-level ambition is translating into actual restructuring.",
+      "maturity": "Emerging Practice",
+      "evidenceScore": 4,
+      "roleTags": [
+        "IT Leadership/Org Design & Strategy"
+      ],
+      "dimensionTags": [
+        "Operating Model & Governance",
+        "Workforce Planning & Sizing"
+      ],
+      "evidence": [
+        {
+          "sourceName": "Gartner",
+          "sourceTier": "it_analyst_firms",
+          "reliabilityScore": 3,
+          "url": "https://www.gartner.com/en/newsroom/press-releases/2026-04-23-gartner-survey-reveals-80-percent-of-ceos-say-artificial-intelligence-will-force-operational-capability-overhauls",
+          "publishedDate": "2026-04-23",
+          "whatItShows": "469 CEOs/senior executives: quantifies expected scale of AI-driven operating-model change and current vs. projected automation maturity levels."
+        }
+      ],
+      "firstSeen": "2026-07-08",
+      "lastUpdated": "2026-07-08",
+      "status": "active",
+      "shortSummary": "Gartner's survey of 469 CEOs finds 80% expect AI to force high-to-medium change to their organization's operational capabilities, describing a shift from \"digital business\" to \"autonomous business.\" This is executive-level expectation rather than observed change, signaling the scale of mandate IT leadership should expect from the top."
+    },
+    {
+      "id": "ai-talent-strategy-gap-retention-risk",
+      "title": "Comprehensive AI People Strategy \u2014 Not Just Tool Access \u2014 Determines AI Talent Retention",
+      "summary": "Gartner's Global Labor Market Survey, fielded across 12,004 employees and managers in 40 countries, underpins a prediction that by 2027 half of enterprises lacking a comprehensive AI people strategy will lose their top AI talent to competitors who prioritize workforce enablement over basic tool adoption. A companion Gartner survey of 197 CxOs and senior business leaders found only 27% of executives report having a comprehensive AI strategy, and just 20% believe their workforce is genuinely AI-ready \u2014 a striking maturity gap given how much adoption activity is underway elsewhere in Gartner's research.\n\nGartner's framing is that most leaders are currently mistaking basic AI access or usage metrics for real workforce transformation, and that the differentiator for AI talent retention is enablement (structured upskilling, career pathways, meaningful AI-augmented work) rather than mere tool rollout.\n\nThe headline retention claim is itself a forward-looking prediction, but it sits on top of a very large, well-described current-state survey (12,004 respondents) plus a smaller named CxO survey \u2014 a stronger evidentiary base than most single-prediction press releases. Relevant to IT leaders competing for scarce AI/ML and platform engineering talent specifically.",
+      "maturity": "Emerging Practice",
+      "evidenceScore": 4,
+      "roleTags": [
+        "IT Leadership/Org Design & Strategy",
+        "Software Engineering",
+        "Data Science/ML Engineering"
+      ],
+      "dimensionTags": [
+        "Skills & Upskilling Pathways",
+        "Workforce Planning & Sizing"
+      ],
+      "evidence": [
+        {
+          "sourceName": "Gartner",
+          "sourceTier": "it_analyst_firms",
+          "reliabilityScore": 3,
+          "url": "https://www.gartner.com/en/newsroom/press-releases/2026-05-13-gartner-predicts-by-2027-50-percent-of-enterprises-without-a-people-centric-ai-strategy-will-lose-their-top-ai-talent",
+          "publishedDate": "2026-05-13",
+          "whatItShows": "Global Labor Market Survey of 12,004 respondents (40 countries) plus 197-CxO survey quantify the gap between AI adoption metrics and genuine workforce/strategy readiness."
+        }
+      ],
+      "firstSeen": "2026-07-08",
+      "lastUpdated": "2026-07-08",
+      "status": "active",
+      "shortSummary": "Gartner's survey of over 12,000 employees underpins a prediction that by 2027, half of enterprises without a comprehensive AI people strategy will lose their top AI talent to competitors. Only 27% of executives report having a comprehensive AI strategy, and just 20% believe their workforce is genuinely AI-ready."
+    },
+    {
+      "id": "enterprise-architect-role-redefined-around-agentic-ai",
+      "title": "Enterprise Architect Role Redefined Around Agentic AI Governance and Knowledge Curation",
+      "summary": "Forrester's enterprise architecture research describes agentic AI becoming a core, embedded feature of major EA management-suite tools, and argues this is redefining \u2014 not just automating \u2014 the architect's job. Forrester outlines four emerging EA role variants: a customer/employee-centric 'value mapper' who connects architectural decisions to measurable business outcomes via knowledge graphs; a 'digital twin strategist' who simulates architecture options with AI-powered digital twins; an 'enterprise knowledge curator' who governs semantic layers and trains data teams on RAG/GraphRAG grounding; and an 'agentic governance champion' who manages fleets of AI agents and establishes accountability guardrails.\n\nThe underlying full report is gated, and the publicly visible material does not disclose a survey sample size, interview count, or other quantitative methodology \u2014 this is qualitative, tool-evaluation-grounded thought leadership rather than a fielded survey.\n\nGiven the lack of disclosed empirical backing, this should be treated as a leading-edge framework describing where Forrester believes the role is heading rather than evidence of widespread current practice. Still a useful, specific, nameable shift for job-architecture planning in enterprise/solution architecture functions.",
+      "maturity": "Leading Edge/Experimental",
+      "evidenceScore": 2,
+      "roleTags": [
+        "Enterprise/Solution Architecture"
+      ],
+      "dimensionTags": [
+        "Role Redesign/Job Architecture",
+        "Skills & Upskilling Pathways"
+      ],
+      "evidence": [
+        {
+          "sourceName": "Forrester",
+          "sourceTier": "it_analyst_firms",
+          "reliabilityScore": 2,
+          "url": "https://www.forrester.com/blogs/the-future-of-the-enterprise-architects-job/",
+          "publishedDate": "2025-08-25",
+          "whatItShows": "Describes four emerging EA role archetypes redefined around agentic AI governance and knowledge curation, grounded in EA-tool Wave evaluation rather than a disclosed survey."
+        }
+      ],
+      "firstSeen": "2026-07-08",
+      "lastUpdated": "2026-07-08",
+      "status": "active",
+      "shortSummary": "Forrester describes the enterprise architect role being redefined around four emerging variants tied to agentic AI: value mapper, digital twin strategist, knowledge curator, and governance champion. This is qualitative, tool-evaluation-grounded thought leadership without a disclosed survey methodology, so it should be read as a leading-edge framework rather than current widespread practice."
+    },
+    {
+      "id": "idc-ai-agents-redefine-g2000-job-roles-governance",
+      "title": "IDC Forecasts AI Agents Will Redefine 40% of G2000 Job Roles, Spurring New Governance Positions",
+      "summary": "IDC's FutureScape research forecasts that by 2026, 40% of all Global 2000 job roles will involve direct interaction with AI agents, redefining traditional entry-, mid-, and senior-level positions \u2014 and that by 2027, half of all AI-enabled enterprise applications will require new oversight positions dedicated to governance, risk, and accountability. IDC frames this as consolidation of decision-making authority, forcing organizations to rebalance reporting structures rather than simply reskill in place.\n\nOn the developer-specific side, IDC's Developer/DevOps 2026 predictions forecast that by 2030, 70% of developers will partner with autonomous AI agents, shifting toward planning, design, and orchestration work, and that by 2028, 60% of the Global 2000 will adopt a formal 'agent development life cycle' to manage an anticipated 10x increase in the number of agents deployed enterprise-wide.\n\nBoth pieces are forecast-heavy FutureScape predictions without disclosed underlying survey samples in the public blog content, so this should be read as IDC's directional thesis on job-role restructuring rather than confirmed current-state adoption \u2014 worth cross-checking against the better-corroborated governance-gap and team-size-compression findings elsewhere in this catalog.",
+      "maturity": "Leading Edge/Experimental",
+      "evidenceScore": 2,
+      "roleTags": [
+        "Software Engineering",
+        "IT Leadership/Org Design & Strategy"
+      ],
+      "dimensionTags": [
+        "Role Redesign/Job Architecture",
+        "Operating Model & Governance",
+        "AI Tooling & Enablement"
+      ],
+      "evidence": [
+        {
+          "sourceName": "IDC",
+          "sourceTier": "it_analyst_firms",
+          "reliabilityScore": 2,
+          "url": "https://www.idc.com/resource-center/blog/the-future-of-work-ai-agents-as-instruments-no-co-workers/",
+          "publishedDate": "2025-10-28",
+          "whatItShows": "States the 40% G2000 job-role forecast and the 2027 new-AI-oversight-position forecast from IDC's FutureScape Future of Work 2026 research."
+        },
+        {
+          "sourceName": "IDC",
+          "sourceTier": "it_analyst_firms",
+          "reliabilityScore": 2,
+          "url": "https://www.idc.com/resource-center/blog/developers-arent-just-using-ai-agents-theyre-building-them/",
+          "publishedDate": "2025-12-08",
+          "whatItShows": "Details the developer-specific role shift (agent partnership, formal agent development lifecycle adoption) from IDC's FutureScape Worldwide Developer and DevOps 2026 Predictions."
+        }
+      ],
+      "firstSeen": "2026-07-08",
+      "lastUpdated": "2026-07-08",
+      "status": "active",
+      "shortSummary": "IDC forecasts that by 2026, 40% of Global 2000 job roles will involve direct interaction with AI agents, and that by 2027, half of AI-enabled enterprise applications will require new governance/oversight positions. Both forecasts lack disclosed survey samples in public materials, so they should be read as IDC's directional thesis rather than confirmed current-state adoption."
+    }
+  ],
+  "archived": []
+}
+</script>
+
+<script>
+(function () {
+  var RUBRIC = JSON.parse(document.getElementById('rubric-snapshot').textContent);
+  var DATA = JSON.parse(document.getElementById('opportunities-snapshot').textContent);
+
+  var MATURITY_TRACK = ["Leading Edge/Experimental", "Emerging Practice", "Growing Adoption", "Common/Mainstream"];
+
+  var state = {
+    search: "",
+    roles: new Set(),
+    dimensions: new Set(),
+    maturities: new Set(),
+    minScore: 1,
+    sort: "updated"
+  };
+
+  function fmtDate(d) {
+    if (!d) return "—";
+    var parts = d.split("-");
+    if (parts.length !== 3) return d;
+    var months = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+    return months[parseInt(parts[1], 10) - 1] + " " + parseInt(parts[2], 10) + ", " + parts[0];
+  }
+
+  function renderMeta() {
+    var el = document.getElementById('masthead-meta');
+    var active = DATA.opportunities.filter(function (o) { return o.status !== 'archived_aged_out'; });
+    var lastRun = DATA.lastRunDate ? fmtDate(DATA.lastRunDate) : "not yet run";
+    el.innerHTML =
+      '<span><strong>' + active.length + '</strong> active opportunities</span>' +
+      '<span><strong>' + DATA.archived.length + '</strong> archived</span>' +
+      '<span>last run: <strong>' + lastRun + '</strong></span>';
+  }
+
+  function renderWhatsNew() {
+    var section = document.getElementById('whats-new');
+    var summary = document.getElementById('whats-new-summary');
+    var list = document.getElementById('whats-new-list');
+    if (!DATA.lastRunDate) { section.hidden = true; return; }
+    var today = DATA.lastRunDate;
+    var updatedToday = DATA.opportunities.filter(function (o) {
+      return o.lastUpdated === today;
+    });
+    if (updatedToday.length === 0) { section.hidden = true; return; }
+    summary.textContent = "What's new this run (" + updatedToday.length + ')';
+    list.innerHTML = updatedToday.map(function (o) {
+      var isNew = o.firstSeen === today;
+      return '<li>' + (isNew ? '<strong>New:</strong> ' : '<strong>Updated:</strong> ') + escapeHtml(o.title) + '</li>';
+    }).join('');
+    section.hidden = false;
+  }
+
+  var allMultiselects = [];
+
+  function closeAllMultiselects(except) {
+    allMultiselects.forEach(function (m) {
+      if (m.toggle === except) return;
+      m.toggle.setAttribute('aria-expanded', 'false');
+      m.panel.hidden = true;
+    });
+  }
+
+  function makeMultiselect(toggleId, panelId, countId, values, setRef) {
+    var toggle = document.getElementById(toggleId);
+    var panel = document.getElementById(panelId);
+    var count = document.getElementById(countId);
+
+    function updateCount() {
+      if (setRef.size > 0) { count.hidden = false; count.textContent = setRef.size; }
+      else { count.hidden = true; }
+    }
+
+    panel.innerHTML = '';
+    values.forEach(function (val) {
+      var opt = document.createElement('label');
+      opt.className = 'ms-option';
+      var input = document.createElement('input');
+      input.type = 'checkbox';
+      input.value = val;
+      input.addEventListener('change', function () {
+        if (input.checked) setRef.add(val); else setRef.delete(val);
+        updateCount();
+        renderList();
+      });
+      opt.appendChild(input);
+      opt.appendChild(document.createTextNode(val));
+      panel.appendChild(opt);
+    });
+
+    toggle.addEventListener('click', function (e) {
+      e.stopPropagation();
+      var isOpen = toggle.getAttribute('aria-expanded') === 'true';
+      closeAllMultiselects();
+      if (!isOpen) { toggle.setAttribute('aria-expanded', 'true'); panel.hidden = false; }
+    });
+
+    var entry = { toggle: toggle, panel: panel, updateCount: updateCount };
+    allMultiselects.push(entry);
+    return entry;
+  }
+
+  function resetMultiselects() {
+    allMultiselects.forEach(function (m) {
+      m.panel.querySelectorAll('input[type=checkbox]').forEach(function (c) { c.checked = false; });
+      m.updateCount();
+    });
+  }
+
+  document.addEventListener('click', function () { closeAllMultiselects(); });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeAllMultiselects(); });
+
+  function positionFilterBar() {
+    var masthead = document.querySelector('header.masthead');
+    var bar = document.getElementById('filter-bar-wrap');
+    if (masthead && bar) bar.style.top = masthead.offsetHeight + 'px';
+  }
+  window.addEventListener('resize', positionFilterBar);
+
+  function escapeHtml(s) {
+    return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) {
+      return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
+    });
+  }
+
+  function scoreBadge(score, label) {
+    return '<span class="score-badge" style="background: var(--score-' + score + '-soft); color: var(--score-' + score + ')">' +
+      escapeHtml(label) + ' ' + score + '/5</span>';
+  }
+
+  function maturityMarkup(maturity) {
+    if (maturity === 'Legacy/Declining') {
+      return '<span class="maturity-declining">↓ Legacy / Declining</span>';
+    }
+    var idx = MATURITY_TRACK.indexOf(maturity);
+    var ticks = MATURITY_TRACK.map(function (_, i) {
+      return '<span class="tick' + (i <= idx ? ' filled' : '') + '"></span>';
+    }).join('');
+    return '<span class="maturity-label">' + escapeHtml(maturity || 'Unstaged') + '</span><span class="maturity-ticks">' + ticks + '</span>';
+  }
+
+  function shortSummaryFor(o) {
+    if (o.shortSummary) return o.shortSummary;
+    var text = (o.summary || '').split(/\n{2,}/)[0] || '';
+    var sentences = text.match(/[^.!?]+[.!?]+(?=\s|$)/g) || [text];
+    return sentences.slice(0, 2).join(' ').trim();
+  }
+
+  function cardMarkup(o) {
+    var roleTagsHtml = (o.roleTags || []).map(function (t) { return '<span class="tag role">' + escapeHtml(t) + '</span>'; }).join('');
+    var dimTagsHtml = (o.dimensionTags || []).map(function (t) { return '<span class="tag">' + escapeHtml(t) + '</span>'; }).join('');
+    var shortSummaryHtml = escapeHtml(shortSummaryFor(o));
+    var summaryHtml = (o.summary || '').split(/\n{2,}/).map(function (p) { return '<p>' + escapeHtml(p) + '</p>'; }).join('');
+    var evidenceHtml = (o.evidence || []).slice().sort(function (a, b) {
+      return (b.publishedDate || '').localeCompare(a.publishedDate || '');
+    }).map(function (e) {
+      return '<div class="evidence-item">' +
+        '<span class="score-badge" style="background: var(--score-' + e.reliabilityScore + '-soft); color: var(--score-' + e.reliabilityScore + ')">R ' + e.reliabilityScore + '/5</span>' +
+        '<span><span class="evidence-source"><a href="' + escapeHtml(e.url) + '" target="_blank" rel="noopener">' + escapeHtml(e.sourceName) + '</a></span>' +
+        '<div class="evidence-what">' + escapeHtml(e.whatItShows || '') + '</div></span>' +
+        '<span class="evidence-date">' + fmtDate(e.publishedDate) + '</span>' +
+        '</div>';
+    }).join('');
+
+    return '<article class="card">' +
+      '<div class="card-top">' +
+        '<div class="card-heading"><h3 class="card-title">' + escapeHtml(o.title) + '</h3>' +
+        '<div class="card-dates">first seen ' + fmtDate(o.firstSeen) + ' · updated ' + fmtDate(o.lastUpdated) + '</div></div>' +
+        '<div class="badge-row">' + scoreBadge(o.evidenceScore, 'Evidence') + '</div>' +
+      '</div>' +
+      '<div class="maturity-track">' + maturityMarkup(o.maturity) + '</div>' +
+      '<div class="tag-row">' + roleTagsHtml + dimTagsHtml + '</div>' +
+      '<div class="card-summary-short">' + shortSummaryHtml + '</div>' +
+      '<details class="full-summary"><summary>Read full analysis</summary><div class="card-summary">' + summaryHtml + '</div></details>' +
+      '<details class="evidence"><summary>' + (o.evidence ? o.evidence.length : 0) + ' supporting source' + ((o.evidence && o.evidence.length === 1) ? '' : 's') + '</summary>' +
+      '<div class="evidence-list">' + evidenceHtml + '</div></details>' +
+    '</article>';
+  }
+
+  function passesFilters(o) {
+    if (state.search) {
+      var hay = (o.title + ' ' + (o.summary || '')).toLowerCase();
+      if (hay.indexOf(state.search.toLowerCase()) === -1) return false;
+    }
+    if (state.roles.size > 0) {
+      var hasRole = (o.roleTags || []).some(function (t) { return state.roles.has(t); });
+      if (!hasRole) return false;
+    }
+    if (state.dimensions.size > 0) {
+      var hasDim = (o.dimensionTags || []).some(function (t) { return state.dimensions.has(t); });
+      if (!hasDim) return false;
+    }
+    if (state.maturities.size > 0 && !state.maturities.has(o.maturity)) return false;
+    if ((o.evidenceScore || 0) < state.minScore) return false;
+    return true;
+  }
+
+  function sortOpportunities(list) {
+    var maturityRank = {};
+    RUBRIC.maturityLadder.forEach(function (m, i) { maturityRank[m] = i; });
+    return list.slice().sort(function (a, b) {
+      if (state.sort === 'evidence') return (b.evidenceScore || 0) - (a.evidenceScore || 0);
+      if (state.sort === 'maturity') return (maturityRank[b.maturity] || 0) - (maturityRank[a.maturity] || 0);
+      if (state.sort === 'title') return a.title.localeCompare(b.title);
+      return (b.lastUpdated || '').localeCompare(a.lastUpdated || '');
+    });
+  }
+
+  function renderList() {
+    var active = DATA.opportunities.filter(function (o) { return o.status !== 'archived_aged_out'; });
+    var filtered = sortOpportunities(active.filter(passesFilters));
+    var listEl = document.getElementById('card-list');
+    var countEl = document.getElementById('results-count');
+
+    if (active.length === 0) {
+      listEl.innerHTML = '';
+      listEl.appendChild(emptyStateNode());
+      countEl.textContent = '';
+    } else if (filtered.length === 0) {
+      listEl.innerHTML = '<div class="empty-state"><strong>No matches</strong>Try widening your filters.</div>';
+      countEl.textContent = '0 of ' + active.length + ' opportunities shown';
+    } else {
+      listEl.innerHTML = filtered.map(cardMarkup).join('');
+      countEl.textContent = filtered.length + ' of ' + active.length + ' opportunities shown';
+    }
+
+    var archiveWrap = document.getElementById('archive-wrap');
+    if (DATA.archived.length > 0) {
+      archiveWrap.hidden = false;
+      document.getElementById('archive-summary').textContent = DATA.archived.length + ' archived — aged out of the 12-month window';
+      document.getElementById('archive-list').innerHTML = sortOpportunities(DATA.archived).map(cardMarkup).join('');
+    } else {
+      archiveWrap.hidden = true;
+    }
+  }
+
+  function emptyStateNode() {
+    var div = document.createElement('div');
+    div.className = 'empty-state';
+    div.innerHTML = '<strong>No opportunities yet</strong>The first research run hasn\'t populated this catalog. Once the weekly agent runs, findings that clear the reliability and evidence bar will appear here.';
+    return div;
+  }
+
+  function init() {
+    renderMeta();
+    renderWhatsNew();
+    makeMultiselect('role-toggle', 'role-panel', 'role-count', RUBRIC.roleTags, state.roles);
+    makeMultiselect('dimension-toggle', 'dimension-panel', 'dimension-count', RUBRIC.dimensionTags, state.dimensions);
+    makeMultiselect('maturity-toggle', 'maturity-panel', 'maturity-count', RUBRIC.maturityLadder, state.maturities);
+
+    document.getElementById('search-input').addEventListener('input', function (e) {
+      state.search = e.target.value;
+      renderList();
+    });
+    document.getElementById('min-score-select').addEventListener('change', function (e) {
+      state.minScore = parseInt(e.target.value, 10);
+      renderList();
+    });
+    document.getElementById('sort-select').addEventListener('change', function (e) {
+      state.sort = e.target.value;
+      renderList();
+    });
+    document.getElementById('reset-filters').addEventListener('click', function () {
+      state.search = ''; state.roles.clear(); state.dimensions.clear(); state.maturities.clear(); state.minScore = 1; state.sort = 'updated';
+      document.getElementById('search-input').value = '';
+      document.getElementById('min-score-select').value = '1';
+      document.getElementById('sort-select').value = 'updated';
+      resetMultiselects();
+      renderList();
+    });
+
+    positionFilterBar();
+    window.addEventListener('load', positionFilterBar);
+    renderList();
+  }
+
+  init();
+})();
+</script>
+</body>
+</html>
