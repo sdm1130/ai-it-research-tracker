@@ -556,8 +556,30 @@
   .evidence-date { font-family: var(--font-mono); font-size: 12px; color: var(--ink-faint); white-space: nowrap; font-variant-numeric: tabular-nums; }
   .preprint-flag { font-family: var(--font-mono); font-size: 10.5px; color: var(--amber); border: 1px solid var(--amber); border-radius: 4px; padding: 0 4px; margin-left: 6px; }
 
-  .related { margin-top: 12px; font-size: 13.5px; color: var(--ink-muted); }
-  .related a { margin-right: 10px; white-space: nowrap; }
+  /* Related links are full opportunity titles — median ~99 chars, longest 117 — so
+     they must be free to wrap. An earlier `white-space: nowrap` here forced each one
+     onto a single line and pushed it straight through the right edge of the card.
+     Stacked rows rather than inline chips: at this title length chips would be
+     card-width pills anyway, and one-per-row keeps each title readable. */
+  .related { margin-top: 12px; font-size: 13.5px; color: var(--ink-muted); min-width: 0; }
+  .related .axis-label { display: block; margin-bottom: 5px; }
+  .related-list { display: flex; flex-direction: column; gap: 5px; min-width: 0; }
+  .related-list a {
+    display: block;
+    position: relative;
+    padding-left: 15px;
+    line-height: 1.4;
+    text-decoration: none;
+    overflow-wrap: break-word;
+    word-break: break-word;
+  }
+  .related-list a::before {
+    content: "→";
+    position: absolute;
+    left: 0;
+    color: var(--ink-faint);
+  }
+  .related-list a:hover { text-decoration: underline; }
 
   .breadth-basis { font-family: var(--font-mono); font-size: 11.5px; color: var(--ink-faint); margin-top: 6px; }
 
@@ -4548,9 +4570,10 @@
       return '<div class="metric"><div class="metric-val">' + esc(v) + '</div><div class="metric-name">' + esc(m.name) + '</div></div>';
     }).join('');
     var rel = (o.relatedTo || []).filter(function (r) { return byId[r]; });
-    var relHtml = rel.length ? '<div class="related"><span class="axis-label">Related</span> ' + rel.map(function (r) {
-      return '<a href="#' + esc(r) + '">' + esc(byId[r]) + '</a>';
-    }).join('') + '</div>' : '';
+    var relHtml = rel.length ? '<div class="related"><span class="axis-label">Related</span>' +
+      '<div class="related-list">' + rel.map(function (r) {
+        return '<a href="#' + esc(r) + '">' + esc(byId[r]) + '</a>';
+      }).join('') + '</div></div>' : '';
     var bb = o.breadthBasis || {};
     var flags = '';
     if (o.contested) flags += '<span class="flag contested">CONTESTED</span>';
