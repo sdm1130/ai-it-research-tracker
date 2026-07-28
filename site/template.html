@@ -1,0 +1,1226 @@
+<title>Enterprise IT Organization Effectiveness — AI Research Tracker</title>
+<style>
+  :root {
+    --paper: #eff1ec;
+    --paper-raised: #ffffff;
+    --paper-sunken: #e6e9e2;
+    --ink: #1b1f1d;
+    --ink-muted: #5b625c;
+    --ink-faint: #8b9189;
+    --line: #d8dcd5;
+    --line-strong: #c3c8bd;
+    --accent: #2a4b6b;
+    --accent-ink: #1d3549;
+    --accent-soft: #e4eaf0;
+    --amber: #b8752a;
+    --amber-soft: #f3e6d3;
+    --score-1: #b3483f;
+    --score-2: #c07a3e;
+    --score-3: #b79a3b;
+    --score-4: #5c8c52;
+    --score-5: #2f7a55;
+    --score-1-soft: #f4e2df;
+    --score-2-soft: #f3e6d6;
+    --score-3-soft: #f0ead1;
+    --score-4-soft: #e2ecdf;
+    --score-5-soft: #dceae2;
+    /* Sequential ramp (magnitude). One hue, light->dark, lightness-monotonic. */
+    --seq-1: #e8eef4;
+    --seq-2: #bed2e3;
+    --seq-3: #8aabc9;
+    --seq-4: #537fa8;
+    --seq-5: #2a4b6b;
+    --seq-on-dark: #1b1f1d;
+    --shadow: 0 1px 2px rgba(27,31,29,0.06), 0 6px 20px rgba(27,31,29,0.05);
+    --font-display: "Iowan Old Style", "Palatino Linotype", Palatino, "URW Palladio L", Georgia, serif;
+    --font-body: -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+    --font-mono: ui-monospace, "SF Mono", "Cascadia Mono", "Roboto Mono", Menlo, Consolas, monospace;
+  }
+
+  /* SINGLE-THEME BY DELIBERATE CHOICE — this page is always light, in both the
+     Artifact host and the standalone GitHub Pages copy. Do not reintroduce dark
+     tokens without being asked.
+
+     Three things enforce that, and all three are load-bearing:
+       1. No @media (prefers-color-scheme: dark) block, so the visitor's OS setting
+          is ignored on the standalone copy.
+       2. No :root[data-theme="dark"] overrides, so the Artifact host's theme toggle
+          cannot repaint the palette.
+       3. color-scheme is !important because the host's frame runtime assigns
+          documentElement.style.colorScheme INLINE when the viewer toggles. Author
+          !important is the only thing that beats an inline style — without it the
+          page would keep light tokens but render dark native scrollbars, form
+          controls and date pickers, which looks like a bug rather than a choice. */
+  :root { color-scheme: light !important; }
+
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--font-body);
+    font-size: 16.5px;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: var(--accent); }
+  ::selection { background: var(--accent-soft); }
+
+  .skip { position: absolute; left: -999px; }
+  .skip:focus { left: 8px; top: 8px; z-index: 100; background: var(--paper-raised); padding: 8px 12px; border-radius: 4px; }
+
+  :focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+  /* ---------- Masthead ---------- */
+  header.masthead {
+    border-bottom: 1px solid var(--line);
+    background: var(--paper-raised);
+    position: sticky;
+    top: 0;
+    z-index: 20;
+  }
+  .masthead-inner {
+    max-width: 1320px;
+    margin: 0 auto;
+    padding: 22px 28px 18px;
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 24px;
+    flex-wrap: wrap;
+  }
+  .masthead-title-group { display: flex; align-items: baseline; gap: 14px; flex-wrap: wrap; }
+  h1 {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 29px;
+    letter-spacing: 0.2px;
+    margin: 0;
+    text-wrap: balance;
+  }
+  .kicker {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+  }
+  .masthead-meta {
+    font-family: var(--font-mono);
+    font-size: 13.5px;
+    color: var(--ink-muted);
+    display: flex;
+    gap: 18px;
+    flex-wrap: wrap;
+    font-variant-numeric: tabular-nums;
+  }
+  .masthead-meta strong { color: var(--ink); font-weight: 600; }
+  .masthead-sub {
+    max-width: 1320px;
+    margin: 0 auto;
+    padding: 0 28px 18px;
+    color: var(--ink-muted);
+    font-size: 15px;
+  }
+
+  /* ---------- Filter bar ---------- */
+  .filter-bar-wrap {
+    position: sticky;
+    top: 0;
+    z-index: 15;
+    background: var(--paper-raised);
+    border-bottom: 1px solid var(--line);
+  }
+  .filter-bar {
+    max-width: 1320px;
+    margin: 0 auto;
+    padding: 14px 28px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+  .search-input {
+    width: 240px;
+    max-width: 100%;
+    padding: 9px 11px;
+    border: 1px solid var(--line-strong);
+    border-radius: 7px;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--font-body);
+    font-size: 15px;
+  }
+  .search-input:focus { border-color: var(--accent); }
+
+  .multiselect { position: relative; }
+  .multiselect-toggle {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    font-family: var(--font-mono);
+    font-size: 13px;
+    padding: 8px 12px;
+    border-radius: 7px;
+    border: 1px solid var(--line-strong);
+    background: var(--paper);
+    color: var(--ink);
+    cursor: pointer;
+    white-space: nowrap;
+  }
+  .multiselect-toggle::after { content: "▾"; font-size: 10px; color: var(--ink-faint); }
+  .multiselect-toggle:hover { border-color: var(--accent); }
+  .multiselect-toggle[aria-expanded="true"] {
+    border-color: var(--accent);
+    background: var(--accent-soft);
+    color: var(--accent-ink);
+  }
+  .ms-count {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    font-weight: 700;
+    background: var(--accent);
+    color: var(--paper-raised);
+    border-radius: 999px;
+    padding: 1px 6px;
+    line-height: 1.5;
+  }
+  .multiselect-panel {
+    position: absolute;
+    top: calc(100% + 6px);
+    left: 0;
+    min-width: 250px;
+    max-height: 320px;
+    overflow-y: auto;
+    background: var(--paper-raised);
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+    padding: 6px;
+    z-index: 30;
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+  }
+  .multiselect-panel[hidden] { display: none; }
+  .ms-option {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    padding: 7px 9px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 13.5px;
+  }
+  .ms-option:hover { background: var(--paper-sunken); }
+  .ms-option input { accent-color: var(--accent); width: 15px; height: 15px; flex: none; }
+
+  select.bar-select {
+    padding: 8px 10px;
+    border-radius: 7px;
+    border: 1px solid var(--line-strong);
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--font-body);
+    font-size: 13.5px;
+  }
+
+  .bar-toggle {
+    font-family: var(--font-mono);
+    font-size: 12.5px;
+    padding: 8px 11px;
+    border-radius: 7px;
+    border: 1px solid var(--line-strong);
+    background: var(--paper);
+    color: var(--ink-muted);
+    cursor: pointer;
+    white-space: nowrap;
+  }
+  .bar-toggle[aria-pressed="true"] {
+    border-color: var(--amber);
+    background: var(--amber-soft);
+    color: var(--amber);
+    font-weight: 600;
+  }
+
+  .bar-spacer { margin-left: auto; display: flex; gap: 10px; align-items: center; }
+  .bar-reset, .bar-export {
+    font-family: var(--font-mono);
+    font-size: 12.5px;
+    color: var(--ink-muted);
+    background: none;
+    border: none;
+    text-decoration: underline;
+    cursor: pointer;
+    padding: 8px 4px;
+  }
+  .bar-reset:hover, .bar-export:hover { color: var(--accent); }
+
+  .legend-bar {
+    max-width: 1320px;
+    margin: 0 auto;
+    padding: 0 28px 12px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+    font-size: 12px;
+    color: var(--ink-muted);
+  }
+  .legend-label {
+    font-family: var(--font-mono);
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    font-size: 10.5px;
+    color: var(--ink-faint);
+  }
+  .legend-row { display: inline-flex; align-items: center; gap: 6px; }
+  .legend-swatch { width: 10px; height: 10px; border-radius: 3px; flex: none; }
+
+  /* ---------- Main column ---------- */
+  main.content {
+    max-width: 1320px;
+    margin: 0 auto;
+    padding: 24px 28px 80px;
+    min-width: 0;
+  }
+
+  /* ---------- Collapsible analysis panels ---------- */
+  details.panel {
+    margin-bottom: 16px;
+    padding: 14px 18px;
+    border: 1px solid var(--line);
+    background: var(--paper-raised);
+    border-radius: 10px;
+  }
+  details.panel > summary {
+    cursor: pointer;
+    font-family: var(--font-mono);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--ink-muted);
+    list-style: none;
+  }
+  details.panel > summary::-webkit-details-marker { display: none; }
+  details.panel > summary::before { content: "▸ "; }
+  details.panel[open] > summary::before { content: "▾ "; }
+  details.panel > summary:hover { color: var(--accent); }
+  .panel-note { font-size: 13.5px; color: var(--ink-muted); margin: 12px 0 4px; max-width: 78ch; }
+  .panel-scroll { overflow-x: auto; margin-top: 14px; }
+
+  details.whats-new {
+    margin-bottom: 30px;
+    padding: 14px 18px;
+    border: 1px solid var(--amber);
+    background: var(--amber-soft);
+    border-radius: 10px;
+  }
+  details.whats-new > summary {
+    cursor: pointer;
+    font-family: var(--font-mono);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--amber);
+    list-style: none;
+  }
+  details.whats-new > summary::-webkit-details-marker { display: none; }
+  details.whats-new > summary::before { content: "▸ "; }
+  details.whats-new[open] > summary::before { content: "▾ "; }
+  details.whats-new > summary:hover { color: var(--accent-ink); }
+  .whats-new ul { margin: 12px 0 0; padding-left: 18px; }
+  .whats-new li { margin-bottom: 5px; font-size: 15px; }
+  .delta { font-family: var(--font-mono); font-size: 12.5px; padding: 1px 6px; border-radius: 5px; font-weight: 600; }
+  .delta.down { background: var(--score-1-soft); color: var(--score-1); }
+  .delta.up { background: var(--score-5-soft); color: var(--score-5); }
+
+  /* ---------- Coverage heatmap ---------- */
+  table.heatmap { border-collapse: separate; border-spacing: 3px; font-size: 12px; }
+  table.heatmap th {
+    font-family: var(--font-mono);
+    font-weight: 500;
+    font-size: 11px;
+    color: var(--ink-muted);
+    text-align: left;
+    padding: 4px 6px;
+    vertical-align: bottom;
+  }
+  table.heatmap th.col { max-width: 92px; white-space: normal; line-height: 1.25; }
+  table.heatmap th.row { text-align: right; white-space: nowrap; color: var(--ink); }
+  table.heatmap td {
+    width: 62px; height: 34px;
+    text-align: center;
+    border-radius: 5px;
+    font-family: var(--font-mono);
+    font-variant-numeric: tabular-nums;
+    font-size: 12.5px;
+    font-weight: 600;
+  }
+  td.hm-empty { background: transparent; border: 1px dashed var(--line-strong); color: var(--ink-faint); font-weight: 400; }
+  .hm-legend { display: flex; align-items: center; gap: 7px; margin-top: 12px; font-size: 11.5px; color: var(--ink-muted); font-family: var(--font-mono); }
+  .hm-legend .sw { width: 22px; height: 12px; border-radius: 3px; }
+
+  /* ---------- Timeline ---------- */
+  .tl-wrap { margin-top: 12px; }
+  .tl-row-label { font-family: var(--font-mono); font-size: 10.5px; fill: var(--ink-muted); }
+  .tl-axis { font-family: var(--font-mono); font-size: 10px; fill: var(--ink-faint); }
+  .tl-grid { stroke: var(--line); stroke-width: 1; }
+  .tl-lane { stroke: var(--line); stroke-width: 1; stroke-dasharray: 2 3; }
+  .tl-dot { stroke: var(--paper-raised); stroke-width: 2; }
+  .tl-dot:hover { stroke: var(--ink); }
+
+  .results-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-bottom: 14px;
+    font-family: var(--font-mono);
+    font-size: 13px;
+    color: var(--ink-muted);
+  }
+
+  .empty-state {
+    border: 1px dashed var(--line-strong);
+    border-radius: 10px;
+    padding: 48px 28px;
+    text-align: center;
+    color: var(--ink-muted);
+    font-size: 15.5px;
+  }
+  .empty-state strong { display: block; color: var(--ink); font-family: var(--font-display); font-size: 19.5px; margin-bottom: 8px; font-weight: 600; }
+
+  .card-list { display: flex; flex-direction: column; gap: 14px; }
+
+  article.card {
+    background: var(--paper-raised);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 20px 22px;
+    box-shadow: var(--shadow);
+  }
+  article.card.is-contested { border-left: 3px solid var(--amber); }
+  .card-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 16px;
+  }
+  .card-heading { flex: 1 1 auto; min-width: 0; }
+  .card-title {
+    font-family: var(--font-display);
+    font-size: 21px;
+    font-weight: 600;
+    margin: 0 0 6px;
+    text-wrap: balance;
+  }
+  .card-dates {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    color: var(--ink-faint);
+    font-variant-numeric: tabular-nums;
+  }
+  .badge-row { display: flex; gap: 8px; align-items: center; flex: none; flex-wrap: wrap; justify-content: flex-end; }
+
+  .score-badge {
+    font-family: var(--font-mono);
+    font-size: 12.5px;
+    font-weight: 600;
+    padding: 4px 8px;
+    border-radius: 6px;
+    white-space: nowrap;
+    font-variant-numeric: tabular-nums;
+  }
+  .flag {
+    font-family: var(--font-mono);
+    font-size: 11.5px;
+    font-weight: 600;
+    padding: 3px 8px;
+    border-radius: 999px;
+    white-space: nowrap;
+    letter-spacing: 0.03em;
+  }
+  .flag.contested { background: var(--amber-soft); color: var(--amber); border: 1px solid var(--amber); }
+  .flag.stale { background: var(--paper-sunken); color: var(--ink-muted); border: 1px solid var(--line-strong); }
+
+  /* two-axis score breakdown */
+  .axes { display: flex; gap: 18px; flex-wrap: wrap; margin: 10px 0 2px; }
+  .axis { display: flex; align-items: center; gap: 7px; }
+  .axis-label { font-family: var(--font-mono); font-size: 11px; text-transform: uppercase; letter-spacing: 0.06em; color: var(--ink-faint); }
+  .axis-pips { display: flex; gap: 2px; }
+  .pip { width: 9px; height: 9px; border-radius: 2px; background: var(--line-strong); }
+  .pip.on { background: var(--accent); }
+  .axis-val { font-family: var(--font-mono); font-size: 12px; color: var(--ink-muted); font-variant-numeric: tabular-nums; }
+
+  .maturity-track { display: flex; align-items: center; gap: 5px; margin: 6px 0 2px; flex-wrap: wrap; }
+  .maturity-label { font-family: var(--font-mono); font-size: 12px; color: var(--ink-muted); margin-right: 4px; }
+  .maturity-ticks { display: flex; gap: 3px; }
+  .tick { width: 16px; height: 6px; border-radius: 2px; background: var(--line-strong); }
+  .tick.filled { background: var(--accent); }
+  .maturity-declining {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    color: var(--score-1);
+    background: var(--score-1-soft);
+    padding: 3px 8px;
+    border-radius: 6px;
+    font-weight: 600;
+  }
+
+  .tag-row { display: flex; flex-wrap: wrap; gap: 6px; margin: 12px 0 4px; }
+  .tag {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    padding: 3px 8px;
+    border-radius: 999px;
+    border: 1px solid var(--line-strong);
+    color: var(--ink-muted);
+  }
+  .tag.role { border-color: var(--accent); color: var(--accent-ink); background: var(--accent-soft); }
+  .tag.size { border-style: dashed; }
+
+  .card-summary { margin: 12px 0 4px; font-size: 15.5px; color: var(--ink); }
+  .card-summary p { margin: 0 0 8px; }
+  .card-summary p:last-child { margin-bottom: 0; }
+  .card-summary-short { margin: 12px 0 4px; font-size: 15.5px; color: var(--ink); }
+
+  /* metrics */
+  .metrics { display: flex; flex-wrap: wrap; gap: 8px; margin: 12px 0 2px; }
+  .metric {
+    background: var(--paper-sunken);
+    border-radius: 7px;
+    padding: 7px 10px;
+    min-width: 96px;
+  }
+  .metric-val { font-family: var(--font-mono); font-size: 16px; font-weight: 700; color: var(--ink); font-variant-numeric: tabular-nums; }
+  .metric-name { font-size: 11.5px; color: var(--ink-muted); line-height: 1.3; margin-top: 1px; max-width: 22ch; }
+
+  details.full-summary { margin: 4px 0 0; }
+  details.full-summary > summary {
+    cursor: pointer;
+    font-family: var(--font-mono);
+    font-size: 12.5px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--accent);
+    list-style: none;
+  }
+  details.full-summary > summary::-webkit-details-marker { display: none; }
+  details.full-summary > summary::before { content: "▸ "; }
+  details.full-summary[open] > summary::before { content: "▾ "; }
+  details.full-summary > summary:hover { color: var(--accent-ink); }
+  details.full-summary .card-summary { margin-top: 10px; }
+
+  details.evidence, details.contra { margin-top: 14px; border-top: 1px solid var(--line); padding-top: 10px; }
+  details.evidence > summary, details.contra > summary {
+    cursor: pointer;
+    font-family: var(--font-mono);
+    font-size: 12.5px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--ink-muted);
+    list-style: none;
+  }
+  details.contra > summary { color: var(--amber); }
+  details.evidence > summary::-webkit-details-marker, details.contra > summary::-webkit-details-marker { display: none; }
+  details.evidence > summary::before, details.contra > summary::before { content: "▸ "; }
+  details.evidence[open] > summary::before, details.contra[open] > summary::before { content: "▾ "; }
+  details.evidence > summary:hover { color: var(--accent); }
+
+  .evidence-list { display: flex; flex-direction: column; gap: 10px; margin-top: 12px; }
+  .evidence-item {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    gap: 10px;
+    align-items: start;
+    padding: 10px 12px;
+    background: var(--paper-sunken);
+    border-radius: 7px;
+    font-size: 14.5px;
+  }
+  .evidence-item.contra-item { background: var(--amber-soft); }
+  .evidence-source { font-weight: 600; }
+  .evidence-source a { text-decoration: none; }
+  .evidence-source a:hover { text-decoration: underline; }
+  .evidence-what { color: var(--ink-muted); margin-top: 2px; }
+  .evidence-contra { color: var(--amber); margin-top: 4px; font-size: 13.5px; }
+  .evidence-date { font-family: var(--font-mono); font-size: 12px; color: var(--ink-faint); white-space: nowrap; font-variant-numeric: tabular-nums; }
+  .preprint-flag { font-family: var(--font-mono); font-size: 10.5px; color: var(--amber); border: 1px solid var(--amber); border-radius: 4px; padding: 0 4px; margin-left: 6px; }
+
+  .related { margin-top: 12px; font-size: 13.5px; color: var(--ink-muted); }
+  .related a { margin-right: 10px; white-space: nowrap; }
+
+  .breadth-basis { font-family: var(--font-mono); font-size: 11.5px; color: var(--ink-faint); margin-top: 6px; }
+
+  .archive-toggle-wrap { margin-top: 34px; border-top: 1px solid var(--line); padding-top: 18px; }
+  details.archive-section > summary {
+    cursor: pointer;
+    font-family: var(--font-mono);
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    color: var(--ink-faint);
+    list-style: none;
+  }
+  details.archive-section > summary::-webkit-details-marker { display: none; }
+  details.archive-section > summary::before { content: "▸ "; }
+  details.archive-section[open] > summary::before { content: "▾ "; }
+
+  footer.page-footer {
+    max-width: 1320px;
+    margin: 40px auto 0;
+    padding: 20px 28px 40px;
+    color: var(--ink-faint);
+    font-size: 13px;
+    border-top: 1px solid var(--line);
+  }
+  footer.page-footer a { color: var(--ink-muted); }
+
+  /* ---------- Small screens ---------- */
+  @media (max-width: 680px) {
+    body { overflow-x: hidden; }
+
+    .masthead-inner { padding: 16px 16px 12px; gap: 10px; }
+    h1 { font-size: 21px; }
+    .masthead-sub { display: none; }
+    .masthead-meta { font-size: 12px; gap: 12px; }
+
+    .filter-bar { padding: 10px 16px; gap: 8px; }
+    .search-input { width: 100%; }
+    .bar-spacer { margin-left: 0; }
+    .legend-bar { display: none; }
+
+    main.content { padding: 16px 16px 60px; }
+    details.panel { padding: 12px 14px; }
+    .card-top { flex-wrap: wrap; }
+    .badge-row { justify-content: flex-start; }
+    article.card { padding: 16px; }
+    .card-title { font-size: 18px; }
+    .axes { gap: 12px; }
+
+    .evidence-item { grid-template-columns: 1fr; }
+    .evidence-date { white-space: normal; }
+    .metric { min-width: 0; flex: 1 1 44%; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    * { animation: none !important; transition: none !important; }
+  }
+</style>
+
+<a href="#main" class="skip">Skip to content</a>
+
+<header class="masthead">
+  <div class="masthead-inner">
+    <div class="masthead-title-group">
+      <h1>Enterprise IT Organization Effectiveness — AI Research Tracker</h1>
+      <span class="kicker">Org Design &amp; Effectiveness</span>
+    </div>
+    <div class="masthead-meta" id="masthead-meta"></div>
+  </div>
+  <p class="masthead-sub">A living catalog of how AI is reshaping enterprise IT roles, team structures, and operating models — sourced only from government, academic, top-tier consulting, IT analyst and preprint research published in the trailing 12 months, scored separately for study design and independent corroboration.</p>
+</header>
+
+<div class="filter-bar-wrap" id="filter-bar-wrap">
+  <div class="filter-bar" aria-label="Filters">
+    <input type="text" class="search-input" id="search-input" placeholder="Search title, summary, sources…" aria-label="Search opportunities" />
+
+    <div class="multiselect" data-key="role">
+      <button type="button" class="multiselect-toggle" id="role-toggle" aria-expanded="false" aria-haspopup="true">Role<span class="ms-count" id="role-count" hidden></span></button>
+      <div class="multiselect-panel" id="role-panel" hidden></div>
+    </div>
+
+    <div class="multiselect" data-key="dimension">
+      <button type="button" class="multiselect-toggle" id="dimension-toggle" aria-expanded="false" aria-haspopup="true">Dimension<span class="ms-count" id="dimension-count" hidden></span></button>
+      <div class="multiselect-panel" id="dimension-panel" hidden></div>
+    </div>
+
+    <div class="multiselect" data-key="maturity">
+      <button type="button" class="multiselect-toggle" id="maturity-toggle" aria-expanded="false" aria-haspopup="true">Maturity<span class="ms-count" id="maturity-count" hidden></span></button>
+      <div class="multiselect-panel" id="maturity-panel" hidden></div>
+    </div>
+
+    <div class="multiselect" data-key="tier">
+      <button type="button" class="multiselect-toggle" id="tier-toggle" aria-expanded="false" aria-haspopup="true">Source tier<span class="ms-count" id="tier-count" hidden></span></button>
+      <div class="multiselect-panel" id="tier-panel" hidden></div>
+    </div>
+
+    <select class="bar-select" id="min-score-select" aria-label="Minimum evidence score">
+      <option value="1">Evidence: any</option>
+      <option value="2">Evidence: 2+</option>
+      <option value="3">Evidence: 3+</option>
+      <option value="4">Evidence: 4+</option>
+      <option value="5">Evidence: 5 only</option>
+    </select>
+
+    <select class="bar-select" id="min-rel-select" aria-label="Minimum source reliability">
+      <option value="0">Reliability: any</option>
+      <option value="3">Has a 3+ source</option>
+      <option value="4">Has a 4+ source</option>
+      <option value="5">Has a 5 source</option>
+    </select>
+
+    <select class="bar-select" id="sort-select" aria-label="Sort order">
+      <option value="updated">Sort: Recently updated</option>
+      <option value="freshness">Sort: Evidence freshness</option>
+      <option value="evidence">Sort: Evidence score</option>
+      <option value="strength">Sort: Study strength</option>
+      <option value="breadth">Sort: Corroboration</option>
+      <option value="maturity">Sort: Maturity</option>
+      <option value="title">Sort: Title A–Z</option>
+    </select>
+
+    <button class="bar-toggle" id="contested-toggle" aria-pressed="false">Contested only</button>
+    <button class="bar-toggle" id="stale-toggle" aria-pressed="false">Stale only</button>
+
+    <div class="bar-spacer">
+      <button class="bar-export" id="export-csv">Export CSV</button>
+      <button class="bar-reset" id="reset-filters">Reset filters</button>
+    </div>
+  </div>
+  <div class="legend-bar">
+    <span class="legend-label">Evidence score</span>
+    <span class="legend-row"><span class="legend-swatch" style="background: var(--score-5)"></span>5 strong design + broad corroboration</span>
+    <span class="legend-row"><span class="legend-swatch" style="background: var(--score-4)"></span>4 one axis strong</span>
+    <span class="legend-row"><span class="legend-swatch" style="background: var(--score-3)"></span>3 survey-grade / narrow</span>
+    <span class="legend-row"><span class="legend-swatch" style="background: var(--score-2)"></span>2 expert POV only</span>
+  </div>
+</div>
+
+<main id="main" class="content">
+  <details class="whats-new" id="whats-new" hidden>
+    <summary id="whats-new-summary">What's new this run</summary>
+    <ul id="whats-new-list"></ul>
+  </details>
+
+  <details class="panel" id="coverage-panel">
+    <summary>Coverage map — where the evidence is, and isn't</summary>
+    <p class="panel-note">Opportunities per role × org-design dimension. Darker means more of the catalog speaks to that intersection; dashed cells have no evidence at all. This is the blind-spot finder — each research run is required to aim at least one search at an under-covered role rather than closing gaps by tagging generously.</p>
+    <div class="panel-scroll"><table class="heatmap" id="heatmap"></table></div>
+    <div class="hm-legend" id="hm-legend"></div>
+  </details>
+
+  <details class="panel" id="timeline-panel">
+    <summary>Evidence timeline — when each finding was last corroborated</summary>
+    <p class="panel-note">One row per opportunity, one dot per supporting publication, positioned by publication date across the trailing 12-month window. Dot shade shows source reliability (1–5). Rows are ordered by newest evidence, so anything drifting toward the left edge is going stale regardless of when the entry was last edited.</p>
+    <div class="panel-scroll"><svg id="timeline" class="tl-wrap" role="img" aria-label="Evidence publication timeline by opportunity"></svg></div>
+    <div class="hm-legend" id="tl-legend"></div>
+  </details>
+
+  <div class="results-bar">
+    <span id="results-count"></span>
+    <span id="run-status"></span>
+  </div>
+
+  <div id="card-list" class="card-list"></div>
+
+  <div class="archive-toggle-wrap" id="archive-wrap" hidden>
+    <details class="archive-section">
+      <summary id="archive-summary">Archived — aged out of the 12-month window</summary>
+      <div class="card-list" id="archive-list" style="margin-top: 14px;"></div>
+    </details>
+  </div>
+</main>
+
+<footer class="page-footer">
+  Methodology: sources are limited to a fixed allowlist of government, academic, top-tier consulting, IT analyst and preprint institutions; every finding must be published within the trailing 12 months and clear a minimum reliability bar to be cited. Evidence is scored on two independent axes — study design and independent corroboration (counted by institution, never by row) — and every opportunity scoring 4 or higher is actively searched for disconfirming evidence. The full rubric and source allowlist are embedded verbatim in this page. Generated and updated by a scheduled research run.
+</footer>
+
+<script type="application/json" id="rubric-snapshot">
+__RUBRIC_SNAPSHOT__
+</script>
+
+<script type="application/json" id="sources-snapshot">
+__SOURCES_SNAPSHOT__
+</script>
+
+<script type="application/json" id="opportunities-snapshot">
+__OPPORTUNITIES_SNAPSHOT__
+</script>
+
+<script>
+(function () {
+  var RUBRIC = JSON.parse(document.getElementById('rubric-snapshot').textContent);
+  var SOURCES = JSON.parse(document.getElementById('sources-snapshot').textContent);
+  var DATA = JSON.parse(document.getElementById('opportunities-snapshot').textContent);
+
+  var MATURITY_TRACK = ["Leading Edge/Experimental", "Emerging Practice", "Growing Adoption", "Common/Mainstream"];
+  var TIER_LABELS = {
+    government_intergovernmental: "Government & intergovernmental",
+    academic_research: "Academic & research",
+    top_tier_consulting: "Top-tier consulting",
+    it_analyst_firms: "IT analyst firms",
+    preprint_servers: "Preprint servers"
+  };
+  var TIER_KEYS = Object.keys(TIER_LABELS);
+
+  var state = {
+    search: "", roles: new Set(), dimensions: new Set(), maturities: new Set(), tiers: new Set(),
+    minScore: 1, minRel: 0, sort: "updated", contestedOnly: false, staleOnly: false
+  };
+
+  function allOf(o) { return (o.evidence || []).concat(o.contradictingEvidence || []); }
+  function esc(s) {
+    return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) {
+      return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
+    });
+  }
+  function fmtDate(d) {
+    if (!d) return "—";
+    var p = String(d).split("-");
+    if (p.length !== 3) return d;
+    var m = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+    return m[parseInt(p[1], 10) - 1] + " " + parseInt(p[2], 10) + ", " + p[0];
+  }
+  function monthsAgo(d) {
+    if (!d) return null;
+    var run = new Date((DATA.lastRunDate || '2026-07-28') + 'T00:00:00');
+    var then = new Date(d + 'T00:00:00');
+    return Math.round((run - then) / (1000 * 60 * 60 * 24 * 30.44));
+  }
+
+  /* ---------------- URL state ---------------- */
+  function readUrl() {
+    var q = new URLSearchParams(location.search);
+    if (q.get('q')) state.search = q.get('q');
+    if (q.get('role')) q.get('role').split('|').forEach(function (v) { state.roles.add(v); });
+    if (q.get('dim')) q.get('dim').split('|').forEach(function (v) { state.dimensions.add(v); });
+    if (q.get('mat')) q.get('mat').split('|').forEach(function (v) { state.maturities.add(v); });
+    if (q.get('tier')) q.get('tier').split('|').forEach(function (v) { state.tiers.add(v); });
+    if (q.get('score')) state.minScore = parseInt(q.get('score'), 10) || 1;
+    if (q.get('rel')) state.minRel = parseInt(q.get('rel'), 10) || 0;
+    if (q.get('sort')) state.sort = q.get('sort');
+    if (q.get('contested') === '1') state.contestedOnly = true;
+    if (q.get('stale') === '1') state.staleOnly = true;
+  }
+  function writeUrl() {
+    var q = new URLSearchParams();
+    if (state.search) q.set('q', state.search);
+    if (state.roles.size) q.set('role', Array.from(state.roles).join('|'));
+    if (state.dimensions.size) q.set('dim', Array.from(state.dimensions).join('|'));
+    if (state.maturities.size) q.set('mat', Array.from(state.maturities).join('|'));
+    if (state.tiers.size) q.set('tier', Array.from(state.tiers).join('|'));
+    if (state.minScore > 1) q.set('score', state.minScore);
+    if (state.minRel > 0) q.set('rel', state.minRel);
+    if (state.sort !== 'updated') q.set('sort', state.sort);
+    if (state.contestedOnly) q.set('contested', '1');
+    if (state.staleOnly) q.set('stale', '1');
+    var s = q.toString();
+    history.replaceState(null, '', s ? '?' + s : location.pathname);
+  }
+
+  /* ---------------- Masthead ---------------- */
+  function renderMeta() {
+    var el = document.getElementById('masthead-meta');
+    var active = DATA.opportunities.filter(function (o) { return o.status !== 'archived_aged_out'; });
+    var contested = active.filter(function (o) { return o.contested; }).length;
+    var sources = new Set();
+    active.forEach(function (o) { allOf(o).forEach(function (e) { sources.add(e.studyId || e.url); }); });
+    el.innerHTML =
+      '<span><strong>' + active.length + '</strong> opportunities</span>' +
+      '<span><strong>' + sources.size + '</strong> studies cited</span>' +
+      '<span><strong>' + contested + '</strong> contested</span>' +
+      '<span>last run: <strong>' + (DATA.lastRunDate ? fmtDate(DATA.lastRunDate) : 'not yet run') + '</strong></span>';
+  }
+
+  function renderWhatsNew() {
+    var section = document.getElementById('whats-new');
+    var summary = document.getElementById('whats-new-summary');
+    var list = document.getElementById('whats-new-list');
+    if (!DATA.lastRunDate) { section.hidden = true; return; }
+    var today = DATA.lastRunDate;
+    var items = DATA.opportunities.filter(function (o) {
+      return o.lastUpdated === today || (o.previousEvidenceScore != null && o.previousEvidenceScore !== o.evidenceScore);
+    });
+    if (!items.length) { section.hidden = true; return; }
+    summary.textContent = "What's new this run (" + items.length + ')';
+    list.innerHTML = items.map(function (o) {
+      var bits = [];
+      if (o.firstSeen === today) bits.push('<strong>New:</strong>');
+      else if (o.previousEvidenceScore != null && o.previousEvidenceScore !== o.evidenceScore) {
+        var dir = o.evidenceScore < o.previousEvidenceScore ? 'down' : 'up';
+        bits.push('<strong>Rescored:</strong>');
+        bits.push('<span class="delta ' + dir + '">' + o.previousEvidenceScore + ' → ' + o.evidenceScore + '</span>');
+      } else bits.push('<strong>Updated:</strong>');
+      var tail = [];
+      if (o.contested) tail.push('now contested');
+      if (o.lastRedTeamedDate === today) tail.push('red-teamed');
+      return '<li>' + bits.join(' ') + ' ' + esc(o.title) +
+             (tail.length ? ' <span style="color:var(--ink-muted)">— ' + tail.join(', ') + '</span>' : '') + '</li>';
+    }).join('');
+    section.hidden = false;
+  }
+
+  /* ---------------- Coverage heatmap ---------------- */
+  function renderHeatmap() {
+    var roles = RUBRIC.roleTags, dims = RUBRIC.dimensionTags;
+    var active = DATA.opportunities.filter(function (o) { return o.status !== 'archived_aged_out'; });
+    var counts = {}, max = 0;
+    roles.forEach(function (r) {
+      dims.forEach(function (d) {
+        var n = active.filter(function (o) {
+          return (o.roleTags || []).indexOf(r) > -1 && (o.dimensionTags || []).indexOf(d) > -1;
+        }).length;
+        counts[r + '||' + d] = n;
+        if (n > max) max = n;
+      });
+    });
+    var html = '<thead><tr><th></th>' + dims.map(function (d) {
+      return '<th class="col" scope="col">' + esc(d) + '</th>';
+    }).join('') + '</tr></thead><tbody>';
+    roles.forEach(function (r) {
+      html += '<tr><th class="row" scope="row">' + esc(r) + '</th>';
+      dims.forEach(function (d) {
+        var n = counts[r + '||' + d];
+        if (!n) { html += '<td class="hm-empty" title="' + esc(r + ' × ' + d) + ': no evidence">0</td>'; return; }
+        var step = Math.max(1, Math.ceil((n / max) * 5));
+        var fg = step >= 4 ? 'var(--paper-raised)' : 'var(--ink)';
+        html += '<td style="background: var(--seq-' + step + '); color: ' + fg + '" title="' +
+                esc(r + ' × ' + d) + ': ' + n + ' opportunit' + (n === 1 ? 'y' : 'ies') + '">' + n + '</td>';
+      });
+      html += '</tr>';
+    });
+    document.getElementById('heatmap').innerHTML = html + '</tbody>';
+    var lg = ['<span>Fewer</span>'];
+    for (var i = 1; i <= 5; i++) lg.push('<span class="sw" style="background: var(--seq-' + i + ')"></span>');
+    lg.push('<span>More</span><span style="margin-left:10px">·</span><span class="sw" style="border:1px dashed var(--line-strong)"></span><span>No evidence</span>');
+    document.getElementById('hm-legend').innerHTML = lg.join('');
+  }
+
+  /* ---------------- Evidence timeline ---------------- */
+  function renderTimeline() {
+    var active = DATA.opportunities.filter(function (o) { return o.status !== 'archived_aged_out'; })
+      .slice().sort(function (a, b) { return (b.newestEvidenceDate || '').localeCompare(a.newestEvidenceDate || ''); });
+    if (!active.length) return;
+    var all = [];
+    active.forEach(function (o) { (o.evidence || []).forEach(function (e) { all.push(e.publishedDate); }); });
+    if (!all.length) return;
+    all.sort();
+    var minD = new Date(all[0] + 'T00:00:00'), maxD = new Date(all[all.length - 1] + 'T00:00:00');
+    var padL = 250, padR = 18, padT = 26, rowH = 15, W = 940, H = padT + active.length * rowH + 26;
+    function x(d) {
+      var t = new Date(d + 'T00:00:00');
+      var f = (t - minD) / (maxD - minD || 1);
+      return padL + f * (W - padL - padR);
+    }
+    var svg = ['<svg viewBox="0 0 ' + W + ' ' + H + '" width="100%" style="min-width:720px;height:' + H + 'px">'];
+    // month gridlines
+    var cur = new Date(minD.getFullYear(), minD.getMonth(), 1), seen = {};
+    while (cur <= maxD) {
+      var iso = cur.toISOString().slice(0, 10);
+      if (cur >= minD) {
+        var gx = x(iso);
+        svg.push('<line class="tl-grid" x1="' + gx.toFixed(1) + '" y1="' + (padT - 8) + '" x2="' + gx.toFixed(1) + '" y2="' + (H - 20) + '"/>');
+        var lbl = cur.toLocaleDateString('en-US', { month: 'short' }) + (seen[cur.getFullYear()] ? '' : " '" + String(cur.getFullYear()).slice(2));
+        seen[cur.getFullYear()] = 1;
+        svg.push('<text class="tl-axis" x="' + gx.toFixed(1) + '" y="' + (H - 8) + '" text-anchor="middle">' + lbl + '</text>');
+      }
+      cur.setMonth(cur.getMonth() + 1);
+    }
+    active.forEach(function (o, i) {
+      var y = padT + i * rowH + rowH / 2;
+      var label = o.title.length > 40 ? o.title.slice(0, 38) + '…' : o.title;
+      svg.push('<line class="tl-lane" x1="' + padL + '" y1="' + y + '" x2="' + (W - padR) + '" y2="' + y + '"/>');
+      svg.push('<text class="tl-row-label" x="' + (padL - 10) + '" y="' + (y + 3.5) + '" text-anchor="end">' + esc(label) + '</text>');
+      (o.evidence || []).slice().sort(function (a, b) { return a.publishedDate.localeCompare(b.publishedDate); })
+        .forEach(function (e) {
+          var r = Math.max(1, Math.min(5, e.reliabilityScore || 3));
+          svg.push('<circle class="tl-dot" cx="' + x(e.publishedDate).toFixed(1) + '" cy="' + y + '" r="4.5" fill="var(--seq-' + r + ')">' +
+            '<title>' + esc(o.title) + '\n' + esc(e.sourceName) + '\n' + fmtDate(e.publishedDate) + ' · reliability ' + r + '/5</title></circle>');
+        });
+    });
+    svg.push('</svg>');
+    document.getElementById('timeline').outerHTML = '<div id="timeline">' + svg.join('') + '</div>';
+    var lg = ['<span>Source reliability</span>'];
+    for (var i = 1; i <= 5; i++) lg.push('<span class="sw" style="background: var(--seq-' + i + ');border-radius:999px;width:12px"></span><span>' + i + '</span>');
+    document.getElementById('tl-legend').innerHTML = lg.join(' ');
+  }
+
+  /* ---------------- Cards ---------------- */
+  function scoreBadge(n, label) {
+    var v = Math.max(1, Math.min(5, n || 1));
+    return '<span class="score-badge" style="background: var(--score-' + v + '-soft); color: var(--score-' + v + ')">' + label + ' ' + v + '/5</span>';
+  }
+  function pips(n) {
+    var out = '';
+    for (var i = 1; i <= 5; i++) out += '<span class="pip' + (i <= n ? ' on' : '') + '"></span>';
+    return out;
+  }
+  function maturityMarkup(m) {
+    if (m === 'Legacy/Declining') return '<span class="maturity-declining">Legacy / Declining</span>';
+    var idx = MATURITY_TRACK.indexOf(m);
+    var ticks = '';
+    for (var i = 0; i < MATURITY_TRACK.length; i++) ticks += '<span class="tick' + (i <= idx ? ' filled' : '') + '"></span>';
+    return '<span class="maturity-label">' + esc(m || '—') + '</span><span class="maturity-ticks">' + ticks + '</span>';
+  }
+  function evidenceRow(e, isContra) {
+    var r = Math.max(1, Math.min(5, e.reliabilityScore || 1));
+    var pre = e.peerReviewed === false ? '<span class="preprint-flag">PREPRINT</span>' : '';
+    return '<div class="evidence-item' + (isContra ? ' contra-item' : '') + '">' +
+      '<span class="score-badge" style="background: var(--score-' + r + '-soft); color: var(--score-' + r + ')">R ' + r + '/5</span>' +
+      '<span><span class="evidence-source"><a href="' + esc(e.url) + '" target="_blank" rel="noopener">' + esc(e.sourceName) + '</a></span>' + pre +
+      '<div class="evidence-what">' + esc(e.whatItShows || '') + '</div>' +
+      (e.contradicts ? '<div class="evidence-contra"><strong>Contradicts:</strong> ' + esc(e.contradicts) + '</div>' : '') +
+      '</span><span class="evidence-date">' + fmtDate(e.publishedDate) + '</span></div>';
+  }
+  function cardMarkup(o) {
+    var byId = {};
+    DATA.opportunities.forEach(function (x) { byId[x.id] = x.title; });
+    var roleTags = (o.roleTags || []).map(function (t) { return '<span class="tag role">' + esc(t) + '</span>'; }).join('');
+    var dimTags = (o.dimensionTags || []).map(function (t) { return '<span class="tag">' + esc(t) + '</span>'; }).join('');
+    var sizeTag = o.companySize ? '<span class="tag size">' + esc(o.companySize) + '</span>' : '';
+    var summaryHtml = (o.summary || '').split(/\n{2,}/).map(function (p) { return '<p>' + esc(p) + '</p>'; }).join('');
+    var ev = (o.evidence || []).slice().sort(function (a, b) { return (b.publishedDate || '').localeCompare(a.publishedDate || ''); });
+    var contra = o.contradictingEvidence || [];
+    var metrics = (o.metrics || []).slice(0, 6).map(function (m) {
+      var v = m.unit === '%' ? m.value + '%' : (m.unit === 'x' ? m.value + '×' : (m.unit === 'points' ? m.value + 'pt' : m.value));
+      return '<div class="metric"><div class="metric-val">' + esc(v) + '</div><div class="metric-name">' + esc(m.name) + '</div></div>';
+    }).join('');
+    var rel = (o.relatedTo || []).filter(function (r) { return byId[r]; });
+    var relHtml = rel.length ? '<div class="related"><span class="axis-label">Related</span> ' + rel.map(function (r) {
+      return '<a href="#' + esc(r) + '">' + esc(byId[r]) + '</a>';
+    }).join('') + '</div>' : '';
+    var bb = o.breadthBasis || {};
+    var flags = '';
+    if (o.contested) flags += '<span class="flag contested">CONTESTED</span>';
+    if (o.stale) flags += '<span class="flag stale">STALE</span>';
+    var freshness = o.newestEvidenceDate ? ('newest evidence ' + fmtDate(o.newestEvidenceDate) +
+      (monthsAgo(o.newestEvidenceDate) != null ? ' · ' + monthsAgo(o.newestEvidenceDate) + 'mo ago' : '')) : '';
+
+    return '<article class="card' + (o.contested ? ' is-contested' : '') + '" id="' + esc(o.id) + '">' +
+      '<div class="card-top">' +
+        '<div class="card-heading"><h3 class="card-title">' + esc(o.title) + '</h3>' +
+        '<div class="card-dates">first seen ' + fmtDate(o.firstSeen) + ' · updated ' + fmtDate(o.lastUpdated) +
+        (freshness ? ' · ' + freshness : '') + '</div></div>' +
+        '<div class="badge-row">' + flags + scoreBadge(o.evidenceScore, 'Evidence') + '</div>' +
+      '</div>' +
+      '<div class="axes">' +
+        '<div class="axis"><span class="axis-label">Study design</span><span class="axis-pips">' + pips(o.evidenceStrength) + '</span><span class="axis-val">' + (o.evidenceStrength || '—') + '/5</span></div>' +
+        '<div class="axis"><span class="axis-label">Corroboration</span><span class="axis-pips">' + pips(o.corroborationBreadth) + '</span><span class="axis-val">' + (o.corroborationBreadth || '—') + '/5</span></div>' +
+      '</div>' +
+      (bb.independentInstitutions ? '<div class="breadth-basis">' + bb.independentInstitutions + ' independent institution' + (bb.independentInstitutions === 1 ? '' : 's') +
+        ' · ' + bb.distinctStudies + ' distinct stud' + (bb.distinctStudies === 1 ? 'y' : 'ies') +
+        ' · ' + bb.tiersRepresented + ' source tier' + (bb.tiersRepresented === 1 ? '' : 's') + '</div>' : '') +
+      '<div class="maturity-track">' + maturityMarkup(o.maturity) + '</div>' +
+      '<div class="tag-row">' + roleTags + dimTags + sizeTag + '</div>' +
+      '<div class="card-summary-short">' + esc(o.shortSummary || '') + '</div>' +
+      (metrics ? '<div class="metrics">' + metrics + '</div>' : '') +
+      '<details class="full-summary"><summary>Read full analysis</summary><div class="card-summary">' + summaryHtml + '</div></details>' +
+      relHtml +
+      '<details class="evidence"><summary>' + ev.length + ' supporting source' + (ev.length === 1 ? '' : 's') + '</summary>' +
+        '<div class="evidence-list">' + ev.map(function (e) { return evidenceRow(e, false); }).join('') + '</div></details>' +
+      (contra.length ? '<details class="contra"><summary>' + contra.length + ' contradicting source' + (contra.length === 1 ? '' : 's') + '</summary>' +
+        '<div class="evidence-list">' + contra.map(function (e) { return evidenceRow(e, true); }).join('') + '</div></details>' : '') +
+    '</article>';
+  }
+
+  /* ---------------- Filtering ---------------- */
+  function passesFilters(o) {
+    if (state.search) {
+      var hay = [o.title, o.summary, o.shortSummary, o.companySize, o.maturity]
+        .concat((o.roleTags || []), (o.dimensionTags || []))
+        .concat(allOf(o).map(function (e) { return [e.sourceName, e.institution, e.whatItShows].join(' '); }))
+        .join(' ').toLowerCase();
+      if (hay.indexOf(state.search.toLowerCase()) === -1) return false;
+    }
+    if (state.roles.size && !(o.roleTags || []).some(function (t) { return state.roles.has(t); })) return false;
+    if (state.dimensions.size && !(o.dimensionTags || []).some(function (t) { return state.dimensions.has(t); })) return false;
+    if (state.maturities.size && !state.maturities.has(o.maturity)) return false;
+    if (state.tiers.size && !allOf(o).some(function (e) { return state.tiers.has(e.sourceTier); })) return false;
+    if ((o.evidenceScore || 0) < state.minScore) return false;
+    if (state.minRel > 0 && !(o.evidence || []).some(function (e) { return (e.reliabilityScore || 0) >= state.minRel; })) return false;
+    if (state.contestedOnly && !o.contested) return false;
+    if (state.staleOnly && !o.stale) return false;
+    return true;
+  }
+  function sortOpportunities(list) {
+    // Legacy/Declining is a terminal state, not the top of the ladder — it sorts
+    // adjacent to its adoption peak rather than above Common/Mainstream.
+    var rank = {};
+    MATURITY_TRACK.forEach(function (m, i) { rank[m] = i; });
+    rank['Legacy/Declining'] = MATURITY_TRACK.length - 0.5;
+    return list.slice().sort(function (a, b) {
+      if (state.sort === 'evidence') return (b.evidenceScore || 0) - (a.evidenceScore || 0);
+      if (state.sort === 'strength') return (b.evidenceStrength || 0) - (a.evidenceStrength || 0);
+      if (state.sort === 'breadth') return (b.corroborationBreadth || 0) - (a.corroborationBreadth || 0);
+      if (state.sort === 'freshness') return (b.newestEvidenceDate || '').localeCompare(a.newestEvidenceDate || '');
+      if (state.sort === 'maturity') return (rank[b.maturity] || 0) - (rank[a.maturity] || 0);
+      if (state.sort === 'title') return a.title.localeCompare(b.title);
+      return (b.lastUpdated || '').localeCompare(a.lastUpdated || '');
+    });
+  }
+
+  function renderList() {
+    var active = DATA.opportunities.filter(function (o) { return o.status !== 'archived_aged_out'; });
+    var filtered = sortOpportunities(active.filter(passesFilters));
+    var listEl = document.getElementById('card-list');
+    var countEl = document.getElementById('results-count');
+
+    if (!active.length) {
+      listEl.innerHTML = '';
+      listEl.appendChild(emptyStateNode());
+      countEl.textContent = '';
+    } else if (!filtered.length) {
+      listEl.innerHTML = '<div class="empty-state"><strong>No matches</strong>Try widening your filters.</div>';
+      countEl.textContent = '0 of ' + active.length + ' opportunities shown';
+    } else {
+      listEl.innerHTML = filtered.map(cardMarkup).join('');
+      countEl.textContent = filtered.length + ' of ' + active.length + ' opportunities shown';
+    }
+    document.getElementById('run-status').textContent = DATA.generatedBy ? esc(DATA.generatedBy) : '';
+
+    var archiveWrap = document.getElementById('archive-wrap');
+    var archived = DATA.archived || [];
+    if (archived.length) {
+      archiveWrap.hidden = false;
+      document.getElementById('archive-summary').textContent = archived.length + ' archived — aged out of the 12-month window';
+      document.getElementById('archive-list').innerHTML = sortOpportunities(archived).map(cardMarkup).join('');
+    } else archiveWrap.hidden = true;
+
+    writeUrl();
+  }
+
+  function emptyStateNode() {
+    var div = document.createElement('div');
+    div.className = 'empty-state';
+    div.innerHTML = '<strong>No opportunities yet</strong>The first research run hasn\'t populated this catalog.';
+    return div;
+  }
+
+  /* ---------------- CSV export ---------------- */
+  function exportCsv() {
+    var active = DATA.opportunities.filter(function (o) { return o.status !== 'archived_aged_out'; });
+    var rows = sortOpportunities(active.filter(passesFilters));
+    var head = ['id','title','evidenceScore','evidenceStrength','corroborationBreadth','maturity','companySize',
+                'contested','stale','independentInstitutions','distinctStudies','tiersRepresented',
+                'newestEvidenceDate','firstSeen','lastUpdated','lastRedTeamed','roleTags','dimensionTags',
+                'supportingSources','contradictingSources','shortSummary'];
+    function q(v) { return '"' + String(v == null ? '' : v).replace(/"/g, '""') + '"'; }
+    var lines = [head.join(',')];
+    rows.forEach(function (o) {
+      var bb = o.breadthBasis || {};
+      lines.push([o.id, o.title, o.evidenceScore, o.evidenceStrength, o.corroborationBreadth, o.maturity,
+        o.companySize, o.contested ? 'yes' : 'no', o.stale ? 'yes' : 'no',
+        bb.independentInstitutions, bb.distinctStudies, bb.tiersRepresented,
+        o.newestEvidenceDate, o.firstSeen, o.lastUpdated, o.lastRedTeamedDate || '',
+        (o.roleTags || []).join('; '), (o.dimensionTags || []).join('; '),
+        (o.evidence || []).length, (o.contradictingEvidence || []).length, o.shortSummary].map(q).join(','));
+    });
+    var blob = new Blob([lines.join('\n')], { type: 'text/csv;charset=utf-8;' });
+    var a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = 'ai-enterprise-it-tracker-' + (DATA.lastRunDate || 'export') + '.csv';
+    document.body.appendChild(a); a.click(); document.body.removeChild(a);
+    URL.revokeObjectURL(a.href);
+  }
+
+  /* ---------------- Multiselects ---------------- */
+  var multis = [];
+  function makeMultiselect(toggleId, panelId, countId, options, store, labelFn) {
+    var toggle = document.getElementById(toggleId), panel = document.getElementById(panelId), count = document.getElementById(countId);
+    panel.innerHTML = options.map(function (t) {
+      return '<label class="ms-option"><input type="checkbox" value="' + esc(t) + '"' + (store.has(t) ? ' checked' : '') + '>' +
+             '<span>' + esc(labelFn ? labelFn(t) : t) + '</span></label>';
+    }).join('');
+    function updateCount() {
+      if (store.size) { count.hidden = false; count.textContent = store.size; }
+      else count.hidden = true;
+    }
+    panel.addEventListener('click', function (e) { e.stopPropagation(); });
+    panel.addEventListener('change', function (e) {
+      if (e.target.checked) store.add(e.target.value); else store.delete(e.target.value);
+      updateCount(); renderList();
+    });
+    toggle.addEventListener('click', function (e) {
+      e.stopPropagation();
+      var open = toggle.getAttribute('aria-expanded') === 'true';
+      closeAllMultiselects();
+      if (!open) { toggle.setAttribute('aria-expanded', 'true'); panel.hidden = false; }
+    });
+    updateCount();
+    multis.push({ toggle: toggle, panel: panel, store: store, updateCount: updateCount });
+  }
+  function closeAllMultiselects() {
+    multis.forEach(function (m) { m.toggle.setAttribute('aria-expanded', 'false'); m.panel.hidden = true; });
+  }
+  function resetMultiselects() {
+    multis.forEach(function (m) {
+      m.store.clear();
+      m.panel.querySelectorAll('input[type=checkbox]').forEach(function (c) { c.checked = false; });
+      m.updateCount();
+    });
+  }
+  document.addEventListener('click', function () { closeAllMultiselects(); });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeAllMultiselects(); });
+
+  function positionFilterBar() {
+    var masthead = document.querySelector('header.masthead');
+    var bar = document.getElementById('filter-bar-wrap');
+    if (masthead && bar) bar.style.top = masthead.offsetHeight + 'px';
+  }
+  window.addEventListener('resize', positionFilterBar);
+
+  /* ---------------- Init ---------------- */
+  function init() {
+    readUrl();
+    renderMeta();
+    renderWhatsNew();
+    renderHeatmap();
+    renderTimeline();
+
+    makeMultiselect('role-toggle', 'role-panel', 'role-count', RUBRIC.roleTags, state.roles);
+    makeMultiselect('dimension-toggle', 'dimension-panel', 'dimension-count', RUBRIC.dimensionTags, state.dimensions);
+    makeMultiselect('maturity-toggle', 'maturity-panel', 'maturity-count', RUBRIC.maturityLadder, state.maturities);
+    makeMultiselect('tier-toggle', 'tier-panel', 'tier-count', TIER_KEYS, state.tiers, function (k) { return TIER_LABELS[k]; });
+
+    var si = document.getElementById('search-input');
+    si.value = state.search;
+    si.addEventListener('input', function (e) { state.search = e.target.value; renderList(); });
+
+    var ms = document.getElementById('min-score-select');
+    ms.value = String(state.minScore);
+    ms.addEventListener('change', function (e) { state.minScore = parseInt(e.target.value, 10); renderList(); });
+
+    var mr = document.getElementById('min-rel-select');
+    mr.value = String(state.minRel);
+    mr.addEventListener('change', function (e) { state.minRel = parseInt(e.target.value, 10); renderList(); });
+
+    var ss = document.getElementById('sort-select');
+    ss.value = state.sort;
+    ss.addEventListener('change', function (e) { state.sort = e.target.value; renderList(); });
+
+    var ct = document.getElementById('contested-toggle');
+    ct.setAttribute('aria-pressed', String(state.contestedOnly));
+    ct.addEventListener('click', function () {
+      state.contestedOnly = !state.contestedOnly;
+      ct.setAttribute('aria-pressed', String(state.contestedOnly));
+      renderList();
+    });
+    var st = document.getElementById('stale-toggle');
+    st.setAttribute('aria-pressed', String(state.staleOnly));
+    st.addEventListener('click', function () {
+      state.staleOnly = !state.staleOnly;
+      st.setAttribute('aria-pressed', String(state.staleOnly));
+      renderList();
+    });
+
+    document.getElementById('export-csv').addEventListener('click', exportCsv);
+    document.getElementById('reset-filters').addEventListener('click', function () {
+      state.search = ''; state.minScore = 1; state.minRel = 0; state.sort = 'updated';
+      state.contestedOnly = false; state.staleOnly = false;
+      si.value = ''; ms.value = '1'; mr.value = '0'; ss.value = 'updated';
+      ct.setAttribute('aria-pressed', 'false'); st.setAttribute('aria-pressed', 'false');
+      resetMultiselects();
+      renderList();
+    });
+
+    positionFilterBar();
+    window.addEventListener('load', positionFilterBar);
+    renderList();
+  }
+
+  init();
+})();
+</script>
