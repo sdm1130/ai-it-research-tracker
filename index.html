@@ -3,6 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light">
 <meta name="description" content="A living catalog of how AI is reshaping enterprise IT roles, team structures, and operating models — scored for study design and independent corroboration.">
 <title>Enterprise IT Organization Effectiveness — AI Research Tracker</title>
 <style>
@@ -43,56 +44,21 @@
     --font-mono: ui-monospace, "SF Mono", "Cascadia Mono", "Roboto Mono", Menlo, Consolas, monospace;
   }
 
-  /* Theme resolution, in precedence order:
-       1. An explicit data-theme stamp always wins — inside the Artifact host that is
-          the viewer's toggle; the :not([data-theme]) guard below makes the stamp beat
-          the OS preference in BOTH directions.
-       2. Otherwise follow the OS preference. This matters on the standalone GitHub
-          Pages copy, where nothing stamps data-theme and dark mode would otherwise
-          be permanently unreachable. */
-  @media (prefers-color-scheme: dark) {
-    :root:where(:not([data-theme])) {
-      color-scheme: dark;
-      --paper: #14171a; --paper-raised: #1b1f23; --paper-sunken: #101315;
-      --ink: #e9ece7; --ink-muted: #9ba39a; --ink-faint: #6d746c;
-      --line: #2b302e; --line-strong: #383e3b;
-      --accent: #8bb0dd; --accent-ink: #cfe0f2; --accent-soft: rgba(139,176,221,0.12);
-      --amber: #d79a52; --amber-soft: rgba(215,154,82,0.14);
-      --score-1: #d96257; --score-2: #db9a5c; --score-3: #d4b85a; --score-4: #7fb374; --score-5: #4fa377;
-      --score-1-soft: rgba(217,98,87,0.14); --score-2-soft: rgba(219,154,92,0.14); --score-3-soft: rgba(212,184,90,0.14);
-      --score-4-soft: rgba(127,179,116,0.14); --score-5-soft: rgba(79,163,119,0.14);
-      --seq-1: #1e2933; --seq-2: #294053; --seq-3: #3a6084; --seq-4: #5686b3; --seq-5: #8bb0dd;
-      --seq-on-dark: #e9ece7;
-      --shadow: 0 1px 2px rgba(0,0,0,0.3), 0 6px 24px rgba(0,0,0,0.35);
-    }
-  }
-  :root[data-theme="dark"] {
-    color-scheme: dark;
-    --paper: #14171a; --paper-raised: #1b1f23; --paper-sunken: #101315;
-    --ink: #e9ece7; --ink-muted: #9ba39a; --ink-faint: #6d746c;
-    --line: #2b302e; --line-strong: #383e3b;
-    --accent: #8bb0dd; --accent-ink: #cfe0f2; --accent-soft: rgba(139,176,221,0.12);
-    --amber: #d79a52; --amber-soft: rgba(215,154,82,0.14);
-    --score-1: #d96257; --score-2: #db9a5c; --score-3: #d4b85a; --score-4: #7fb374; --score-5: #4fa377;
-    --score-1-soft: rgba(217,98,87,0.14); --score-2-soft: rgba(219,154,92,0.14); --score-3-soft: rgba(212,184,90,0.14);
-    --score-4-soft: rgba(127,179,116,0.14); --score-5-soft: rgba(79,163,119,0.14);
-    --seq-1: #1e2933; --seq-2: #294053; --seq-3: #3a6084; --seq-4: #5686b3; --seq-5: #8bb0dd;
-    --seq-on-dark: #e9ece7;
-    --shadow: 0 1px 2px rgba(0,0,0,0.3), 0 6px 24px rgba(0,0,0,0.35);
-  }
-  :root[data-theme="light"] {
-    color-scheme: light;
-    --paper: #eff1ec; --paper-raised: #ffffff; --paper-sunken: #e6e9e2;
-    --ink: #1b1f1d; --ink-muted: #5b625c; --ink-faint: #8b9189;
-    --line: #d8dcd5; --line-strong: #c3c8bd;
-    --accent: #2a4b6b; --accent-ink: #1d3549; --accent-soft: #e4eaf0;
-    --amber: #b8752a; --amber-soft: #f3e6d3;
-    --score-1: #b3483f; --score-2: #c07a3e; --score-3: #b79a3b; --score-4: #5c8c52; --score-5: #2f7a55;
-    --score-1-soft: #f4e2df; --score-2-soft: #f3e6d6; --score-3-soft: #f0ead1; --score-4-soft: #e2ecdf; --score-5-soft: #dceae2;
-    --seq-1: #e8eef4; --seq-2: #bed2e3; --seq-3: #8aabc9; --seq-4: #537fa8; --seq-5: #2a4b6b;
-    --seq-on-dark: #1b1f1d;
-    --shadow: 0 1px 2px rgba(27,31,29,0.06), 0 6px 20px rgba(27,31,29,0.05);
-  }
+  /* SINGLE-THEME BY DELIBERATE CHOICE — this page is always light, in both the
+     Artifact host and the standalone GitHub Pages copy. Do not reintroduce dark
+     tokens without being asked.
+
+     Three things enforce that, and all three are load-bearing:
+       1. No @media (prefers-color-scheme: dark) block, so the visitor's OS setting
+          is ignored on the standalone copy.
+       2. No :root[data-theme="dark"] overrides, so the Artifact host's theme toggle
+          cannot repaint the palette.
+       3. color-scheme is !important because the host's frame runtime assigns
+          documentElement.style.colorScheme INLINE when the viewer toggles. Author
+          !important is the only thing that beats an inline style — without it the
+          page would keep light tokens but render dark native scrollbars, form
+          controls and date pickers, which looks like a bug rather than a choice. */
+  :root { color-scheme: light !important; }
 
   * { box-sizing: border-box; }
   html, body { margin: 0; padding: 0; }
