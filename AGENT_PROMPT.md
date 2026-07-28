@@ -113,10 +113,11 @@ Run this on **every** run, including one that found nothing new — the mirror m
 
 ### Credentials
 
-The script finds credentials in this order, and never prints the value:
+The script finds credentials in this order, and never prints a token value:
 
-1. **`GH_TOKEN` or `GITHUB_TOKEN`** — a fine-grained PAT scoped to `sdm1130/ai-it-research-tracker` with `Contents: Read and write`. This is the path a scheduled cloud run uses, since it cannot reach the local `gh` keyring.
-2. **The `gh` CLI** — used by local runs.
+1. **Git clone credentials** — when the working directory is a clone of `sdm1130/ai-it-research-tracker`. **This is the path scheduled cloud runs take:** the routine declares the repo as a git source, so the sandbox clones it with push credentials already attached. **No token is required or configured** — do not add one. It commits `index.html` plus `data/`, `site/`, `rubric.md` and `AGENT_PROMPT.md`, then pushes to `main`.
+2. **`GH_TOKEN` / `GITHUB_TOKEN`** — a fine-grained PAT (`Contents: Read and write` on that one repo). Only needed if you are running somewhere that is neither a clone nor `gh`-authenticated.
+3. **The `gh` CLI** — used by local runs on Steve's machine, which is not a clone.
 
 ### Act on the exit code — do not ignore it
 

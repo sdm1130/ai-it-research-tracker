@@ -40,7 +40,11 @@ Because cloud runs can't write here, local `data/` **will** drift from the publi
 
 `site/artifact.html` is a **fragment** (starts at `<title>`; the Artifact host supplies `<!doctype>`, `<html>`, `<head>`, viewport). `site/publish_pages.py` adds that wrapper for the Pages copy — never `cp` the file across, or the site renders in quirks mode with no viewport tag.
 
-`publish_pages.py` authenticates from `GH_TOKEN`/`GITHUB_TOKEN` if set (the scheduled-cloud-run path — a fine-grained PAT needs exactly `Contents: Read and write` on this one repo, nothing else), otherwise from the local `gh` CLI. It never prints the token.
+**The GitHub repo is now the pipeline's source of truth**, not just a publishing target. It contains `AGENT_PROMPT.md`, `rubric.md`, `data/`, and `site/` alongside the built `index.html`. The scheduled routine clones it and follows `AGENT_PROMPT.md` from there, so editing `rubric.md` changes automation behavior without touching the schedule. The routine's prompt used to carry the whole process inline, which is how it silently drifted a full major version behind.
+
+This machine's `/Users/steve/Claude/ai_research` is **not** a clone, so it will drift from the repo whenever a cloud run commits. Reconcile by pulling the repo's `data/` and `rubric.md` before doing local work.
+
+`publish_pages.py` picks credentials in order: **git clone credentials** (the cloud-run path — the sandbox clones with push access, so *no token is needed or configured*), then `GH_TOKEN`/`GITHUB_TOKEN`, then the local `gh` CLI. It never prints a token.
 
 Exit codes are contractual and `AGENT_PROMPT.md` §5b depends on them: **0** published or unchanged, **3** no credentials (skip, report mirror stale — not an error), **1** real failure such as an expired token (report loudly). `--check-auth` verifies credentials without writing.
 
