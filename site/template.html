@@ -131,6 +131,12 @@
     background: var(--paper-raised);
     border-bottom: 1px solid var(--line);
   }
+
+  /* The filter controls live inside a <details>. On desktop the disclosure is
+     forced open and its summary hidden, so the bar behaves exactly as before.
+     On narrow screens the summary becomes a compact one-line control and the
+     whole block collapses — see the small-screen section at the end. */
+  .filter-summary { display: none; }
   .filter-bar {
     max-width: 1320px;
     margin: 0 auto;
@@ -604,15 +610,52 @@
   @media (max-width: 680px) {
     body { overflow-x: hidden; }
 
-    .masthead-inner { padding: 16px 16px 12px; gap: 10px; }
-    h1 { font-size: 21px; }
+    /* The masthead SCROLLS AWAY on phones. Sticky, it cost ~163px — a 3-line
+       title plus kicker plus a 2-line meta row — before any content appeared.
+       Only the compact filter summary stays pinned. */
+    header.masthead { position: static; }
+    .masthead-inner { padding: 14px 16px 10px; gap: 8px; }
+    h1 { font-size: 19px; line-height: 1.25; }
+    .kicker { display: none; }
     .masthead-sub { display: none; }
-    .masthead-meta { font-size: 12px; gap: 12px; }
+    .masthead-meta { font-size: 11.5px; gap: 10px; }
 
-    .filter-bar { padding: 10px 16px; gap: 8px; }
+    /* Collapsed by default: one ~44px row instead of ~203px of wrapped controls. */
+    .filter-summary {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 16px;
+      cursor: pointer;
+      list-style: none;
+      font-family: var(--font-mono);
+      font-size: 13px;
+      color: var(--ink);
+      min-height: 44px;               /* comfortable touch target */
+      user-select: none;
+    }
+    .filter-summary::-webkit-details-marker { display: none; }
+    .filter-summary::before {
+      content: "▸";
+      color: var(--ink-faint);
+      font-size: 11px;
+      width: 10px;
+    }
+    .filter-disclosure[open] > .filter-summary::before { content: "▾"; }
+    .filter-disclosure[open] > .filter-summary { border-bottom: 1px solid var(--line); }
+    .fs-state { margin-left: auto; color: var(--ink-muted); font-size: 12px; }
+    .fs-state.active { color: var(--accent); font-weight: 700; }
+
+    .filter-bar { padding: 12px 16px; gap: 8px; }
     .search-input { width: 100%; }
     .bar-spacer { margin-left: 0; }
     .legend-bar { display: none; }
+
+    /* Full-width rows so controls stop wrapping into ragged columns. */
+    .filter-bar .multiselect, .filter-bar .bar-select,
+    .filter-bar .multiselect-toggle, .filter-bar .bar-toggle { width: 100%; }
+    .filter-bar .multiselect-toggle { justify-content: space-between; }
+    .multiselect-panel { left: 0; right: 0; min-width: 0; }
 
     main.content { padding: 16px 16px 60px; }
     details.panel { padding: 12px 14px; }
@@ -646,6 +689,11 @@
 </header>
 
 <div class="filter-bar-wrap" id="filter-bar-wrap">
+  <details class="filter-disclosure" id="filter-disclosure">
+    <summary class="filter-summary" id="filter-summary">
+      <span class="fs-label">Filters &amp; sort</span>
+      <span class="fs-state" id="filter-summary-state"></span>
+    </summary>
   <div class="filter-bar" aria-label="Filters">
     <input type="text" class="search-input" id="search-input" placeholder="Search title, summary, sources…" aria-label="Search opportunities" />
 
@@ -709,6 +757,7 @@
     <span class="legend-row"><span class="legend-swatch" style="background: var(--score-3)"></span>3 survey-grade / narrow</span>
     <span class="legend-row"><span class="legend-swatch" style="background: var(--score-2)"></span>2 expert POV only</span>
   </div>
+  </details>
 </div>
 
 <main id="main" class="content">
@@ -1092,6 +1141,7 @@ __OPPORTUNITIES_SNAPSHOT__
       listEl.innerHTML = filtered.map(cardMarkup).join('');
       countEl.textContent = filtered.length + ' of ' + active.length + ' opportunities shown';
     }
+    renderFilterSummary(filtered.length, active.length);
     document.getElementById('run-status').textContent = DATA.generatedBy ? esc(DATA.generatedBy) : '';
 
     var archiveWrap = document.getElementById('archive-wrap');
@@ -1178,12 +1228,48 @@ __OPPORTUNITIES_SNAPSHOT__
   document.addEventListener('click', function () { closeAllMultiselects(); });
   document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeAllMultiselects(); });
 
+  var MOBILE = '(max-width: 680px)';
+  function isMobile() { return window.matchMedia(MOBILE).matches; }
+
   function positionFilterBar() {
     var masthead = document.querySelector('header.masthead');
     var bar = document.getElementById('filter-bar-wrap');
-    if (masthead && bar) bar.style.top = masthead.offsetHeight + 'px';
+    if (!masthead || !bar) return;
+    // On phones the masthead is static and scrolls away, so the filter bar pins
+    // to the very top. On desktop it pins below the sticky masthead.
+    bar.style.top = isMobile() ? '0px' : masthead.offsetHeight + 'px';
   }
   window.addEventListener('resize', positionFilterBar);
+
+  /* The filter block is a <details>. Desktop must always be open (its summary is
+     hidden by CSS, so a closed disclosure there would strand the controls with no
+     way to reopen them). Mobile keeps whatever the user chose, defaulting closed. */
+  var userToggledFilters = false;
+  function syncFilterDisclosure() {
+    var d = document.getElementById('filter-disclosure');
+    if (!d) return;
+    if (!isMobile()) d.open = true;
+    else if (!userToggledFilters) d.open = false;
+  }
+
+  function activeFilterCount() {
+    var n = state.roles.size + state.dimensions.size + state.maturities.size + state.tiers.size;
+    if (state.search) n++;
+    if (state.minScore > 1) n++;
+    if (state.minRel > 0) n++;
+    if (state.contestedOnly) n++;
+    if (state.staleOnly) n++;
+    return n;
+  }
+  function renderFilterSummary(shown, total) {
+    var el = document.getElementById('filter-summary-state');
+    if (!el) return;
+    var n = activeFilterCount();
+    el.className = 'fs-state' + (n ? ' active' : '');
+    el.textContent = n
+      ? n + ' active · ' + shown + '/' + total
+      : (total ? shown + ' shown' : '');
+  }
 
   /* ---------------- Init ---------------- */
   function init() {
@@ -1239,7 +1325,22 @@ __OPPORTUNITIES_SNAPSHOT__
       renderList();
     });
 
+    var fd = document.getElementById('filter-disclosure');
+    if (fd) {
+      fd.addEventListener('toggle', function () {
+        if (isMobile()) userToggledFilters = true;
+        positionFilterBar();
+      });
+    }
+    syncFilterDisclosure();
+    window.matchMedia(MOBILE).addEventListener('change', function () {
+      userToggledFilters = false;
+      syncFilterDisclosure();
+      positionFilterBar();
+    });
+
     positionFilterBar();
+    window.addEventListener('resize', syncFilterDisclosure);
     window.addEventListener('load', positionFilterBar);
     renderList();
   }
