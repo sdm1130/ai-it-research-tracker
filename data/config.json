@@ -10,8 +10,8 @@
   "pagesPublishScope": "every run — uses GH_TOKEN/GITHUB_TOKEN if set (scheduled cloud runs), else the local gh CLI",
   "pagesLastPublished": "2026-07-29",
   "schemaVersion": 2,
-  "lastRunDate": "2026-07-28",
-  "lastRunStatus": "schema v2 migration: two-axis scoring (study design x independent corroboration), all 25 opportunities rescored from existing evidence, red-team pass on the 11 top-tier items, lossless rubric/sources embedding, coverage heatmap + evidence timeline added",
+  "lastRunDate": "2026-08-03",
+  "lastRunStatus": "Weekly research run: 6 new evidence rows admitted across 4 opportunities (Census Bureau BTOS microdata x2, Gartner CHRO survey, Federal Reserve Board FEDS Note, arXiv RCT). One red-team score downgrade: coding-productivity-gains-attenuate-at-shipping 5→4 (Shen & Tamkin RCT contradicts). entry-level-hiring-contraction-mixed-evidence and genai-adoption-plateau-scaling-gap gained corroboration/breadth with no headline score change; ai-productivity-reallocated-not-cut gained corroboration (already at 4 from a prior-run contradiction downgrade, unchanged this run). Two oversized summaries (genai-adoption-plateau-scaling-gap, entry-level-hiring-contraction-mixed-evidence) were rewritten back under the 4-paragraph cap while merging in new evidence. Product Management, QA/Test Engineering, and Data Engineering searched per the coverage mandate but no qualifying (reliability ≥3, disclosed methodology) founding evidence found this run.",
   "pagesTokenPermissions": "fine-grained PAT, repository access limited to sdm1130/ai-it-research-tracker, Contents: Read and write (Metadata: Read-only is added automatically). Nothing else required: main has no branch protection or rulesets, and Pages is build_type=legacy on main:/ so it rebuilds on push.",
   "pagesPublishExitCodes": {
     "0": "published or unchanged",
