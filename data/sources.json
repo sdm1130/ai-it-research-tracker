@@ -23,9 +23,9 @@
           ],
           "note": "BTOS is the only large-sample, firm-level, biweekly US measurement of ACTUAL AI adoption (as opposed to stated intentions). Prioritise it — the catalog is otherwise heavy on intentions surveys. Firm-level microdata supports evidenceStrength 5.",
           "tracking": {
-            "lastSearched": "2026-08-03",
+            "lastSearched": "2026-08-10",
             "lastYield": "2026-08-03",
-            "consecutiveEmptyRuns": 0
+            "consecutiveEmptyRuns": 1
           }
         },
         {
@@ -34,9 +34,9 @@
             "federalreserve.gov"
           ],
           "tracking": {
-            "lastSearched": "2026-08-03",
+            "lastSearched": "2026-08-10",
             "lastYield": "2026-08-03",
-            "consecutiveEmptyRuns": 0
+            "consecutiveEmptyRuns": 1
           }
         },
         {
@@ -115,9 +115,9 @@
             "gao.gov"
           ],
           "tracking": {
-            "lastSearched": null,
+            "lastSearched": "2026-08-10",
             "lastYield": "2026-04-13",
-            "consecutiveEmptyRuns": 0
+            "consecutiveEmptyRuns": 1
           }
         },
         {
@@ -128,9 +128,9 @@
             "oecd.ai"
           ],
           "tracking": {
-            "lastSearched": null,
+            "lastSearched": "2026-08-10",
             "lastYield": null,
-            "consecutiveEmptyRuns": 0
+            "consecutiveEmptyRuns": 1
           }
         },
         {
@@ -190,9 +190,9 @@
           ],
           "note": "The research center dedicated specifically to enterprise IT org design and operating models — the closest institutional fit to this catalog's exact topic. Prioritise alongside Census BTOS.",
           "tracking": {
-            "lastSearched": "2026-08-03",
-            "lastYield": null,
-            "consecutiveEmptyRuns": 1
+            "lastSearched": "2026-08-10",
+            "lastYield": "2026-08-10",
+            "consecutiveEmptyRuns": 0
           }
         },
         {
@@ -248,9 +248,9 @@
             "hbr.org"
           ],
           "tracking": {
-            "lastSearched": "2026-08-03",
+            "lastSearched": "2026-08-10",
             "lastYield": null,
-            "consecutiveEmptyRuns": 1
+            "consecutiveEmptyRuns": 2
           }
         },
         {
@@ -272,9 +272,9 @@
             "nber.org"
           ],
           "tracking": {
-            "lastSearched": "2026-08-03",
+            "lastSearched": "2026-08-10",
             "lastYield": "2026-05-01",
-            "consecutiveEmptyRuns": 1
+            "consecutiveEmptyRuns": 2
           }
         },
         {
@@ -311,9 +311,9 @@
             "mckinsey.com"
           ],
           "tracking": {
-            "lastSearched": "2026-08-03",
+            "lastSearched": "2026-08-10",
             "lastYield": null,
-            "consecutiveEmptyRuns": 1
+            "consecutiveEmptyRuns": 2
           }
         },
         {
@@ -322,9 +322,9 @@
             "bcg.com"
           ],
           "tracking": {
-            "lastSearched": "2026-08-03",
+            "lastSearched": "2026-08-10",
             "lastYield": "2026-04-03",
-            "consecutiveEmptyRuns": 1
+            "consecutiveEmptyRuns": 2
           }
         },
         {
@@ -344,9 +344,9 @@
             "deloitte.com"
           ],
           "tracking": {
-            "lastSearched": "2026-08-03",
+            "lastSearched": "2026-08-10",
             "lastYield": "2026-04-24",
-            "consecutiveEmptyRuns": 1
+            "consecutiveEmptyRuns": 2
           }
         },
         {
@@ -355,9 +355,9 @@
             "pwc.com"
           ],
           "tracking": {
-            "lastSearched": "2026-08-03",
+            "lastSearched": "2026-08-10",
             "lastYield": null,
-            "consecutiveEmptyRuns": 1
+            "consecutiveEmptyRuns": 2
           }
         },
         {
@@ -366,9 +366,9 @@
             "ey.com"
           ],
           "tracking": {
-            "lastSearched": "2026-08-03",
+            "lastSearched": "2026-08-10",
             "lastYield": "2026-03-04",
-            "consecutiveEmptyRuns": 1
+            "consecutiveEmptyRuns": 2
           }
         },
         {
@@ -394,8 +394,8 @@
             "gartner.com"
           ],
           "tracking": {
-            "lastSearched": "2026-08-03",
-            "lastYield": "2026-08-03",
+            "lastSearched": "2026-08-10",
+            "lastYield": "2026-08-10",
             "consecutiveEmptyRuns": 0
           }
         },
@@ -405,9 +405,9 @@
             "forrester.com"
           ],
           "tracking": {
-            "lastSearched": "2026-08-03",
+            "lastSearched": "2026-08-10",
             "lastYield": "2026-06-03",
-            "consecutiveEmptyRuns": 1
+            "consecutiveEmptyRuns": 2
           }
         },
         {
@@ -416,9 +416,9 @@
             "idc.com"
           ],
           "tracking": {
-            "lastSearched": "2026-08-03",
+            "lastSearched": "2026-08-10",
             "lastYield": null,
-            "consecutiveEmptyRuns": 1
+            "consecutiveEmptyRuns": 2
           }
         }
       ],
