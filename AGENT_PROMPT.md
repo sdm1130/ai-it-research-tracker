@@ -103,11 +103,26 @@ Publish via the `Artifact` tool:
 A public standalone copy is served at **https://sdm1130.github.io/ai-it-research-tracker/** from `sdm1130/ai-it-research-tracker` (`main` branch, root, file `index.html`).
 
 ```bash
-python3 site/build.py          # regenerate site/artifact.html first
-python3 site/publish_pages.py  # wrap + push
+python3 site/build.py             # regenerate site/artifact.html first
+python3 site/publish_pages.py     # wrap + push  (NO --dry-run)
+python3 site/publish_pages.py --verify   # assert the live mirror really moved
 ```
 
 Run this on **every** run, including one that found nothing new — the mirror may be several runs behind. The script is a no-op when content is unchanged, so it is always safe to call.
+
+### You will be on a branch that is not `main`. Publish anyway.
+
+A scheduled cloud run is checked out on a generated branch (`claude/…`), because the routine declares the repo as a git source. **This is normal and it does not mean publishing is restricted.** GitHub Pages serves `main:/index.html`, so `publish_pages.py` deliberately pushes `HEAD:main` regardless of the branch you are on. **Pushing to `main` is the intended, authorized outcome of every run** — it is the entire purpose of the job, not a side effect to be cautious about.
+
+Concretely:
+
+- **Never** substitute `--dry-run` for the real publish. It writes a local preview and pushes nothing.
+- **Never** stop at pushing your working branch and leave it for a human to merge. No one merges it; the public site just goes stale.
+- `--check-auth` prints your current branch for information only. It is **not** a push target and not a restriction.
+
+> This exact mistake happened on 2026-08-10: the run did the full research correctly, committed to `claude/brave-carson-xx678v`, then read `--check-auth`, concluded from the branch name that it must not push to `main`, and ran `--dry-run`. It reported success. The public site sat a week stale and the research never reached `main` until a human recovered it by hand.
+
+**Finish by running `python3 site/publish_pages.py --verify`.** It compares the live `origin/main:index.html` against the page your checkout builds and exits non-zero if they differ. Exit 0 is the only thing that entitles you to report the mirror as updated — do not infer it from an earlier command appearing to succeed.
 
 `site/artifact.html` is a **fragment** — it starts at `<title>` because the Artifact host supplies `<!doctype>`, `<html>`, `<head>` and the viewport meta. `publish_pages.py` adds that wrapper; copying the file across verbatim would render in quirks mode with no viewport tag and break mobile layout. **Never `cp` it directly.**
 
@@ -127,7 +142,9 @@ The script finds credentials in this order, and never prints a token value:
 | **3** | No credentials found | **Not an error.** Skip the mirror and state plainly in your §7 report that the GitHub Pages copy is now **stale** and needs a run with credentials to catch up. |
 | **1** | Real failure — expired/invalid token, missing permission, network | **Report it loudly and prominently in §7.** A token expiry is the likeliest cause and it will otherwise fail silently every week while the public site quietly rots. Quote the script's error message verbatim so the fix is obvious. |
 
-Never report the mirror as updated unless the script exited 0. `python3 site/publish_pages.py --check-auth` verifies credentials and permissions without changing anything.
+Never report the mirror as updated unless the script exited 0 **and** `--verify` also exited 0. `python3 site/publish_pages.py --check-auth` verifies credentials and permissions without changing anything.
+
+There is no exit code for "I chose not to publish." If you skip the publish for any reason other than exit 3, you have broken the job — say so explicitly in §7 rather than reporting a successful run.
 
 ## 6. Write the audit trail
 

@@ -48,6 +48,10 @@ This machine's `/Users/steve/Claude/ai_research` is **not** a clone, so it will 
 
 Exit codes are contractual and `AGENT_PROMPT.md` §5b depends on them: **0** published or unchanged, **3** no credentials (skip, report mirror stale — not an error), **1** real failure such as an expired token (report loudly). `--check-auth` verifies credentials without writing.
 
+**`publish_pages.py` always pushes `HEAD:main`, whatever branch you are on — and that is correct.** Scheduled cloud runs are checked out on a generated `claude/…` branch because the routine declares the repo as a git source. That branch is not a restriction and not a push target. On 2026-08-10 a run misread `--check-auth`'s branch line as a prohibition, published with `--dry-run` (which pushes nothing), and reported success; the public site went stale for four days while the Artifact stayed current. Pushing to `main` **is** the job. Never substitute `--dry-run`, and never leave the work on a branch expecting someone to merge it.
+
+Because a `--dry-run` also exits 0, exit codes alone cannot prove the mirror moved. `--verify` compares live `origin/main:index.html` against the page the checkout builds and exits non-zero on drift; §5b requires it as the last step of every run. The general failure it guards against: the pipeline used to verify *that a command ran*, never *that the world changed*.
+
 Because the Pages repo is public, everything embedded in the page — including the verbatim rubric and source allowlist — is public.
 
 ## Scoring model (schema v2)
