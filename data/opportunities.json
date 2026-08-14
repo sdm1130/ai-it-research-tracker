@@ -1,7 +1,7 @@
 {
   "_readme": "Canonical living catalog of 'opportunities'. Schema documented alongside; see AGENT_PROMPT.md and rubric.md. This local file mirrors what is embedded in the published Artifact. Each opportunity has both 'shortSummary' (~2 plain sentences, always shown on the card) and 'summary' (multi-paragraph analyst-memo text, shown on click-to-expand) — keep both in sync when an opportunity's evidence changes.",
   "generatedBy": "weekly research update (scheduled run)",
-  "lastRunDate": "2026-08-10",
+  "lastRunDate": "2026-08-14",
   "opportunities": [
     {
       "id": "agentic-ai-governance-outpaces-readiness",
@@ -371,7 +371,7 @@
           "contradicts": "Directly cuts against this opportunity's central claim that AI gains are reinvested rather than driving headcount reduction — EY's cited figure is 17% reducing headcount, this asserts 80%+. Note: Deloitte discloses no methodology or sample for either figure, so per rubric 3 it scores reliability 2 and per 4e does NOT move the score; it is recorded and flags the finding as contested."
         }
       ],
-      "lastRedTeamedDate": "2026-07-28",
+      "lastRedTeamedDate": "2026-08-14",
       "companySize": "Cross-size / Unspecified",
       "newestEvidenceDate": "2026-04-03",
       "stale": false,
@@ -730,7 +730,8 @@
       "stale": false,
       "relatedTo": [
         "ai-automates-tier1-security-operations",
-        "entry-level-hiring-contraction-mixed-evidence"
+        "entry-level-hiring-contraction-mixed-evidence",
+        "help-desk-tiered-support-flattens-agentic-automation"
       ],
       "metrics": [
         {
@@ -891,7 +892,7 @@
       "previousEvidenceScore": 5,
       "contested": false,
       "contradictingEvidence": [],
-      "lastRedTeamedDate": "2026-07-28",
+      "lastRedTeamedDate": "2026-08-14",
       "companySize": "Large Enterprise",
       "newestEvidenceDate": "2026-06-01",
       "stale": false,
@@ -1024,7 +1025,7 @@
           "contradicts": "A causally-identified RCT finding the productivity-gain premise itself does not hold in a skill-acquisition setting — a more fundamental disconfirmation than the downstream attenuation this opportunity documents, though on a different population (novices learning a new library) than NBER's experienced-developer production data. Reliability 3 (preprint ceiling) clears the ≥3 threshold; contradicting strength (4) is below the supporting trail's (5), so this applies a -1 downgrade per rubric 4e."
         }
       ],
-      "lastRedTeamedDate": "2026-08-03",
+      "lastRedTeamedDate": "2026-08-14",
       "companySize": "Cross-size / Unspecified",
       "newestEvidenceDate": "2026-05-22",
       "stale": false,
@@ -1279,7 +1280,7 @@
     {
       "id": "ai-spine-cross-functional-operating-model",
       "title": "Cross-Functional \"AI Spine\" Operating Models Outperform Siloed Pilots and Centralized COEs for Scaling GenAI",
-      "summary": "A three-year MIT Sloan Management Review field study (Schmitt, Vial, and Blohm; 23 Swiss companies across banking, insurance, energy, law, and manufacturing; 87 in-depth interviews plus 10+ consortium workshops) identifies a specific structural pattern that distinguishes organizations that successfully scale generative AI from those that stall at pilot stage. Rather than a traditional centralized Center of Excellence or fully decentralized team-by-team experimentation, high performers build an \"AI spine\": a flexible, cross-functional core structure connecting business-unit users, domain experts, and technical teams to a shared technical backbone for implementing, evolving, and — critically — abandoning LLM use cases.\n\nThe study identifies three behaviors separating spine-model adopters from laggards: broadening scope (expanding use cases across whole processes rather than isolated tasks), treating deployment as continuous work rather than a one-time rollout, and quickly killing underperforming use cases rather than letting them linger. This moves beyond the traditional hub-and-spoke governance model by enabling lateral sharing of ideas across business units.\n\nFor org-design purposes, this is a specific, evidence-backed alternative to both the \"AI Center of Excellence\" and \"every team for itself\" models that dominate current enterprise IT operating-model conversations, though as a single (if rigorous) multi-year study, it should be treated as emerging rather than proven pending independent replication.\n\nWhat was a single-study thesis has been substantially corroborated this run by four independent sources converging on the same 'operating-model redesign beats tool deployment' conclusion. A WEF community paper drawing on 20+ technology firms documents concrete, quantified cases — $120M in surfaced savings from AI-assisted tax analysis, 30,000 annual hours saved from a redesigned lab-ordering workflow — that only materialized after workflow, governance, and workforce-readiness redesign, not from tool rollout alone. A separate WEF survey of 450+ executives independently derives five near-identical enabling principles, centered on end-to-end operating-model redesign and scalable talent systems. Wipro/HFS Research (via WEF) finds fewer than one-fifth of enterprises have embedded AI enterprise-wide, blaming outdated operating models as the primary ROI blocker. And BCG's 1,250-executive global study finds nearly two-thirds of agentic AI leaders expect operating-model change, with 58% of leading organizations anticipating governance and decision-rights changes specifically.\n\nWith the original MIT Sloan field study now joined by two independent WEF research efforts and a large BCG executive survey, this moves from an emerging, single-study thesis to a well-corroborated growing-adoption pattern: cross-functional, redesigned operating models — not centralized COEs, not isolated pilots — are what the evidence base as a whole now points to as the differentiator for scaling AI value.\n\nA July 2026 Harvard Business Review piece adds a complementary practitioner framing: decades of decomposing firms into agile teams, business units, and platforms made recombination — not further decomposition — the binding constraint under AI-driven demand for rapid capability redeployment. It proposes treating recombination as a measurable organizational capability, standardizing governance and technical interfaces together, and pushing integration authority to the front line, which lines up closely with the 'AI spine' cross-functional core this catalog entry already documents, though as an unreferenced framework piece it does not carry its own empirical weight.\n\nTwo further 2025-2026 sources reinforce the operating-model-redesign thesis from different angles. McKinsey's \"agentic organization\" framework proposes five organizational pillars for the agentic era — business model, operating model, governance, workforce, and technology/data — and describes governance shifting to real-time, embedded \"critic/guardrail/compliance\" agents alongside human teams of two to five people supervising 50 to 100 specialized agents per process. A separate WEF analysis argues that layering AI onto legacy linear workflows and static roles caps its impact, while AI-first firms that redesign teams and decisions around human-AI collaboration see step-change results — citing one commercial-insurance workflow that dropped from 28 days to under three hours only after the surrounding operating model, not just the tooling, was redesigned.",
+      "summary": "A three-year MIT Sloan Management Review field study (Schmitt, Vial, and Blohm; 23 Swiss companies across banking, insurance, energy, law, and manufacturing; 87 in-depth interviews) identifies a specific structural pattern separating organizations that scale generative AI from those that stall at pilot stage: a cross-functional \"AI spine\" connecting business-unit users, domain experts, and technical teams to a shared technical backbone, rather than a centralized Center of Excellence or fully decentralized team-by-team experimentation. High performers broaden use-case scope across whole processes, treat deployment as continuous work, and quickly kill underperforming use cases rather than letting them linger.\n\nThis has since been corroborated by independent sources across three tiers. Two World Economic Forum research efforts converge on the same \"redesign, don't just deploy\" conclusion -- one drawing on 20+ technology firms with quantified cases ($120M in surfaced savings from AI-assisted tax analysis, 30,000 annual hours saved from a redesigned lab-ordering workflow), the other surveying 450+ executives to derive five near-identical enabling principles centered on end-to-end operating-model redesign. A third WEF piece, citing Wipro/HFS Research, finds fewer than one-fifth of enterprises have embedded AI enterprise-wide, blaming outdated operating models as the primary ROI blocker, and a fourth documents a commercial-insurance workflow dropping from 28 days to under three hours only after the operating model -- not just the tooling -- was redesigned. BCG's 1,250-executive global study finds nearly two-thirds of agentic AI leaders expect operating-model change, with 58% of leading organizations anticipating governance and decision-rights changes specifically.\n\nMIT CISR's own operating-model research adds an independent academic-tier framework: derived from 39 interviews across 30 companies (2024-2025) plus its 2025 Real-Time Business Survey (N=152), it identifies four enterprise IT operating-model archetypes -- Legacy Modernizer, Creative Sprinter, Adaptive Innovator, Efficient Builder -- differentiated along enterprise IT leadership/modularity/reuse and the pace of AI-driven change, with quadrant prevalence quantified from the survey. McKinsey's \"agentic organization\" framework similarly proposes five organizational pillars (business model, operating model, governance, workforce, technology/data), with governance shifting to embedded, real-time agent oversight and human teams of two to five people supervising 50-100 specialized agents per process.\n\nA July 2026 Harvard Business Review piece adds a complementary practitioner framing -- that decades of decomposing firms into agile teams and platforms made recombination, not further decomposition, the binding constraint under AI-driven demand for rapid capability redeployment -- though as an unreferenced framework piece it carries no independent empirical weight. Taken together, the evidence base has moved from a single rigorous field study to a well-corroborated pattern spanning academic, government/intergovernmental, and consulting tiers: cross-functional, redesigned operating models, not centralized COEs or isolated pilots, are what distinguishes organizations that successfully scale AI value.",
       "maturity": "Growing Adoption",
       "evidenceScore": 4,
       "roleTags": [
@@ -1378,24 +1379,35 @@
           "institution": "World Economic Forum",
           "studyId": "world-economic-forum-2026-02-01",
           "peerReviewed": null
+        },
+        {
+          "sourceName": "MIT Center for Information Systems Research (CISR)",
+          "sourceTier": "academic_research",
+          "reliabilityScore": 4,
+          "url": "https://cisr.mit.edu/publication/2025_1201_EntITOperatingModels_ThorogoodWoerner",
+          "publishedDate": "2025-12-01",
+          "whatItShows": "Framework derived from 39 interviews across 30 companies (2024-2025) plus the MIT CISR 2025 Real-Time Business Survey (N=152), identifying four enterprise IT operating-model archetypes (Legacy Modernizer, Creative Sprinter, Adaptive Innovator, Efficient Builder) along two dimensions -- enterprise IT leadership/modularity/reuse, and pace/scope of AI-driven change -- with quadrant-level operating-model prevalence quantified from the survey.",
+          "institution": "MIT Center for Information Systems Research (CISR)",
+          "studyId": "mit-center-for-information-systems-research-cisr-2025-12-01",
+          "peerReviewed": null
         }
       ],
       "firstSeen": "2026-07-08",
-      "lastUpdated": "2026-07-27",
+      "lastUpdated": "2026-08-14",
       "status": "active",
-      "shortSummary": "What began as a single MIT Sloan field study is now corroborated by two independent WEF research efforts and a 1,250-executive BCG survey: cross-functional \"AI spine\" operating models — not centralized COEs or isolated pilots — are what distinguishes organizations that scale GenAI value. BCG finds nearly two-thirds of agentic AI leaders now expect operating-model change, and 58% anticipate governance and decision-rights changes specifically.",
+      "shortSummary": "What began as a single MIT Sloan field study is now corroborated by four WEF research efforts, a 1,250-executive BCG survey, McKinsey's agentic-organization framework, and an independent MIT CISR four-archetype operating-model study (39 interviews/30 companies plus a 152-firm survey): cross-functional, redesigned operating models -- not centralized COEs or isolated pilots -- distinguish organizations that scale GenAI value.",
       "evidenceStrength": 4,
-      "evidenceStrengthRationale": "Best: MIT SMR three-year, 23-company, 87-interview field study on real organizations. Remainder is POV and executive survey.",
+      "evidenceStrengthRationale": "Best: MIT SMR three-year, 23-company, 87-interview field study on real organizations; MIT CISR's 39-interview/30-company plus N=152 survey study is comparably rigorous but does not exceed it. Remainder is POV and executive survey.",
       "corroborationBreadth": 5,
       "breadthBasis": {
-        "independentInstitutions": 5,
-        "distinctStudies": 8,
+        "independentInstitutions": 6,
+        "distinctStudies": 9,
         "tiersRepresented": 3
       },
-      "previousEvidenceScore": 5,
+      "previousEvidenceScore": 4,
       "contested": false,
       "contradictingEvidence": [],
-      "lastRedTeamedDate": "2026-07-28",
+      "lastRedTeamedDate": "2026-08-14",
       "companySize": "Large Enterprise",
       "newestEvidenceDate": "2026-07-01",
       "stale": false,
@@ -1512,7 +1524,7 @@
     {
       "id": "entry-level-hiring-contraction-mixed-evidence",
       "title": "Entry-Level Hiring Is Contracting Alongside AI Adoption, But Causal Attribution to AI Remains Contested",
-      "summary": "A January 2026 World Economic Forum report developed with PwC finds entry-level roles down 35% in the US, that more than one in three young workers globally hold jobs with medium-to-high AI task exposure, and that unemployment among early-career workers aged 22-27 stands at 7.1% — roughly three points above the overall workforce rate. IDC's 2025 Employee Experience survey corroborates from the practitioner side: 66% of enterprises are actively reducing entry-level hiring as they deploy AI, and 91% report roles changed or partially automated. A Gartner survey of 110 CHROs (fielded 4Q25, published July 2026) adds a third independent voice: 22% report at least one business leader has stopped hiring for entry-level roles due to AI automation, alongside a broader finding that 95% of organizations have implemented AI in some capacity but only one in five has realized significant or transformational value — consistent with AI first displacing the less-complex work entry-level roles have traditionally absorbed.\n\nTwo Stanford sources sharpen the picture with realized-employment rather than survey data, specifically for software engineering. Stanford Digital Economy Lab's ‘Canaries in the Coal Mine’ analysis uses high-frequency ADP payroll administrative data with a difference-in-differences design and finds early-career workers (22-25) in the most AI-exposed occupations, including software development, saw a 13% relative employment decline even controlling for firm-level shocks, while less-exposed and more experienced workers held stable or grew. Stanford HAI's 2026 AI Index Economy chapter corroborates: software developer employment for ages 22-25 has fallen nearly 20% since 2024.\n\nTwo independent Federal Reserve analyses complicate a clean AI-attribution story at the aggregate, cross-occupation level. A May 2026 Federal Reserve Bank of New York job-postings analysis (2018-2026, Anthropic-derived AI-exposure metric plus Lightcast postings data) finds AI-exposed occupation posting declines predate ChatGPT's release and that junior and senior roles decline in parallel, with no AI-specific divergence. An independent March 2026 Federal Reserve Board FEDS Note (Liu & Webber) reaches a similar conclusion from a different job-postings dataset: no divergence in labor demand between junior and senior positions within AI-exposed occupations, and no evidence that firms or industries with higher AI adoption show larger posting declines — suggesting the broader postings slowdown reflects general labor-market softness rather than AI substitution specifically.\n\nThe result is a genuinely contested question rather than a settled one: practitioner-facing surveys (WEF/PwC, IDC, Gartner) and the two Stanford studies using realized software-engineering employment data point toward AI-specific entry-level contraction, while two independent Federal Reserve job-postings analyses are skeptical that AI is the specific driver at the broader cross-occupation level. A June 2026 HBR piece adds a plausible structural mechanism connecting the two catalogued trends: using an illustrative case of a firm eliminating a 200-person analyst/associate program to demonstrate AI ROI, it argues that cutting entry-level cohorts removes the headcount base that has traditionally justified mid-level manager roles — a single case illustration, not disclosed survey data, but a plausible link between entry-level contraction and the middle-management strain documented elsewhere in this catalog.",
+      "summary": "A January 2026 World Economic Forum report developed with PwC finds entry-level roles down 35% in the US, that more than one in three young workers globally hold jobs with medium-to-high AI task exposure, and that unemployment among early-career workers aged 22-27 stands at 7.1% — roughly three points above the overall workforce rate. IDC's 2025 Employee Experience survey corroborates from the practitioner side: 66% of enterprises are actively reducing entry-level hiring as they deploy AI, and 91% report roles changed or partially automated. A Gartner survey of 110 CHROs (fielded 4Q25, published July 2026) adds a third independent voice: 22% report at least one business leader has stopped hiring for entry-level roles due to AI automation, alongside a broader finding that 95% of organizations have implemented AI in some capacity but only one in five has realized significant or transformational value — consistent with AI first displacing the less-complex work entry-level roles have traditionally absorbed. PwC's 2026 Global AI Jobs Barometer sharpens this with the largest labor-market dataset in this trail — over one billion job postings across 27 countries — finding AI-exposed entry-level roles demanding senior-level judgement and leadership grew 35% since 2019, while other, less-AI-exposed entry-level roles declined 10% over the same period: independent, much larger-sample confirmation of the same bifurcation pattern the January WEF/PwC report first flagged.\n\nTwo Stanford sources sharpen the picture with realized-employment rather than survey data, specifically for software engineering. Stanford Digital Economy Lab's ‘Canaries in the Coal Mine’ analysis uses high-frequency ADP payroll administrative data with a difference-in-differences design and finds early-career workers (22-25) in the most AI-exposed occupations, including software development, saw a 13% relative employment decline even controlling for firm-level shocks, while less-exposed and more experienced workers held stable or grew. Stanford HAI's 2026 AI Index Economy chapter corroborates: software developer employment for ages 22-25 has fallen nearly 20% since 2024.\n\nTwo independent Federal Reserve analyses complicate a clean AI-attribution story at the aggregate, cross-occupation level. A May 2026 Federal Reserve Bank of New York job-postings analysis (2018-2026, Anthropic-derived AI-exposure metric plus Lightcast postings data) finds AI-exposed occupation posting declines predate ChatGPT's release and that junior and senior roles decline in parallel, with no AI-specific divergence. An independent March 2026 Federal Reserve Board FEDS Note (Liu & Webber) reaches a similar conclusion from a different job-postings dataset: no divergence in labor demand between junior and senior positions within AI-exposed occupations, and no evidence that firms or industries with higher AI adoption show larger posting declines — suggesting the broader postings slowdown reflects general labor-market softness rather than AI substitution specifically.\n\nThe result is a genuinely contested question rather than a settled one: practitioner-facing surveys (WEF/PwC, IDC, Gartner) and the two Stanford studies using realized software-engineering employment data point toward AI-specific entry-level contraction, while two independent Federal Reserve job-postings analyses are skeptical that AI is the specific driver at the broader cross-occupation level. A June 2026 HBR piece adds a plausible structural mechanism connecting the two catalogued trends: using an illustrative case of a firm eliminating a 200-person analyst/associate program to demonstrate AI ROI, it argues that cutting entry-level cohorts removes the headcount base that has traditionally justified mid-level manager roles — a single case illustration, not disclosed survey data, but a plausible link between entry-level contraction and the middle-management strain documented elsewhere in this catalog.",
       "maturity": "Emerging Practice",
       "evidenceScore": 4,
       "roleTags": [
@@ -1590,19 +1602,30 @@
           "institution": "Gartner",
           "studyId": "gartner-2026-07-27",
           "peerReviewed": null
+        },
+        {
+          "sourceName": "PwC (2026 Global AI Jobs Barometer)",
+          "sourceTier": "top_tier_consulting",
+          "reliabilityScore": 3,
+          "url": "https://www.pwc.com/gx/en/issues/artificial-intelligence/job-barometer/2026/2026-global-ai-jobs-barometer-full-report.pdf",
+          "publishedDate": "2026-07-31",
+          "whatItShows": "Large-scale job-postings analysis of 1B+ job ads across 27 countries and territories, combining labour-market, company-financial, and occupational-task data. Finds AI-exposed entry-level roles requiring traditionally senior-level skills (judgement, leadership) grew 35% since 2019, while other entry-level roles declined 10% over the same period -- an independent, much larger-sample corroboration of the WEF entry-level bifurcation finding already in this trail.",
+          "institution": "PwC",
+          "studyId": "pwc-2026-07-31",
+          "peerReviewed": null
         }
       ],
       "firstSeen": "2026-07-08",
-      "lastUpdated": "2026-08-03",
+      "lastUpdated": "2026-08-14",
       "status": "active",
-      "shortSummary": "A WEF/PwC report, an IDC survey, and now a Gartner CHRO survey all find enterprises reducing entry-level hiring alongside AI adoption, while two independent Federal Reserve analyses of job-postings data are skeptical that AI specifically is the driver at the cross-occupation level. Two Stanford studies using actual payroll data sharpen the picture for software engineering specifically: a 13% relative employment decline for AI-exposed 22-25 year-olds, and software-developer employment for that age group down nearly 20% since 2024.",
+      "shortSummary": "A WEF/PwC report, an IDC survey, a Gartner CHRO survey, and now PwC's 2026 Global AI Jobs Barometer (1B+ job postings, 27 countries) all find enterprises reducing entry-level hiring alongside AI adoption, while two independent Federal Reserve analyses of job-postings data are skeptical that AI specifically is the driver at the cross-occupation level. Two Stanford studies using actual payroll data sharpen the picture for software engineering specifically: a 13% relative employment decline for AI-exposed 22-25 year-olds, and software-developer employment for that age group down nearly 20% since 2024.",
       "evidenceStrength": 5,
       "evidenceStrengthRationale": "Best: Stanford difference-in-differences on ADP payroll administrative microdata — causal identification per rubric 4a.",
-      "corroborationBreadth": 4,
+      "corroborationBreadth": 5,
       "breadthBasis": {
-        "independentInstitutions": 5,
-        "distinctStudies": 6,
-        "tiersRepresented": 3
+        "independentInstitutions": 6,
+        "distinctStudies": 7,
+        "tiersRepresented": 4
       },
       "previousEvidenceScore": 4,
       "contested": true,
@@ -1634,9 +1657,9 @@
           "contradicts": "A second, independent Federal Reserve analysis (distinct from the NY Fed Liberty Street piece already in this trail) reaching the same skeptical conclusion via a different job-postings dataset — strengthens the case that AI-specific attribution is not established at the aggregate cross-occupation level, though it does not address the software-engineering-specific realized-employment findings from Stanford above. Reliability 5 clears the threshold; strength (4) is below the supporting trail's (5), so this does not add to the existing -1 downgrade already applied."
         }
       ],
-      "lastRedTeamedDate": "2026-08-03",
+      "lastRedTeamedDate": "2026-08-14",
       "companySize": "Cross-size / Unspecified",
-      "newestEvidenceDate": "2026-07-27",
+      "newestEvidenceDate": "2026-07-31",
       "stale": false,
       "relatedTo": [
         "ai-bifurcates-it-staffing-support-contracts-infra-grows",
@@ -1671,6 +1694,13 @@
           "unit": "%",
           "population": "110 CHROs, Q4 2025",
           "studyId": "gartner-2026-07-27"
+        },
+        {
+          "name": "AI-exposed entry-level roles requiring senior skills, growth since 2019",
+          "value": 35,
+          "unit": "%",
+          "population": "1B+ job postings, 27 countries",
+          "studyId": "pwc-2026-07-31"
         }
       ]
     },
@@ -1815,7 +1845,7 @@
     {
       "id": "flatter-orgs-wider-spans-of-control",
       "title": "AI Renews the Push to Flatten Management Layers and Widen Spans of Control",
-      "summary": "McKinsey's flagship State of Organizations 2026 research — a survey of 10,018 senior executives across 15 countries and 16 industries — documents that most companies have added at least one management layer between CEO and front line over the past decade, which McKinsey ties directly to slower decision-making. The same research frames AI as a potential corrective: giving managers 'superhuman capacity' to manage across bigger scopes, enabling flatter structures, and identifying an emerging 'M-shaped' orchestrator archetype — broad generalists fluent in AI who coordinate agents and hybrid human-agent teams across domains.\n\nMcKinsey's companion organization-design commentary is more cautious about the transition path: it notes spans of control may actually narrow early in an organization's AI journey, as leaders take on more direct coaching and relationship-building roles, before widening later as tools and trust mature. This nuance is consistent with the separate, independently-sourced finding on middle-management overload — different research teams describing the same early-stage narrowing from different angles.\n\nThis opportunity is evidenced by a single (though very large and well-disclosed) research program rather than independently corroborating firms, so it should be read as an emerging, not yet mainstream, organizational thesis.\n\nA second Harvard Business School working paper approaches the same question from a theoretical organizational-design angle rather than survey data. Karp's 'The Matrix Redux' argues AI reshapes the classic matrix organization through three mechanisms — flattening (fewer hierarchical coordination points), narrowing (fewer specialists needed as functional knowledge embeds directly in AI tools), and winnowing (routine, codifiable tasks shift from humans to AI agents) — and proposes a 'context-learning' structure combining a stable context layer with temporary AI-augmented teams. As a conceptual paper without its own empirical dataset, it does not raise the evidence score, but it corroborates McKinsey's flattening/widening thesis from an independent academic angle and reinforces that this remains an emerging, actively-debated organizational-design question rather than settled practice.\n\nAn independent October 2025 Gartner prediction corroborates the flattening thesis from the analyst-firm side: it forecasts that by 2026, 20% of organizations will use AI to flatten their org structure, eliminating over half of current middle-management positions. The same Gartner research separately predicts that atrophying critical-thinking skills from habitual GenAI use will push half of global organizations toward \"AI-free\" skills assessments in hiring — a related but distinct signal about how flattening-driven organizational change is reshaping hiring practice, not just headcount. With McKinsey's large executive survey, an independent Harvard Business School theoretical paper, and now a Gartner analyst-firm prediction all pointing the same direction, this moves from a single-research-program thesis to a pattern corroborated across three independent institution types.",
+      "summary": "McKinsey's flagship State of Organizations 2026 research — a survey of 10,018 senior executives across 15 countries and 16 industries — documents that most companies have added at least one management layer between CEO and front line over the past decade, tied to slower decision-making. The same research frames AI as a potential corrective: giving managers \"superhuman capacity\" to manage across bigger scopes, enabling flatter structures, and identifying an emerging \"M-shaped\" orchestrator archetype — broad generalists fluent in AI who coordinate agents and hybrid human-agent teams across domains. A companion McKinsey organization-design commentary is more cautious about the transition path, noting spans of control may actually narrow early in an organization's AI journey as leaders take on more direct coaching and relationship-building roles, before widening later as tools and trust mature — a nuance consistent with the separately-sourced finding on middle-management overload.\n\nAs evidenced initially by a single (though very large and well-disclosed) McKinsey research program, this was read as an emerging thesis. A second, independent Harvard Business School working paper approaches the same question from a theoretical organizational-design angle: Karp's \"The Matrix Redux\" argues AI reshapes the classic matrix organization through three mechanisms — flattening (fewer hierarchical coordination points), narrowing (fewer specialists needed as functional knowledge embeds directly in AI tools), and winnowing (routine, codifiable tasks shift from humans to AI agents) — proposing a \"context-learning\" structure combining a stable context layer with temporary AI-augmented teams. As a conceptual paper without its own empirical dataset, it does not raise the evidence score, but corroborates McKinsey's flattening/widening thesis from an independent academic angle.\n\nAn independent October 2025 Gartner prediction corroborates the flattening thesis from the analyst-firm side: it forecasts that by 2026, 20% of organizations will use AI to flatten their org structure, eliminating over half of current middle-management positions. The same research separately predicts that atrophying critical-thinking skills from habitual GenAI use will push half of global organizations toward \"AI-free\" skills assessments in hiring — a related but distinct signal about how flattening-driven change is reshaping hiring practice, not just headcount.\n\nWith McKinsey's large executive survey, an independent Harvard Business School theoretical paper, and a Gartner analyst-firm prediction all pointing the same direction, this has moved from a single-research-program thesis to a pattern corroborated across three independent institution types — though still without a controlled, quantified case study isolating the causal organizational outcome.",
       "maturity": "Emerging Practice",
       "evidenceScore": 3,
       "roleTags": [
@@ -1872,7 +1902,7 @@
         }
       ],
       "firstSeen": "2026-07-08",
-      "lastUpdated": "2026-07-27",
+      "lastUpdated": "2026-08-14",
       "status": "active",
       "shortSummary": "McKinsey's survey of over 10,000 executives finds most companies added management layers over the past decade, and frames AI as a potential corrective that could widen spans of control via an emerging \"M-shaped\" AI-orchestrator manager archetype. McKinsey's own companion research cautions that spans may actually narrow early in an AI adoption journey before widening later.",
       "evidenceStrength": 3,
@@ -2007,7 +2037,7 @@
     {
       "id": "engineers-shift-to-orchestration-oversight",
       "title": "Software Engineers Shift from Code Production to AI Orchestration and Spec/Architecture Oversight",
-      "summary": "Deloitte's analysis of the AI-native software development lifecycle documents concrete, role-by-role shifts: software architects using LLMs to generate and edit standardized diagrams, developers producing initial designs directly from GenAI-converted user stories, data engineers automating pipeline optimization, DevSecOps engineers embedding security earlier via AI-accelerated delivery, and QA teams cutting manual effort through synthetic test-data and automated test-scenario generation. The piece cites a GitHub survey of roughly 2,000 global developers in which 97% had used AI coding tools at work and 88% of US developers reported at least some company support for AI use.\n\nMcKinsey's companion research on 'rewiring software delivery for the agentic era' describes the same shift from the organizational-design side: as agentic AI takes on more end-to-end execution, engineers are pushed toward full-stack fluency, structured specification-writing, and architectural/systems trade-off judgment, rather than being valued primarily for code output.\n\nBoth firms describe this as an active, already-underway shift rather than a future prediction, but neither publishes a quantified, controlled case study isolating the org-design outcome, so the evidence base sits at 'well-documented directional trend' rather than case-study-grade proof.\n\nTwo new EY pieces add QA-specific corroboration to the orchestration-and-oversight shift already documented for architects, developers, and data engineers. Both describe generative AI automating test design and execution, freeing testers to focus on test strategy and design rather than manual execution — one citing EY's Reimagining Industry Futures Study (1,405 enterprises, 43% investing in generative AI) as supporting context. With Deloitte, McKinsey, and now two independent EY pieces all describing the same role-level shift across different SDLC functions, this moves from a two-source directional trend to a more broadly corroborated pattern, though still without a controlled, quantified case study isolating the organizational outcome.\n\nGartner market-sizing research adds tooling-layer context: it estimates the enterprise AI coding-agent market at $9.8-11.0B annualized as of April 2026, and predicts that by 2027 more than 65% of engineering teams using agentic coding will treat IDEs as optional, shifting control, governance, and validation into automated platforms — consistent with, though not itself direct evidence for, the broader shift of engineers away from direct code authorship and toward orchestration and oversight.",
+      "summary": "Deloitte's analysis of the AI-native software development lifecycle documents concrete, role-by-role shifts: software architects using LLMs to generate and edit standardized diagrams, developers producing initial designs directly from GenAI-converted user stories, data engineers automating pipeline optimization, DevSecOps engineers embedding security earlier via AI-accelerated delivery, and QA teams cutting manual effort through synthetic test-data and automated test-scenario generation. The piece cites a GitHub survey of roughly 2,000 global developers in which 97% had used AI coding tools at work and 88% of US developers reported at least some company support for AI use.\n\nMcKinsey's companion research on \"rewiring software delivery for the agentic era\" describes the same shift from the organizational-design side: as agentic AI takes on more end-to-end execution, engineers are pushed toward full-stack fluency, structured specification-writing, and architectural/systems trade-off judgment, rather than being valued primarily for code output. Both firms describe this as an active, already-underway shift rather than a future prediction, but neither publishes a quantified, controlled case study isolating the org-design outcome, so the evidence base sits at \"well-documented directional trend\" rather than case-study-grade proof.\n\nTwo EY pieces add QA-specific corroboration to the orchestration-and-oversight shift already documented for architects, developers, and data engineers. Both describe generative AI automating test design and execution, freeing testers to focus on test strategy and design rather than manual execution — one citing EY's Reimagining Industry Futures Study (1,405 enterprises, 43% investing in generative AI) as supporting context. With Deloitte, McKinsey, and two independent EY pieces all describing the same role-level shift across different SDLC functions, this is a broadly corroborated pattern, though still without a controlled, quantified case study isolating the organizational outcome.\n\nGartner market-sizing research adds tooling-layer context: it estimates the enterprise AI coding-agent market at $9.8-11.0B annualized as of April 2026, and predicts that by 2027 more than 65% of engineering teams using agentic coding will treat IDEs as optional, shifting control, governance, and validation into automated platforms — consistent with, though not itself direct evidence for, the broader shift of engineers away from direct code authorship and toward orchestration and oversight.",
       "maturity": "Growing Adoption",
       "evidenceScore": 3,
       "roleTags": [
@@ -2078,7 +2108,7 @@
         }
       ],
       "firstSeen": "2026-07-08",
-      "lastUpdated": "2026-07-20",
+      "lastUpdated": "2026-08-14",
       "status": "active",
       "shortSummary": "Deloitte, McKinsey, and now two independent EY pieces all document software engineers and QA teams shifting from raw code/test production toward AI orchestration, specification-writing, and architectural oversight across the SDLC. EY's testing-specific research adds concrete QA evidence to what was previously a two-source pattern, though a controlled, quantified case study isolating the organizational outcome still doesn't exist.",
       "evidenceStrength": 3,
@@ -2272,9 +2302,9 @@
     {
       "id": "ai-talent-strategy-gap-retention-risk",
       "title": "Comprehensive AI People Strategy — Not Just Tool Access — Determines AI Talent Retention",
-      "summary": "Gartner's Global Labor Market Survey, fielded across 12,004 employees and managers in 40 countries, underpins a prediction that by 2027 half of enterprises lacking a comprehensive AI people strategy will lose their top AI talent to competitors who prioritize workforce enablement over basic tool adoption. A companion Gartner survey of 197 CxOs and senior business leaders found only 27% of executives report having a comprehensive AI strategy, and just 20% believe their workforce is genuinely AI-ready — a striking maturity gap given how much adoption activity is underway elsewhere in Gartner's research.\n\nGartner's framing is that most leaders are currently mistaking basic AI access or usage metrics for real workforce transformation, and that the differentiator for AI talent retention is enablement (structured upskilling, career pathways, meaningful AI-augmented work) rather than mere tool rollout.\n\nThe headline retention claim is itself a forward-looking prediction, but it sits on top of a very large, well-described current-state survey (12,004 respondents) plus a smaller named CxO survey — a stronger evidentiary base than most single-prediction press releases. Relevant to IT leaders competing for scarce AI/ML and platform engineering talent specifically.\n\nAccenture's large, disclosed-sample global study (1,300+ C-suite executives and 4,500 workers, 20 industries, 12 markets) provides the strongest independent corroboration yet: organizations it labels 'Talent Reinventors' use AI-driven workforce planning to forecast future roles and skills and actively redesign career pathways, and Accenture finds the primary barrier to realized AI value is people-readiness, not technology — directly reinforcing Gartner's retention-risk thesis with a second, independently sourced large survey. A WEF workforce blueprint adds texture on where new specialist demand is concentrated: AI governance, prompt engineering, agentic-workflow design, and human-AI collaboration roles, alongside a reskilling effort WEF says has already reached 850M+ people against a 1B target.\n\nMcKinsey Global Institute's 'Agents, robots, and us' research adds a further independent voice on the skills side of this thesis, modeling how AI, agents, and robots reshape work and required skills through 'skill partnerships' across occupations — reinforcing that deliberate skill-partnership design, not mere tool access, is what determines whether organizations retain the AI-capable talent they need.\n\nThree more 2026 consulting-tier surveys deepen the same thesis with harder numbers. EY's sixth Work Reimagined survey (15,000 employees and 1,500 employers across 29 countries) finds 88% AI usage at work but only 28% of organizations have positioned employees to realize transformative impact, estimating that talent-strategy gaps alone are costing organizations up to 40% of potential AI productivity gains. BCG's AI-at-Work survey (roughly 12,000 frontline employees, managers, and leaders) sharpens what separates winners from laggards: at \"future-built\" companies, 88% of managers actively role-model AI use themselves, versus just 25% at AI laggards — reinforcing that leadership behavior, not tool access, is the differentiator. Bain's Tech Services Buyer Survey (280 North American and European executives) names the specific talent categories hardest to source: cybersecurity, AI/ML engineering, and data science, with three-quarters of respondents expecting 5-10%+ of tech spend to go toward AI/ML.\n\nThe gap extends to government as well as enterprise. An OECD review of public-sector AI adoption identifies skills and internal-capability gaps as the top barrier and frames workforce strategy around three explicit levers — outsource, hire, or train — noting that only a narrow slice of roles need deep AI-specific technical skills while most staff need baseline AI literacy. OECD's 2026 Digital Government Outlook adds a sharper number: 32 of 36 OECD countries (89%) now run some AI training for government staff, but only 13 of 36 (36%) train specifically on using AI in public services or policymaking, and only 6 countries have a dedicated digital workforce strategy — training coverage looks broad on the surface but is fragmented and shallow underneath. A separate EY piece adds a concrete emerging role to watch: the \"forward deployed engineer,\" alongside a finding that only 47% of global tech executives believe their AI strategy effectively enables talent across the organization.\n\nWith the original Gartner/Accenture/WEF/McKinsey Global Institute evidence base now joined by OECD (twice), EY (twice), BCG, and Bain — ten independent sources spanning government, top-tier consulting, and analyst-firm research — this has moved from an emerging, single-firm-driven signal to a broadly corroborated, currently-widespread organizational reality, warranting a maturity upgrade from Emerging Practice to Growing Adoption.",
+      "summary": "Gartner's Global Labor Market Survey (12,004 employees and managers, 40 countries) underpins a prediction that by 2027 half of enterprises lacking a comprehensive AI people strategy will lose their top AI talent to competitors that prioritize workforce enablement over basic tool adoption. A companion Gartner survey of 197 CxOs finds only 27% report having a comprehensive AI strategy and just 20% believe their workforce is genuinely AI-ready. Gartner's framing is that most leaders mistake basic AI access or usage metrics for real workforce transformation, and that enablement — structured upskilling, career pathways, meaningful AI-augmented work — not mere tool rollout, is what determines AI talent retention.\n\nAccenture's global study (1,300+ C-suite executives, 4,500 workers, 20 industries, 12 markets) provides the strongest independent corroboration: organizations it labels \"Talent Reinventors\" use AI-driven workforce planning to redesign career pathways, and the primary barrier to realized AI value is people-readiness, not technology. A WEF workforce blueprint adds texture on where new specialist demand concentrates — AI governance, prompt engineering, agentic-workflow design, human-AI collaboration — alongside a reskilling effort that has reached 850M+ people against a 1B target. McKinsey Global Institute's \"Agents, robots, and us\" research reinforces the skills side, modeling how deliberate skill-partnership design across occupations, not mere tool access, determines whether organizations retain AI-capable talent.\n\nThree more 2026 consulting-tier surveys deepen the thesis with harder numbers. EY's sixth Work Reimagined survey (15,000 employees, 1,500 employers, 29 countries) finds 88% AI usage at work but only 28% of organizations have positioned employees to realize transformative impact, costing up to 40% of potential AI productivity gains. BCG's AI-at-Work survey (~12,000 respondents) finds 88% of managers at \"future-built\" companies role-model AI use themselves versus 25% at laggards. Bain's Tech Services Buyer Survey (280 executives) names cybersecurity, AI/ML engineering, and data science as the hardest-to-source talent. Government shows the same pattern: OECD finds skills gaps are the top barrier to public-sector AI adoption, and its 2026 Digital Government Outlook finds 89% of OECD countries run some AI training for staff but only 36% train specifically on public-sector AI use and only 6 have a dedicated digital workforce strategy — training coverage looks broad but is fragmented underneath.\n\nTen independent studies across eight institutions now converge on the same finding, moving this from an emerging, single-firm signal to a broadly corroborated organizational reality. A red-team pass this run surfaced a genuine complication within EY's own dataset, however: the UK cut of the same 2025 Work Reimagined Survey finds employees receiving over 81 hours of annual AI training are 59% more likely to leave their employer despite a 14-hour/week productivity gain, because AI-trained talent is highly sought after externally. This does not refute the broader thesis that strategy — not just tool access — matters, but it complicates the retention half of the claim: training investment alone appears to raise flight risk rather than lower it, absent evidence that organizations are pairing it with career-pathway and compensation levers. Reliability clears the downgrade threshold, so the score moves down one point to 3 and the opportunity is now marked contested.",
       "maturity": "Growing Adoption",
-      "evidenceScore": 4,
+      "evidenceScore": 3,
       "roleTags": [
         "IT Leadership/Org Design & Strategy",
         "Software Engineering",
@@ -2397,9 +2427,9 @@
         }
       ],
       "firstSeen": "2026-07-08",
-      "lastUpdated": "2026-07-27",
+      "lastUpdated": "2026-08-14",
       "status": "active",
-      "shortSummary": "Ten independent sources — Gartner, Accenture, WEF, McKinsey Global Institute, OECD (twice), EY (twice), BCG, and Bain — now converge on the same finding: a comprehensive AI people strategy, not mere tool access, determines whether organizations retain scarce AI talent. EY estimates talent-strategy gaps alone cost organizations up to 40% of potential AI productivity gains.",
+      "shortSummary": "Ten independent sources — Gartner, Accenture, WEF, McKinsey Global Institute, OECD (twice), EY (twice), BCG, and Bain — converge on comprehensive AI people strategy (not mere tool access) as the retention differentiator, but a red-teamed complication from EY's own UK data shows heavy AI-training investment alone correlates with 59% higher attrition, not lower — moving the score down to 3 and marking the opportunity contested.",
       "evidenceStrength": 4,
       "evidenceStrengthRationale": "Best: OECD cross-national government-workforce data (32 of 36 countries) — official comparative data collection.",
       "corroborationBreadth": 5,
@@ -2408,10 +2438,24 @@
         "distinctStudies": 10,
         "tiersRepresented": 3
       },
-      "previousEvidenceScore": 5,
-      "contested": false,
-      "contradictingEvidence": [],
-      "lastRedTeamedDate": "2026-07-28",
+      "previousEvidenceScore": 4,
+      "contested": true,
+      "contradictingEvidence": [
+        {
+          "sourceName": "EY UK (2025 Work Reimagined Survey, UK cut)",
+          "institution": "EY",
+          "sourceTier": "top_tier_consulting",
+          "reliabilityScore": 3,
+          "evidenceStrength": 3,
+          "studyId": "ey-2025-11-12",
+          "peerReviewed": null,
+          "url": "https://www.ey.com/en_uk/newsroom/2025/12/uk-employers-miss-40-percentage-ai-gains-talent-gaps",
+          "publishedDate": "2025-12-01",
+          "whatItShows": "UK cut of EY's 2025 Work Reimagined Survey (800 UK employees, 180 UK employers) finds that employees who receive over 81 hours of annual AI training report an average productivity gain of 14 hours/week (vs. an 8-hour median) but are 59% more likely to leave their employer, since AI-skilled talent is highly sought after externally.",
+          "contradicts": "Complicates the opportunity's core claim that a comprehensive AI people strategy determines retention: the same underlying EY survey used elsewhere in this trail as supporting evidence shows that heavy individual AI-training investment specifically correlates with HIGHER, not lower, voluntary attrition -- training builds external marketability faster than it builds internal retention, unless paired with other levers (career pathways, compensation) this trail does not yet show are consistently present. Reliability 3 clears the downgrade threshold; strength (3, disclosed-sample survey) is below the supporting trail's best (4, OECD cross-national data), so the standard -1 applies."
+        }
+      ],
+      "lastRedTeamedDate": "2026-08-14",
       "companySize": "Large Enterprise",
       "newestEvidenceDate": "2026-06-15",
       "stale": false,
@@ -2453,7 +2497,7 @@
     {
       "id": "enterprise-architect-role-redefined-around-agentic-ai",
       "title": "Enterprise Architect Role Redefined Around Agentic AI Governance and Knowledge Curation",
-      "summary": "Forrester's enterprise architecture research describes agentic AI becoming a core, embedded feature of major EA management-suite tools, and argues this is redefining — not just automating — the architect's job. Forrester outlines four emerging EA role variants: a customer/employee-centric 'value mapper' who connects architectural decisions to measurable business outcomes via knowledge graphs; a 'digital twin strategist' who simulates architecture options with AI-powered digital twins; an 'enterprise knowledge curator' who governs semantic layers and trains data teams on RAG/GraphRAG grounding; and an 'agentic governance champion' who manages fleets of AI agents and establishes accountability guardrails.\n\nThe underlying full report is gated, and the publicly visible material does not disclose a survey sample size, interview count, or other quantitative methodology — this is qualitative, tool-evaluation-grounded thought leadership rather than a fielded survey.\n\nGiven the lack of disclosed empirical backing, this should be treated as a leading-edge framework describing where Forrester believes the role is heading rather than evidence of widespread current practice. Still a useful, specific, nameable shift for job-architecture planning in enterprise/solution architecture functions.\n\nMcKinsey's independent enterprise-architecture research now converges with Forrester's thesis from a second, separately-authored firm: it lays out two architectural paths for agentic AI adoption (incremental integration versus comprehensive overhaul) and introduces the 'agentic mesh' — an orchestration layer connecting agents to each other and to legacy systems, with governance embedded from the design stage rather than bolted on afterward. Neither firm discloses a survey sample, so this remains directional thought leadership rather than confirmed current practice, but two independent firms arriving at structurally similar conclusions about agentic-era EA role redefinition moves this from a single-source signal to an early cross-firm pattern.\n\nA Gartner prediction now converges with both firms from a third, independent analyst-firm angle: it forecasts that by 2028, AI agents will help deliver 50% of enterprise architecture outcomes, easing workload on chronically understaffed EA teams, and directs heads of EA to redefine their own role as a \"strategic value orchestrator\" managing multiagent systems and AI governance rather than performing traditional EA work themselves. With Forrester, McKinsey, and now Gartner all independently describing agentic AI as reshaping the EA role toward governance and orchestration rather than traditional architecture work, this moves from a two-firm pattern to a three-firm cross-industry convergence — still directional and forward-looking, but no longer a single-source thesis.",
+      "summary": "Forrester's enterprise architecture research describes agentic AI becoming a core, embedded feature of major EA management-suite tools, and argues this is redefining — not just automating — the architect's job. Forrester outlines four emerging EA role variants: a customer/employee-centric \"value mapper\" who connects architectural decisions to measurable business outcomes via knowledge graphs; a \"digital twin strategist\" who simulates architecture options with AI-powered digital twins; an \"enterprise knowledge curator\" who governs semantic layers and trains data teams on RAG/GraphRAG grounding; and an \"agentic governance champion\" who manages fleets of AI agents and establishes accountability guardrails. The underlying full report is gated, and the publicly visible material does not disclose a survey sample size, interview count, or other quantitative methodology — this is qualitative, tool-evaluation-grounded thought leadership rather than a fielded survey, and should be read as a leading-edge framework describing where Forrester believes the role is heading rather than evidence of widespread current practice.\n\nMcKinsey's independent enterprise-architecture research now converges with Forrester's thesis from a second, separately-authored firm: it lays out two architectural paths for agentic AI adoption (incremental integration versus comprehensive overhaul) and introduces the \"agentic mesh\" — an orchestration layer connecting agents to each other and to legacy systems, with governance embedded from the design stage rather than bolted on afterward. Neither firm discloses a survey sample, so this remains directional thought leadership rather than confirmed current practice, but two independent firms arriving at structurally similar conclusions moves this from a single-source signal to an early cross-firm pattern.\n\nA Gartner prediction now converges with both firms from a third, independent analyst-firm angle: it forecasts that by 2028, AI agents will help deliver 50% of enterprise architecture outcomes, easing workload on chronically understaffed EA teams, and directs heads of EA to redefine their own role as a \"strategic value orchestrator\" managing multiagent systems and AI governance rather than performing traditional EA work themselves. With Forrester, McKinsey, and now Gartner all independently describing agentic AI as reshaping the EA role toward governance and orchestration rather than traditional architecture work, this moves from a two-firm pattern to a three-firm cross-industry convergence — still directional and forward-looking, but no longer a single-source thesis.",
       "maturity": "Emerging Practice",
       "evidenceScore": 3,
       "roleTags": [
@@ -2499,7 +2543,7 @@
         }
       ],
       "firstSeen": "2026-07-08",
-      "lastUpdated": "2026-07-27",
+      "lastUpdated": "2026-08-14",
       "status": "active",
       "shortSummary": "Forrester's four emerging EA role variants tied to agentic AI governance and knowledge curation are now echoed by a second, independently-authored McKinsey framework describing an \"agentic mesh\" orchestration layer with governance embedded from the design stage. Neither firm discloses a survey sample, so this remains directional thought leadership, but two firms converging independently moves it beyond a single-source signal.",
       "evidenceStrength": 2,
@@ -2647,7 +2691,7 @@
       "previousEvidenceScore": 4,
       "contested": false,
       "contradictingEvidence": [],
-      "lastRedTeamedDate": "2026-07-28",
+      "lastRedTeamedDate": "2026-08-14",
       "companySize": "Cross-size / Unspecified",
       "newestEvidenceDate": "2026-07-01",
       "stale": false,
@@ -2934,6 +2978,80 @@
           "unit": "%",
           "population": "110 CHROs surveyed",
           "studyId": "gartner-2026-03-16"
+        }
+      ]
+    },
+    {
+      "id": "help-desk-tiered-support-flattens-agentic-automation",
+      "title": "Agentic AI Flattens Tiered Help-Desk Support Models, Redeploying Capacity Rather Than Cutting It",
+      "summary": "A McKinsey case study of a multinational enterprise's IT service desk (approximately 450,000 tickets per year) documents a concrete agentic-AI restructuring of the traditional tiered support model: an AI intake bot, an interactive-voice-response resolution agent, and proactive infrastructure monitoring together automated up to 80% of incoming requests, while 50% of service-agent capacity was redeployed to higher-value activities rather than eliminated, and customer satisfaction rose to 4.8 out of 5 [e:mckinsey-company-2026-04-23]. This is the specific tiered-support-flattening pattern IT-support commentary has speculated about -- Tier-0 self-service and Tier-1 triage absorbed by AI agents, with human staff shifted upward to complex-issue handling -- now documented with quantified outcomes at one large organization.\n\nAs a single named case rather than a multi-firm survey, this is an early, well-documented example rather than an established pattern; independent replication at other organizations would be needed before this can be considered common practice. It is related to, but distinct from, `ai-bifurcates-it-staffing-support-contracts-infra-grows`, which documents headcount-level effects of AI deflection on frontline support roles more broadly across a survey population -- this finding adds a specific operational mechanism (tier redesign and capacity redeployment, not headcount reduction) behind that broader staffing shift, at a single documented organization.",
+      "shortSummary": "A McKinsey case study documents a multinational enterprise's IT service desk (~450K tickets/year) automating up to 80% of requests via AI intake/IVR agents and proactive monitoring, redeploying 50% of agent capacity to higher-value work while raising CSAT to 4.8/5. A single documented case, not yet a broad pattern.",
+      "maturity": "Emerging Practice",
+      "evidenceScore": 3,
+      "roleTags": [
+        "Help Desk/IT Support",
+        "IT Operations/SRE"
+      ],
+      "dimensionTags": [
+        "Team Structure & Span of Control",
+        "Role Redesign/Job Architecture",
+        "AI Tooling & Enablement"
+      ],
+      "evidence": [
+        {
+          "sourceName": "McKinsey & Company",
+          "sourceTier": "top_tier_consulting",
+          "reliabilityScore": 3,
+          "url": "https://www.mckinsey.com/capabilities/mckinsey-technology/our-insights/reimagining-tech-infrastructure-for-and-with-agentic-ai",
+          "publishedDate": "2026-04-23",
+          "whatItShows": "Documented case: the IT service desk of a multinational enterprise (~450,000 tickets/year) redesigned its support model around an AI intake bot, an IVR-based resolution agent, and proactive infrastructure monitoring, automating up to 80% of requests, redeploying 50% of service-agent capacity to higher-value activities, and raising CSAT to 4.8/5.",
+          "institution": "McKinsey & Company",
+          "studyId": "mckinsey-company-2026-04-23",
+          "peerReviewed": null
+        }
+      ],
+      "firstSeen": "2026-08-14",
+      "lastUpdated": "2026-08-14",
+      "status": "active",
+      "evidenceStrength": 4,
+      "evidenceStrengthRationale": "Single documented large-enterprise case study with quantified, named outcomes (McKinsey) -- not a multi-firm survey and not an anecdote/vendor self-claim.",
+      "corroborationBreadth": 1,
+      "breadthBasis": {
+        "independentInstitutions": 1,
+        "distinctStudies": 1,
+        "tiersRepresented": 1
+      },
+      "previousEvidenceScore": null,
+      "contested": false,
+      "contradictingEvidence": [],
+      "lastRedTeamedDate": null,
+      "companySize": "Large Enterprise",
+      "newestEvidenceDate": "2026-04-23",
+      "stale": false,
+      "relatedTo": [
+        "ai-bifurcates-it-staffing-support-contracts-infra-grows"
+      ],
+      "metrics": [
+        {
+          "name": "Service desk requests automated",
+          "value": 80,
+          "unit": "%",
+          "population": "1 multinational enterprise, ~450K tickets/year",
+          "studyId": "mckinsey-company-2026-04-23"
+        },
+        {
+          "name": "Service-agent capacity redeployed to higher-value work",
+          "value": 50,
+          "unit": "%",
+          "population": "same case",
+          "studyId": "mckinsey-company-2026-04-23"
+        },
+        {
+          "name": "Customer satisfaction score",
+          "value": 4.8,
+          "unit": "/5",
+          "population": "same case",
+          "studyId": "mckinsey-company-2026-04-23"
         }
       ]
     }
