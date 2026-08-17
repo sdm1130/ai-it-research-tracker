@@ -1,7 +1,7 @@
 {
   "_readme": "Canonical living catalog of 'opportunities'. Schema documented alongside; see AGENT_PROMPT.md and rubric.md. This local file mirrors what is embedded in the published Artifact. Each opportunity has both 'shortSummary' (~2 plain sentences, always shown on the card) and 'summary' (multi-paragraph analyst-memo text, shown on click-to-expand) — keep both in sync when an opportunity's evidence changes.",
   "generatedBy": "weekly research update (scheduled run)",
-  "lastRunDate": "2026-08-14",
+  "lastRunDate": "2026-08-17",
   "opportunities": [
     {
       "id": "agentic-ai-governance-outpaces-readiness",
@@ -180,7 +180,7 @@
       "previousEvidenceScore": 5,
       "contested": false,
       "contradictingEvidence": [],
-      "lastRedTeamedDate": "2026-08-10",
+      "lastRedTeamedDate": "2026-08-17",
       "companySize": "Large Enterprise",
       "newestEvidenceDate": "2026-06-03",
       "stale": false,
@@ -229,9 +229,9 @@
     {
       "id": "ai-productivity-reallocated-not-cut",
       "title": "AI Productivity Gains Are Being Reinvested Into Skilled Technical Roles, Not Broad IT Headcount Cuts",
-      "summary": "Contrary to a straightforward automation-eliminates-jobs narrative, the strongest available evidence — spanning academic labor economics, a Federal Reserve regional bank, and three independent consulting surveys — shows enterprises reinvesting AI-driven productivity gains into new capability rather than aggressively cutting technology headcount. A March 2026 NBER working paper (survey of ~750 corporate executives) found little evidence of near-term aggregate employment decline from AI, but substantial compositional change beneath that stability: declining routine clerical positions alongside rising demand for skilled technical roles (engineers, data analysts, scientists). A Federal Reserve Bank of St. Louis analysis of occupational AI exposure found a positive association between AI exposure and employment growth specifically in high-computer-use occupations — the category most enterprise IT roles fall into.\n\nConsulting-tier surveys corroborate the same reallocation pattern with harder numbers. EY's Wave 4 AI Pulse Survey (500 US senior leaders) found 96% of AI-investing organizations reported productivity gains, yet only 17% of those organizations reduced headcount — instead, 47% expanded AI capabilities, 41% strengthened cybersecurity, and 38% funded upskilling. Accenture's Pulse of Change survey (3,650 C-suite executives plus 3,350 workers, 20 industries/countries) found 86% of leaders plan increased 2026 AI investment, but only 32% report sustained enterprise-wide impact, with talent and workforce alignment — not infrastructure — cited as the primary constraint.\n\nBCG Henderson Institute's occupational modeling (roughly 1,500 occupation types, 165 million US jobs) puts a number on the reshaping-versus-elimination distinction: 50-55% of US jobs will be reshaped over the next two to three years, versus only 10-15% genuinely vulnerable to elimination. For workforce planning, the practical implication is that a blunt \"AI reduces IT headcount\" model is not what five independent, methodologically disclosed sources are finding — the near-term story is internal reallocation toward higher-skill technical work, not net contraction.\n\nAdditional corroboration since the initial run reinforces the reallocation-not-contraction reading. A Federal Reserve Board speech by Governor Barr cites research finding that AI assistants deliver the largest productivity gains to the least-experienced workers, a leveling effect distinct from simple job substitution. Gartner's CHRO-focused survey found only 1% of H1 2025 layoffs were attributable to AI actually delivering realized productivity gains, and separately warned some organizations will need to rehire for roles cut prematurely on unrealized AI promises. LinkedIn hiring data cited by the World Economic Forum shows 1.3 million net new AI-related jobs added globally over two years, including 600,000+ AI-enabled data-center jobs. A new Census Bureau working paper (Bonney et al., April 2026), using the 2026 AI supplement to the Business Trends and Outlook Survey, adds a direct primary-data confirmation from real firm microdata: AI-related employment decreases are rare, occurring in only 2% of firms, and a regression analysis finds a robust positive correlation between firm commercial performance and the breadth of AI integration (functional deployment, task-level use, and operational investment). Most AI users (66%) rely on it solely to augment tasks rather than substitute for them — government firm-level data corroborating the reallocation-not-elimination pattern from the demand side, independent of the survey-based consulting sources above.",
+      "summary": "Contrary to a straightforward automation-eliminates-jobs narrative, the strongest available evidence — spanning academic labor economics, a Federal Reserve regional bank, and three independent consulting surveys — shows enterprises reinvesting AI-driven productivity gains into new capability rather than aggressively cutting technology headcount. A March 2026 NBER working paper (survey of ~750 corporate executives) found little evidence of near-term aggregate employment decline from AI, but substantial compositional change beneath that stability: declining routine clerical positions alongside rising demand for skilled technical roles (engineers, data analysts, scientists). A Federal Reserve Bank of St. Louis analysis of occupational AI exposure found a positive association between AI exposure and employment growth specifically in high-computer-use occupations — the category most enterprise IT roles fall into.\n\nConsulting-tier surveys corroborate the same reallocation pattern with harder numbers. EY's Wave 4 AI Pulse Survey (500 US senior leaders) found 96% of AI-investing organizations reported productivity gains, yet only 17% of those organizations reduced headcount — instead, 47% expanded AI capabilities, 41% strengthened cybersecurity, and 38% funded upskilling. Accenture's Pulse of Change survey (3,650 C-suite executives plus 3,350 workers, 20 industries/countries) found 86% of leaders plan increased 2026 AI investment, but only 32% report sustained enterprise-wide impact, with talent and workforce alignment — not infrastructure — cited as the primary constraint. BCG Henderson Institute's occupational modeling (roughly 1,500 occupation types, 165 million US jobs) puts a number on the reshaping-versus-elimination distinction: 50-55% of US jobs will be reshaped over the next two to three years, versus only 10-15% genuinely vulnerable to elimination.\n\nAdditional corroboration reinforces the reallocation-not-contraction reading. A Federal Reserve Board speech by Governor Barr cites research finding that AI assistants deliver the largest productivity gains to the least-experienced workers, a leveling effect distinct from simple job substitution. Gartner's CHRO-focused survey found only 1% of H1 2025 layoffs were attributable to AI actually delivering realized productivity gains. LinkedIn hiring data cited by the World Economic Forum shows 1.3 million net new AI-related jobs added globally over two years. A Census Bureau working paper (Bonney et al., April 2026), using the 2026 AI supplement to the Business Trends and Outlook Survey, adds direct primary-data confirmation from real firm microdata: AI-related employment decreases are rare, occurring in only 2% of firms, and firm commercial performance correlates positively with the breadth of AI integration; most AI users (66%) rely on it solely to augment tasks rather than substitute for them.\n\nThis run's red-team pass surfaced a genuine, methodologically disclosed complication that moves the score. A Gartner survey of 350 global business executives at $1B+-revenue organizations (fielded Q3 2025, all piloting or deploying AI agents, intelligent automation, or autonomous technologies) found roughly 80% report workforce reductions — but reduction rates were nearly identical between respondents reporting higher ROI and those seeing only modest or negative returns, meaning the cuts are not tracking realized value, and some organizations are already rehiring where agents underperformed [e:gartner-2026-05-05]. Because this clears the rubric's reliability-≥3 downgrade threshold (a named, disclosed survey, unlike the previously recorded no-methodology Deloitte figure citing the same ~80% headline, which appears to draw on this same underlying Gartner research rather than constitute independent corroboration), evidenceScore moves from 4 to 3 this run. The population is narrower than this opportunity's core claim — advanced autonomous/agentic adopters at large firms, not the broader AI-investment population the EY/Accenture/BCG figures describe — so the reallocation thesis is not overturned, but it no longer holds cleanly at the top of the catalog's confidence scale.",
       "maturity": "Growing Adoption",
-      "evidenceScore": 4,
+      "evidenceScore": 3,
       "roleTags": [
         "IT Leadership/Org Design & Strategy",
         "Data Engineering",
@@ -343,9 +343,9 @@
         }
       ],
       "firstSeen": "2026-07-08",
-      "lastUpdated": "2026-08-03",
+      "lastUpdated": "2026-08-17",
       "status": "active",
-      "shortSummary": "Six independent sources — NBER, the St. Louis Fed, EY, Accenture, BCG, and now the Census Bureau's own firm microdata — find AI productivity gains are being reinvested into skilled technical capability rather than driving broad IT headcount cuts. Census Bureau data finds AI-related employment decreases in only 2% of firms; EY's survey found 96% of AI-investing firms saw productivity gains, but only 17% reduced headcount.",
+      "shortSummary": "Seven independent sources — NBER, the St. Louis Fed, EY, Accenture, BCG, and the Census Bureau's own firm microdata — find AI productivity gains are mostly being reinvested into skilled technical capability rather than driving broad IT headcount cuts. But a disclosed-methodology Gartner survey of 350 executives at large autonomous-AI adopters found workforce cuts uncorrelated with realized ROI, pulling the score from 4 to 3 this run.",
       "evidenceStrength": 4,
       "evidenceStrengthRationale": "Best: St. Louis Fed occupational-variation analysis on real employment data. NBER entry is an executive survey, not causal work.",
       "corroborationBreadth": 5,
@@ -354,9 +354,22 @@
         "distinctStudies": 9,
         "tiersRepresented": 4
       },
-      "previousEvidenceScore": 5,
+      "previousEvidenceScore": 4,
       "contested": true,
       "contradictingEvidence": [
+        {
+          "sourceName": "Gartner (Autonomous Business and AI Layoffs)",
+          "institution": "Gartner",
+          "sourceTier": "it_analyst_firms",
+          "reliabilityScore": 3,
+          "evidenceStrength": 3,
+          "studyId": "gartner-2026-05-05",
+          "peerReviewed": null,
+          "url": "https://www.gartner.com/en/newsroom/press-releases/2026-05-05-gartner-says-autonomous-business-and-artificial-intelligence-layoffs-may-create-budget-room-but-do-not-deliver-returns",
+          "publishedDate": "2026-05-05",
+          "whatItShows": "Survey of 350 global business executives at organizations with $1B+ revenue, fielded Q3 2025, all piloting or deploying AI agents/intelligent automation/autonomous technologies: ~80% report workforce reductions, but reduction rates are nearly identical between respondents reporting higher ROI and those seeing only modest or negative returns — the cuts are not tracking realized value, and some organizations are already rehiring where agents underperformed.",
+          "contradicts": "Directly cuts against this opportunity's central claim that AI gains are reinvested rather than driving headcount reduction, for the specific population of large-firm autonomous/agentic adopters. Clears the reliability-≥3 downgrade threshold: named, disclosed survey (350 execs, Q3 2025, $1B+ revenue qualifying criterion). Evidence strength is a disclosed-sample survey (3), below this opportunity's trail-best strength (4), so the downgrade is -1."
+        },
         {
           "sourceName": "Deloitte (Cutting roles creates budget, not value)",
           "institution": "Deloitte Insights",
@@ -368,10 +381,10 @@
           "url": "https://www.deloitte.com/ca/en/services/consulting/perspectives/ai-work-redesign-value-creation.html",
           "publishedDate": "2026-06-17",
           "whatItShows": "States that over 80% of companies deploying autonomous business capabilities are also reducing their workforce, while only 20% report meaningful revenue impact.",
-          "contradicts": "Directly cuts against this opportunity's central claim that AI gains are reinvested rather than driving headcount reduction — EY's cited figure is 17% reducing headcount, this asserts 80%+. Note: Deloitte discloses no methodology or sample for either figure, so per rubric 3 it scores reliability 2 and per 4e does NOT move the score; it is recorded and flags the finding as contested."
+          "contradicts": "Same directional claim as the Gartner entry above, with an identical ~80% headline figure — this piece discloses no methodology or sample of its own and was published six weeks after Gartner's press release, so it most likely cites or restates the same underlying Gartner Q3 2025 survey rather than constituting independent corroboration of the contradiction. Recorded for completeness; per rubric 4e its own reliability (2, no disclosed methodology) would not clear the downgrade threshold on its own — the score movement this run is driven by the Gartner entry."
         }
       ],
-      "lastRedTeamedDate": "2026-08-14",
+      "lastRedTeamedDate": "2026-08-17",
       "companySize": "Cross-size / Unspecified",
       "newestEvidenceDate": "2026-04-03",
       "stale": false,
@@ -409,11 +422,11 @@
           "studyId": "bcg-2026-04-03"
         },
         {
-          "name": "Companies deploying autonomous capability that are also cutting workforce",
+          "name": "Large-firm autonomous/agentic AI adopters reporting workforce reductions",
           "value": 80,
           "unit": "%",
-          "population": "undisclosed (contradicting evidence)",
-          "studyId": "deloitte-insights-2026-06-17"
+          "population": "350 executives, $1B+ revenue orgs (Gartner, Q3 2025)",
+          "studyId": "gartner-2026-05-05"
         },
         {
           "name": "Firms reporting AI-related employment decreases",
@@ -557,7 +570,7 @@
       "previousEvidenceScore": 5,
       "contested": false,
       "contradictingEvidence": [],
-      "lastRedTeamedDate": "2026-08-10",
+      "lastRedTeamedDate": "2026-08-17",
       "companySize": "Cross-size / Unspecified",
       "newestEvidenceDate": "2026-07-07",
       "stale": false,
@@ -717,14 +730,14 @@
           "reliabilityScore": 3,
           "url": "https://www.gartner.com/en/newsroom/press-releases/2025-12-02-gartner-survey-finds-only-20-percent-of-customer-service-leaders-report-ai-driven-headcount-reduction",
           "publishedDate": "2025-12-02",
-          "whatItShows": "Survey of 321 customer service and support leaders (fielded Oct 2025): only 20% report AI-driven headcount reduction; 55% report stable staffing while handling higher volume. A companion Gartner forecast predicts half of the companies that did cut customer-service staff due to AI will rehire by 2027.",
+          "whatItShows": "Survey of 321 customer service and support leaders (fielded Sept-Oct 2025): only 20% report AI-driven headcount reduction; 55% report stable staffing while handling higher volume. A companion Gartner forecast predicts half of the companies that did cut customer-service staff due to AI will rehire by 2027. A second, April 2026 Gartner release mining this same 321-leader survey finds 85% are expanding human-agent responsibilities as AI shifts contact volume toward higher-value work, rather than reducing headcount -- reinforcing the same underlying finding, not a new independent data point.",
           "institution": "Gartner",
           "studyId": "gartner-2025-12-02",
           "contradicts": "The opportunity's frontline-contraction thesis is built on BLS occupational projections for the 'Computer Support Specialists' category and a single Forrester IT-service-desk case study. This is a broader, adjacent population (customer-service/contact-center leaders generally, not IT help desk specifically), but it directly undercuts the general mechanism claimed -- that AI deflection produces durable net headcount contraction in frontline support roles -- and Gartner's own rehiring forecast suggests any contraction observed elsewhere may be more transient than structural.",
           "peerReviewed": null
         }
       ],
-      "lastRedTeamedDate": "2026-08-10",
+      "lastRedTeamedDate": "2026-08-17",
       "companySize": "Cross-size / Unspecified",
       "newestEvidenceDate": "2026-07-16",
       "stale": false,
@@ -1199,24 +1212,35 @@
           "institution": "U.S. Census Bureau",
           "studyId": "u-s-census-bureau-2026-04-01",
           "peerReviewed": null
+        },
+        {
+          "sourceName": "U.S. Census Bureau (BTOS release, Dec 2025-May 2026 reference period)",
+          "sourceTier": "government_intergovernmental",
+          "reliabilityScore": 5,
+          "url": "https://www.census.gov/library/stories/2026/05/ai-use-businesses.html",
+          "publishedDate": "2026-05-26",
+          "whatItShows": "Firm-size breakdown from BTOS data (Dec 2025-May 2026): 37% of firms with 250+ employees report AI use vs. 32% for 100-249 employees and under 20% for firms with 4 or fewer employees; sector AI-use rates as of May 3, 2026 were 39.7% (Information) and 33.9% (Finance and Insurance) against a 19.8% national rate -- a sharper, more granular confirmation of the size- and sector-skew already documented via OECD/Eurostat/Fed Board evidence in this trail.",
+          "institution": "U.S. Census Bureau",
+          "studyId": "u-s-census-bureau-2026-05-26",
+          "peerReviewed": null
         }
       ],
       "firstSeen": "2026-07-08",
-      "lastUpdated": "2026-08-03",
+      "lastUpdated": "2026-08-17",
       "status": "active",
-      "shortSummary": "OECD data shows GenAI firm adoption more than doubled in two years to 20.2% in 2025, and a new Census Bureau working paper using primary BTOS microdata confirms adoption is concentrated in large firms and narrow in scope (57% of adopters use AI in 3 or fewer business functions). NBER and MIT Sloan research find most organizations remain stuck at personal-productivity-level use and struggle to scale into real process value.",
+      "shortSummary": "OECD data shows GenAI firm adoption more than doubled in two years to 20.2% in 2025, and Census Bureau BTOS microdata confirms adoption is concentrated in large firms and narrow in scope (57% of adopters use AI in 3 or fewer business functions; 37% of 250+-employee firms use AI vs. under 20% of micro-firms). NBER and MIT Sloan research find most organizations remain stuck at personal-productivity-level use and struggle to scale into real process value.",
       "evidenceStrength": 5,
       "evidenceStrengthRationale": "Best: OECD and Eurostat firm-level official statistical series, plus Fed Board analysis of Census BTOS microdata.",
       "corroborationBreadth": 5,
       "breadthBasis": {
         "independentInstitutions": 10,
-        "distinctStudies": 11,
+        "distinctStudies": 12,
         "tiersRepresented": 3
       },
       "previousEvidenceScore": 5,
       "contested": false,
       "contradictingEvidence": [],
-      "lastRedTeamedDate": "2026-08-10",
+      "lastRedTeamedDate": "2026-08-17",
       "companySize": "Cross-size / Unspecified",
       "newestEvidenceDate": "2026-06-03",
       "stale": false,
@@ -1274,6 +1298,13 @@
           "unit": "%",
           "population": "2026 BTOS AI supplement",
           "studyId": "u-s-census-bureau-2026-04-01"
+        },
+        {
+          "name": "Firms with 250+ employees reporting AI use",
+          "value": 37,
+          "unit": "%",
+          "population": "BTOS, Dec 2025-May 2026",
+          "studyId": "u-s-census-bureau-2026-05-26"
         }
       ]
     },

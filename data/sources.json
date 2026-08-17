@@ -1,6 +1,6 @@
 {
-  "_readme": "Allowlist of institutions the agent may search/cite. 'baseReliability' is the tier default per rubric.md section 3 — a specific publication's score may move within the tier based on its own methodology disclosure, but nothing off this list may be cited. This ENTIRE file is published verbatim into the artifact (sources-snapshot.fullSource), including the 'note' and 'tracking' fields, so scheduled cloud runs that cannot read this filesystem still receive the complete scoring guidance. Earlier versions published only tiers+domains, silently dropping the notes below.",
-  "_trackingReadme": "Each institution carries a 'tracking' object the agent updates every run: lastSearched (ISO date), lastYield (ISO date a qualifying finding was last admitted from it), consecutiveEmptyRuns. A source with consecutiveEmptyRuns >= 6 is reported in the findings log as possibly dead — a domain that silently returns nothing forever was previously invisible.",
+  "_readme": "Allowlist of institutions the agent may search/cite. 'baseReliability' is the tier default per rubric.md section 3 \u2014 a specific publication's score may move within the tier based on its own methodology disclosure, but nothing off this list may be cited. This ENTIRE file is published verbatim into the artifact (sources-snapshot.fullSource), including the 'note' and 'tracking' fields, so scheduled cloud runs that cannot read this filesystem still receive the complete scoring guidance. Earlier versions published only tiers+domains, silently dropping the notes below.",
+  "_trackingReadme": "Each institution carries a 'tracking' object the agent updates every run: lastSearched (ISO date), lastYield (ISO date a qualifying finding was last admitted from it), consecutiveEmptyRuns. A source with consecutiveEmptyRuns >= 6 is reported in the findings log as possibly dead \u2014 a domain that silently returns nothing forever was previously invisible.",
   "tiers": {
     "government_intergovernmental": {
       "baseReliability": 5,
@@ -11,9 +11,9 @@
             "bls.gov"
           ],
           "tracking": {
-            "lastSearched": "2026-08-14",
+            "lastSearched": "2026-08-17",
             "lastYield": "2026-07-16",
-            "consecutiveEmptyRuns": 2
+            "consecutiveEmptyRuns": 3
           }
         },
         {
@@ -21,11 +21,11 @@
           "domains": [
             "census.gov"
           ],
-          "note": "BTOS is the only large-sample, firm-level, biweekly US measurement of ACTUAL AI adoption (as opposed to stated intentions). Prioritise it — the catalog is otherwise heavy on intentions surveys. Firm-level microdata supports evidenceStrength 5.",
+          "note": "BTOS is the only large-sample, firm-level, biweekly US measurement of ACTUAL AI adoption (as opposed to stated intentions). Prioritise it \u2014 the catalog is otherwise heavy on intentions surveys. Firm-level microdata supports evidenceStrength 5.",
           "tracking": {
-            "lastSearched": "2026-08-14",
-            "lastYield": "2026-08-03",
-            "consecutiveEmptyRuns": 2
+            "lastSearched": "2026-08-17",
+            "lastYield": "2026-08-17",
+            "consecutiveEmptyRuns": 0
           }
         },
         {
@@ -34,9 +34,9 @@
             "federalreserve.gov"
           ],
           "tracking": {
-            "lastSearched": "2026-08-10",
+            "lastSearched": "2026-08-17",
             "lastYield": "2026-08-03",
-            "consecutiveEmptyRuns": 1
+            "consecutiveEmptyRuns": 2
           }
         },
         {
@@ -178,9 +178,9 @@
             "sloanreview.mit.edu"
           ],
           "tracking": {
-            "lastSearched": "2026-08-14",
+            "lastSearched": "2026-08-17",
             "lastYield": "2025-08-18",
-            "consecutiveEmptyRuns": 1
+            "consecutiveEmptyRuns": 2
           }
         },
         {
@@ -188,11 +188,11 @@
           "domains": [
             "cisr.mit.edu"
           ],
-          "note": "The research center dedicated specifically to enterprise IT org design and operating models — the closest institutional fit to this catalog's exact topic. Prioritise alongside Census BTOS.",
+          "note": "The research center dedicated specifically to enterprise IT org design and operating models \u2014 the closest institutional fit to this catalog's exact topic. Prioritise alongside Census BTOS.",
           "tracking": {
-            "lastSearched": "2026-08-14",
+            "lastSearched": "2026-08-17",
             "lastYield": "2026-08-14",
-            "consecutiveEmptyRuns": 0
+            "consecutiveEmptyRuns": 1
           }
         },
         {
@@ -248,9 +248,9 @@
             "hbr.org"
           ],
           "tracking": {
-            "lastSearched": "2026-08-14",
+            "lastSearched": "2026-08-17",
             "lastYield": null,
-            "consecutiveEmptyRuns": 3
+            "consecutiveEmptyRuns": 4
           }
         },
         {
@@ -272,9 +272,9 @@
             "nber.org"
           ],
           "tracking": {
-            "lastSearched": "2026-08-14",
+            "lastSearched": "2026-08-17",
             "lastYield": "2026-05-01",
-            "consecutiveEmptyRuns": 3
+            "consecutiveEmptyRuns": 4
           }
         },
         {
@@ -293,7 +293,7 @@
           "domains": [
             "simnet.org"
           ],
-          "note": "Long-running practitioner survey of IT leadership priorities, staffing and skills — one of very few IT-org-specific longitudinal series. Score per methodology disclosure.",
+          "note": "Long-running practitioner survey of IT leadership priorities, staffing and skills \u2014 one of very few IT-org-specific longitudinal series. Score per methodology disclosure.",
           "tracking": {
             "lastSearched": null,
             "lastYield": null,
@@ -311,9 +311,9 @@
             "mckinsey.com"
           ],
           "tracking": {
-            "lastSearched": "2026-08-14",
+            "lastSearched": "2026-08-17",
             "lastYield": "2026-08-14",
-            "consecutiveEmptyRuns": 0
+            "consecutiveEmptyRuns": 1
           }
         },
         {
@@ -322,9 +322,9 @@
             "bcg.com"
           ],
           "tracking": {
-            "lastSearched": "2026-08-14",
+            "lastSearched": "2026-08-17",
             "lastYield": "2026-04-03",
-            "consecutiveEmptyRuns": 3
+            "consecutiveEmptyRuns": 4
           }
         },
         {
@@ -344,9 +344,9 @@
             "deloitte.com"
           ],
           "tracking": {
-            "lastSearched": "2026-08-14",
+            "lastSearched": "2026-08-17",
             "lastYield": "2026-04-24",
-            "consecutiveEmptyRuns": 3
+            "consecutiveEmptyRuns": 4
           }
         },
         {
@@ -355,9 +355,9 @@
             "pwc.com"
           ],
           "tracking": {
-            "lastSearched": "2026-08-14",
+            "lastSearched": "2026-08-17",
             "lastYield": "2026-08-14",
-            "consecutiveEmptyRuns": 0
+            "consecutiveEmptyRuns": 1
           }
         },
         {
@@ -366,9 +366,9 @@
             "ey.com"
           ],
           "tracking": {
-            "lastSearched": "2026-08-14",
+            "lastSearched": "2026-08-17",
             "lastYield": "2026-08-14",
-            "consecutiveEmptyRuns": 0
+            "consecutiveEmptyRuns": 1
           }
         },
         {
@@ -377,9 +377,9 @@
             "accenture.com"
           ],
           "tracking": {
-            "lastSearched": "2026-08-14",
+            "lastSearched": "2026-08-17",
             "lastYield": "2026-01-15",
-            "consecutiveEmptyRuns": 2
+            "consecutiveEmptyRuns": 3
           }
         }
       ],
@@ -394,9 +394,9 @@
             "gartner.com"
           ],
           "tracking": {
-            "lastSearched": "2026-08-14",
-            "lastYield": "2026-08-10",
-            "consecutiveEmptyRuns": 1
+            "lastSearched": "2026-08-17",
+            "lastYield": "2026-08-17",
+            "consecutiveEmptyRuns": 0
           }
         },
         {
@@ -405,9 +405,9 @@
             "forrester.com"
           ],
           "tracking": {
-            "lastSearched": "2026-08-14",
+            "lastSearched": "2026-08-17",
             "lastYield": "2026-06-03",
-            "consecutiveEmptyRuns": 3
+            "consecutiveEmptyRuns": 4
           }
         },
         {
@@ -416,13 +416,13 @@
             "idc.com"
           ],
           "tracking": {
-            "lastSearched": "2026-08-14",
+            "lastSearched": "2026-08-17",
             "lastYield": null,
-            "consecutiveEmptyRuns": 3
+            "consecutiveEmptyRuns": 4
           }
         }
       ],
-      "note": "Drop to 2 if the piece is commentary/opinion without a named, described methodology (survey size, panel composition, etc.). This tier is the most-cited in the catalog and the most prone to reliability inflation — apply the drop strictly."
+      "note": "Drop to 2 if the piece is commentary/opinion without a named, described methodology (survey size, panel composition, etc.). This tier is the most-cited in the catalog and the most prone to reliability inflation \u2014 apply the drop strictly."
     },
     "preprint_servers": {
       "baseReliability": 3,
@@ -452,7 +452,7 @@
           }
         }
       ],
-      "note": "Preprints surface this literature 6-12 months before journal versions, but are NOT peer-reviewed. Source Reliability is CAPPED AT 3 regardless of study quality — record peerReviewed:false on every such evidence row. Evidence STRENGTH is judged on design as normal (a well-identified quasi-experiment still rates 5 on the strength axis), so a strong preprint contributes real strength while its reliability stays capped. If a later run finds the peer-reviewed version, swap the URL, set peerReviewed:true, and lift the cap."
+      "note": "Preprints surface this literature 6-12 months before journal versions, but are NOT peer-reviewed. Source Reliability is CAPPED AT 3 regardless of study quality \u2014 record peerReviewed:false on every such evidence row. Evidence STRENGTH is judged on design as normal (a well-identified quasi-experiment still rates 5 on the strength axis), so a strong preprint contributes real strength while its reliability stays capped. If a later run finds the peer-reviewed version, swap the URL, set peerReviewed:true, and lift the cap."
     }
   }
 }
