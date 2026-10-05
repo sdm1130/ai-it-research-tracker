@@ -1,7 +1,7 @@
 {
   "_readme": "Canonical living catalog of 'opportunities'. Schema documented alongside; see AGENT_PROMPT.md and rubric.md. This local file mirrors what is embedded in the published Artifact. Each opportunity has both 'shortSummary' (~2 plain sentences, always shown on the card) and 'summary' (multi-paragraph analyst-memo text, shown on click-to-expand) \u2014 keep both in sync when an opportunity's evidence changes.",
   "generatedBy": "weekly research update (scheduled run)",
-  "lastRunDate": "2026-09-28",
+  "lastRunDate": "2026-10-05",
   "opportunities": [
     {
       "id": "agentic-ai-governance-outpaces-readiness",
@@ -202,7 +202,7 @@
       "previousEvidenceScore": 5,
       "contested": false,
       "contradictingEvidence": [],
-      "lastRedTeamedDate": "2026-09-28",
+      "lastRedTeamedDate": "2026-10-05",
       "companySize": "Large Enterprise",
       "newestEvidenceDate": "2026-06-03",
       "stale": false,
@@ -645,7 +645,7 @@
       "previousEvidenceScore": 5,
       "contested": false,
       "contradictingEvidence": [],
-      "lastRedTeamedDate": "2026-09-28",
+      "lastRedTeamedDate": "2026-10-05",
       "companySize": "Cross-size / Unspecified",
       "newestEvidenceDate": "2026-07-07",
       "stale": false,
@@ -812,7 +812,7 @@
           "peerReviewed": null
         }
       ],
-      "lastRedTeamedDate": "2026-09-28",
+      "lastRedTeamedDate": "2026-10-05",
       "companySize": "Cross-size / Unspecified",
       "newestEvidenceDate": "2026-07-16",
       "stale": false,
@@ -1150,7 +1150,7 @@
           "contradicts": "A causally-identified RCT finding the productivity-gain premise itself does not hold in a skill-acquisition setting \u2014 a more fundamental disconfirmation than the downstream attenuation this opportunity documents, though on a different population (novices learning a new library) than NBER's experienced-developer production data. Reliability 3 (preprint ceiling) clears the \u22653 threshold; contradicting strength (4) is below the supporting trail's (5), so this applies a -1 downgrade per rubric 4e."
         }
       ],
-      "lastRedTeamedDate": "2026-09-28",
+      "lastRedTeamedDate": "2026-10-05",
       "companySize": "Cross-size / Unspecified",
       "newestEvidenceDate": "2026-07-01",
       "stale": false,
@@ -1381,7 +1381,7 @@
       "previousEvidenceScore": 5,
       "contested": false,
       "contradictingEvidence": [],
-      "lastRedTeamedDate": "2026-09-28",
+      "lastRedTeamedDate": "2026-10-05",
       "companySize": "Cross-size / Unspecified",
       "newestEvidenceDate": "2026-07-01",
       "stale": false,
@@ -1604,7 +1604,7 @@
       "previousEvidenceScore": 4,
       "contested": false,
       "contradictingEvidence": [],
-      "lastRedTeamedDate": "2026-09-28",
+      "lastRedTeamedDate": "2026-10-05",
       "companySize": "Large Enterprise",
       "newestEvidenceDate": "2026-08-01",
       "stale": false,
@@ -1878,7 +1878,7 @@
           "contradicts": "A third independent government analysis offering a non-AI explanation for early-career labor-market weakness in exactly the remotable/technical occupations this opportunity covers -- reinforces the NY Fed/FEDS causal skepticism already in this trail via a different mechanism (remote-work-driven mentorship/training friction rather than AI substitution). Reliability 5 clears the threshold; strength (4) stays below the supporting trail's (5), so this does not add to the existing -1 downgrade already applied."
         }
       ],
-      "lastRedTeamedDate": "2026-09-28",
+      "lastRedTeamedDate": "2026-10-05",
       "companySize": "Cross-size / Unspecified",
       "newestEvidenceDate": "2026-07-31",
       "stale": false,
@@ -2366,7 +2366,7 @@
       "previousEvidenceScore": 3,
       "contested": false,
       "contradictingEvidence": [],
-      "lastRedTeamedDate": "2026-09-28",
+      "lastRedTeamedDate": "2026-10-05",
       "companySize": "Large Enterprise",
       "newestEvidenceDate": "2026-05-28",
       "stale": false,
@@ -2947,7 +2947,7 @@
       "previousEvidenceScore": 4,
       "contested": false,
       "contradictingEvidence": [],
-      "lastRedTeamedDate": "2026-09-28",
+      "lastRedTeamedDate": "2026-10-05",
       "companySize": "Cross-size / Unspecified",
       "newestEvidenceDate": "2026-07-01",
       "stale": false,
@@ -2975,10 +2975,10 @@
     {
       "id": "ai-skills-wage-premium-it-developers",
       "title": "AI Skills Command Steep Wage Premiums for Top-Tier IT Developers, While Substituting for Routine IT Operations Skills",
-      "shortSummary": "A Wharton-affiliated academic study of IT job postings finds AI skills carry an 18.5% wage premium for developers in the top decile of IT development skill, versus just 5.1% for less-skilled developers, while a related Wharton study finds this newer-technology wage premium is also widening the tech-sector gender pay gap. AI substitutes for routine IT operations skills rather than complementing them, so skill complementarity is highly uneven across the IT workforce.",
-      "summary": "A paper presented at the 2026 AI and the Future of Work Conference (Nath, Yeo, Bharadwaj, and Bharadwaj) uses transformer-based text analysis of IT job postings to measure how AI skills price against traditional IT skills in the labor market. The central finding is sharp, uneven complementarity: workers at the 90th percentile of IT-development skill earn an 18.5% wage premium from AI expertise, compared with just 5.1% for developers with lower development skill \u2014 AI pays off dramatically more for those who are already highly skilled, rather than leveling the field.\n\nThe pattern reverses for IT operations skills: the study finds AI substitutes for routine IT-operations expertise rather than complementing it, though operational expertise still yields positive wage returns when paired with high AI and development skill jointly. In other words, AI is not a uniform complement across the IT skill stack \u2014 it sharply rewards top-decile development talent, offers muted returns to less-skilled developers, and directly substitutes for routine operational skill unless that skill is bundled with strong AI and development capability.\n\nFor workforce planning and compensation design, this is a specific, quantified counterpoint to any assumption that 'AI skills' function as a single, uniformly-valued credential across the IT organization. The premium structure implies a widening pay and value gap between top-decile technical talent who can leverage AI and the broader developer and operations population \u2014 relevant context alongside this catalog's other findings on team-size compression and the seniorization of technical roles.\n\nA related Wharton-affiliated study (reported via Knowledge at Wharton) corroborates the underlying wage-premium mechanism from a labor-economics angle: workers using newer technology \u2014 AI tools and cloud systems \u2014 earn roughly 6% more than those working on older technology stacks. The same research finds women are underrepresented in the roles that touch these newer technologies, meaning the AI/newer-tech wage premium documented in this catalog entry is also actively widening the existing tech-sector gender pay gap \u2014 an equity dimension not previously captured here.",
-      "maturity": "Emerging Practice",
-      "evidenceScore": 3,
+      "shortSummary": "A Wharton study finds AI skills carry an 18.5% wage premium for top-decile IT developers, versus just 5.1% for less-skilled developers. A new causal hiring experiment (1,725 recruiters, 3 countries) finds listing AI skills raises software-engineer interview odds by 8-15 percentage points, and PwC's global job-postings barometer finds the AI-skills wage premium has climbed to 62% in 2026 from 25% in 2024 -- though it is highly stratified by role and sector.",
+      "summary": "A paper presented at the 2026 AI and the Future of Work Conference (Nath, Yeo, Bharadwaj, and Bharadwaj) uses transformer-based text analysis of IT job postings to measure how AI skills price against traditional IT skills in the labor market. The central finding is sharp, uneven complementarity: workers at the 90th percentile of IT-development skill earn an 18.5% wage premium from AI expertise, compared with just 5.1% for developers with lower development skill [e:wharton-2026-02-06]. The pattern reverses for IT operations skills: AI substitutes for routine IT-operations expertise rather than complementing it, though operational expertise still yields positive wage returns when paired with high AI and development skill jointly. A related Wharton-affiliated study corroborates the underlying mechanism from a labor-economics angle: workers using newer technology (AI tools, cloud systems) earn roughly 6% more than those on older stacks, and women are underrepresented in the roles that touch these newer technologies, widening the tech-sector gender pay gap [e:wharton-2025-12-02].\n\nA January 2026 causal hiring experiment (Stephany, Teutloff & Leone; preprint, reliability capped per rubric) sharpens the mechanism with randomized evidence rather than observational wage data: in a paired-conjoint survey of 1,725 recruiters across the UK, US, and Germany evaluating synthetic candidate resumes, listing AI skills raised interview-invitation probability by 8-15 percentage points for software engineering candidates among the three occupations tested, and partially offset age- and education-related hiring disadvantages [e:arxiv-2601-13286] -- independent, randomized confirmation that the premium Wharton documents in realized wages also operates earlier, at the hiring-selection stage.\n\nPwC's 2026 Global AI Jobs Barometer (1B+ job postings, 27 countries) corroborates the premium's direction and scale from the opposite end of the data spectrum -- global labor-market pricing rather than a single-country academic sample: the average wage premium for AI-skilled workers rose to 62% in 2026, up from 57% in 2025 and 25% in 2024, though the premium is sharply stratified by role, reaching roughly 200% for dedicated AI-developer roles in some sectors versus about 67% for general AI-user roles [e:pwc-2026-07-31].\n\nFor workforce planning and compensation design, the combined trail -- a causal hiring experiment, a global job-postings series, and the original Wharton wage-linkage study, now spanning three independent institutions and three source tiers -- makes this among the best-corroborated findings in the catalog on the skills-premium side of AI's effect on IT staffing, and a specific, quantified counterpoint to any assumption that 'AI skills' function as a single, uniformly-valued credential across the IT organization.",
+      "maturity": "Growing Adoption",
+      "evidenceScore": 5,
       "roleTags": [
         "Software Engineering",
         "IT Operations/SRE",
@@ -3010,25 +3010,47 @@
           "institution": "Wharton",
           "studyId": "wharton-2025-12-02",
           "peerReviewed": null
+        },
+        {
+          "sourceName": "Stephany, Teutloff & Leone (SSRN / arXiv preprint)",
+          "sourceTier": "preprint_servers",
+          "reliabilityScore": 3,
+          "url": "https://arxiv.org/abs/2601.13286",
+          "publishedDate": "2026-01-19",
+          "whatItShows": "Paired-comparison conjoint hiring experiment, 1,725 recruiters across the UK, US, and Germany evaluating synthetic candidate resumes for one of three roles (office assistant, graphic designer, software engineer): listing AI skills raises interview-invitation probability by approximately 8-15 percentage points across the three occupations (software engineering among them), and partially or fully offsets age- and education-related hiring disadvantages. Causal, randomized design; preprint not yet peer-reviewed, reliability capped at 3 per rubric.",
+          "institution": "arXiv (econ.GN, cs.CY)",
+          "studyId": "arxiv-2601-13286",
+          "peerReviewed": false
+        },
+        {
+          "sourceName": "PwC (2026 Global AI Jobs Barometer)",
+          "sourceTier": "top_tier_consulting",
+          "reliabilityScore": 3,
+          "url": "https://www.pwc.com/gx/en/issues/artificial-intelligence/job-barometer/2026/2026-global-ai-jobs-barometer-full-report.pdf",
+          "publishedDate": "2026-07-31",
+          "whatItShows": "Large-scale job-postings analysis (1B+ postings, 27 countries): the average wage premium for workers with AI skills rose to 62% in 2026, up from 57% in 2025 and 25% in 2024, but the premium is sharply stratified by role -- reaching roughly 200% for dedicated AI-developer roles in some sectors versus about 67% for general AI-user roles. Same report and studyId already cited elsewhere in this catalog for its entry-level-hiring findings; this evidence row carries its wage-premium findings specifically.",
+          "institution": "PwC",
+          "studyId": "pwc-2026-07-31",
+          "peerReviewed": null
         }
       ],
       "firstSeen": "2026-07-14",
-      "lastUpdated": "2026-07-27",
+      "lastUpdated": "2026-10-05",
       "status": "active",
-      "evidenceStrength": 4,
-      "evidenceStrengthRationale": "Best: Wharton transformer-based text analysis of real IT job postings with wage linkage \u2014 large-scale empirical on observed data.",
-      "corroborationBreadth": 2,
+      "evidenceStrength": 5,
+      "evidenceStrengthRationale": "Best: Stephany/Teutloff/Leone conjoint hiring experiment -- a randomized, causal design per rubric 4a's explicit RCT descriptor, even though reliability is capped at 3 as an unreviewed preprint.",
+      "corroborationBreadth": 4,
       "breadthBasis": {
-        "independentInstitutions": 1,
-        "distinctStudies": 2,
-        "tiersRepresented": 1
+        "independentInstitutions": 3,
+        "distinctStudies": 4,
+        "tiersRepresented": 3
       },
-      "previousEvidenceScore": 4,
+      "previousEvidenceScore": 3,
       "contested": false,
       "contradictingEvidence": [],
-      "lastRedTeamedDate": null,
+      "lastRedTeamedDate": "2026-10-05",
       "companySize": "Cross-size / Unspecified",
-      "newestEvidenceDate": "2026-02-06",
+      "newestEvidenceDate": "2026-07-31",
       "stale": false,
       "relatedTo": [
         "job-architecture-shifts-skills-based-not-role-based",
@@ -3048,16 +3070,30 @@
           "unit": "%",
           "population": "Tambe & Yang research",
           "studyId": "wharton-2025-12-02"
+        },
+        {
+          "name": "Interview-invitation probability increase from listing AI skills (software engineering, among 3 occupations tested)",
+          "value": 8,
+          "unit": "percentage points (8-15pp range)",
+          "population": "1,725 recruiters, UK/US/Germany, conjoint hiring experiment",
+          "studyId": "arxiv-2601-13286"
+        },
+        {
+          "name": "Average wage premium for AI-skilled workers, 2026",
+          "value": 62,
+          "unit": "%",
+          "population": "1B+ job postings, 27 countries",
+          "studyId": "pwc-2026-07-31"
         }
       ]
     },
     {
       "id": "ai-workforce-impact-slowly-rising-tide",
       "title": "AI's Labor-Market Impact Looks Like a Slowly Rising Tide of Task Capability, Not a Sudden Displacement Wave",
-      "shortSummary": "An MIT study of over 17,000 task-level worker evaluations finds AI's current task-completion success rate ranges 47-73% across job categories at a minimally-sufficient quality bar, projected to reach 80-95% by 2029 \u2014 evidence that AI's labor-market impact is a gradual capability curve rather than a sudden displacement event.",
-      "summary": "MIT's Initiative on the Digital Economy (Thompson, Fleming, Mertens, Li, and Harris) evaluated AI performance against more than 17,000 real work tasks, rated by the workers who actually perform them, across a broad span of occupations. The headline finding is a pacing argument, not a magnitude argument: AI's current task-completion success rate, at a 'minimally sufficient quality' bar, ranges from 47% to 73% depending on job category \u2014 real but partial capability, not the near-complete automation implied by some forecasts. The study projects this range rising to 80-95% by 2029, a meaningful five-year trajectory rather than an abrupt jump.\n\nThe researchers frame this as a 'slowly rising tide' rather than sudden displacement waves: organizations have a multi-year runway in which AI capability crosses task-completion thresholds gradually and unevenly across occupations, rather than all at once. This is broad cross-occupation labor research, not IT-specific, but it bears directly on enterprise IT workforce planning because it offers an empirically grounded pacing model against which IT leaders can calibrate reskilling timelines, hiring plans, and the urgency of role-redesign decisions documented elsewhere in this catalog.\n\nFor workforce planning purposes, the practical implication is that the 2026-2029 window is likely to be the period in which AI capability crosses from 'partial, unreliable' to 'reliable at scale' for a majority of task categories \u2014 useful as a rough clock against which to plan the timing of team-size, hiring, and skills-investment decisions rather than treating AI capability as either already complete or perpetually nascent.",
+      "shortSummary": "An MIT study of 17,000+ task-level worker evaluations and an independent NBER survey of roughly 750 corporate executives both find AI's labor-market effect unfolding as a gradual capability curve rather than a sudden displacement event -- task-completion success rates are rising slowly, and executives report well under a 1% aggregate 2026 employment effect.",
+      "summary": "MIT's Initiative on the Digital Economy (Thompson, Fleming, Mertens, Li, and Harris) evaluated AI performance against more than 17,000 real work tasks, rated by the workers who actually perform them, across a broad span of occupations. The headline finding is a pacing argument, not a magnitude argument: AI's current task-completion success rate, at a 'minimally sufficient quality' bar, ranges from 47% to 73% depending on job category, projected to rise to 80-95% by 2029 -- a meaningful five-year trajectory rather than an abrupt jump [e:mit-initiative-on-the-digital-economy-2026-05-13].\n\nAn independent March 2026 NBER survey of roughly 750 corporate executives corroborates the gradual-impact reading from the realized-employment side rather than the task-capability side: firm-size-and-sector-weighted aggregate employment is expected to decline by less than 0.4% in 2026 because of AI, even as executives report AI already delivering positive, if modest and unevenly distributed, productivity gains concentrated in high-skill services and finance. The survey's job-function index finds AI's negative effect concentrated in the most routine roles, not a broad cross-occupation shock [e:national-bureau-of-economic-research-w34984-2026-03-01].\n\nNeither study is IT-specific, but both bear directly on enterprise IT workforce planning: together they offer two independently derived, empirically grounded pacing models -- one from task-level capability measurement, one from realized firm-level employment -- against which IT leaders can calibrate reskilling timelines, hiring plans, and the urgency of role-redesign decisions documented elsewhere in this catalog. For workforce planning purposes, the practical implication is that the 2026-2029 window is likely to be the period in which AI capability crosses from 'partial, unreliable' to 'reliable at scale' for a majority of task categories -- a rough clock against which to plan team-size, hiring, and skills-investment decisions, rather than treating AI capability as either already complete or perpetually nascent.",
       "maturity": "Growing Adoption",
-      "evidenceScore": 3,
+      "evidenceScore": 4,
       "roleTags": [
         "IT Leadership/Org Design & Strategy"
       ],
@@ -3075,23 +3111,34 @@
           "institution": "MIT Initiative on the Digital Economy",
           "studyId": "mit-initiative-on-the-digital-economy-2026-05-13",
           "peerReviewed": null
+        },
+        {
+          "sourceName": "National Bureau of Economic Research (NBER Working Paper w34984)",
+          "sourceTier": "academic_research",
+          "reliabilityScore": 4,
+          "url": "https://www.nber.org/papers/w34984",
+          "publishedDate": "2026-03-01",
+          "whatItShows": "Survey of nearly 750 corporate executives (Baslandze, Edwards, Graham, McClure, Meyer, Sparks, Waddell & Weitz): firm-size-and-sector-weighted aggregate employment is expected to decline by less than 0.4% in 2026 because of AI, while labor productivity gains are positive, vary by sector, and are expected to strengthen, concentrated in high-skill services and finance. The paper's job-function index finds AI's negative effect concentrated in the most routine roles -- consistent with gradual reallocation rather than a sudden displacement wave.",
+          "institution": "National Bureau of Economic Research",
+          "studyId": "national-bureau-of-economic-research-w34984-2026-03-01",
+          "peerReviewed": null
         }
       ],
       "firstSeen": "2026-07-14",
-      "lastUpdated": "2026-07-14",
+      "lastUpdated": "2026-10-05",
       "status": "active",
       "evidenceStrength": 4,
       "evidenceStrengthRationale": "Best: MIT IDE 17,000+ worker-rated task-level evaluations \u2014 large-scale primary measurement.",
-      "corroborationBreadth": 1,
+      "corroborationBreadth": 3,
       "breadthBasis": {
-        "independentInstitutions": 1,
-        "distinctStudies": 1,
+        "independentInstitutions": 2,
+        "distinctStudies": 2,
         "tiersRepresented": 1
       },
-      "previousEvidenceScore": 4,
+      "previousEvidenceScore": 3,
       "contested": false,
       "contradictingEvidence": [],
-      "lastRedTeamedDate": null,
+      "lastRedTeamedDate": "2026-10-05",
       "companySize": "Cross-size / Unspecified",
       "newestEvidenceDate": "2026-05-13",
       "stale": false,
@@ -3105,6 +3152,13 @@
           "unit": "%",
           "population": "17,000+ worker-rated task evaluations (range 47-73%)",
           "studyId": "mit-initiative-on-the-digital-economy-2026-05-13"
+        },
+        {
+          "name": "Aggregate 2026 employment decline attributable to AI (executive survey)",
+          "value": 0.4,
+          "unit": "% (upper bound)",
+          "population": "~750 corporate executives",
+          "studyId": "national-bureau-of-economic-research-w34984-2026-03-01"
         }
       ]
     },
@@ -3324,7 +3378,7 @@
       "previousEvidenceScore": 3,
       "contested": false,
       "contradictingEvidence": [],
-      "lastRedTeamedDate": "2026-09-28",
+      "lastRedTeamedDate": "2026-10-05",
       "companySize": "Cross-size / Unspecified",
       "newestEvidenceDate": "2026-04-23",
       "stale": false,
@@ -3379,7 +3433,7 @@
     {
       "id": "data-foundation-investment-differentiates-ai-success",
       "title": "Data & Analytics Foundation Investment Is What Separates Scaling AI Initiatives From Stalled Ones",
-      "summary": "A Gartner survey of 353 data-and-analytics and AI leaders (fielded November-December 2025) finds that organizations reporting successful AI initiatives invest up to four times more, as a share of revenue, in foundational data work \u2014 data quality, governance, AI-ready people, and change management \u2014 than organizations with poor AI outcomes; the same survey finds only 39% of technology leaders are confident their current AI investments will positively affect financial performance. This reframes \"data engineering\" from a background utility function into the organizational variable that best predicts whether an AI program scales or stalls.\n\nMIT CISR's case-study research on Caterpillar's multiyear data-liquidity program supplies a documented, quantified example of the same pattern: by systematically investing in three \"data liquidity levers\" \u2014 data architecture, data preparation, and data permissioning \u2014 Caterpillar grew services revenue from $14 billion (2016) to $24 billion (2025) on the way to a stated $28 billion goal, underpinned by a digital platform spanning e-commerce, fleet management, and predictive maintenance. MIT CISR's separate 2024 Data Monetization survey (349 executives, fielded 2023-2024) generalizes beyond the single case: data capabilities, AI capabilities, and \"data democracy\" together explain 53% of the variation in data monetization value across firms, which in turn explains 36% of the variance in overall firm performance.\n\nA Deloitte perspective piece complicates a purely mechanical reading of this pattern: it argues the ROI gap is not simply a data-quality shortfall but a function of integration, governance, and organizational alignment \u2014 \"it's people, processes, and governance that determine whether AI succeeds or stalls,\" not data quality in isolation. This is a reasonable refinement rather than a disconfirmation (Deloitte's own framing still treats data/governance investment as necessary, just not sufficient on its own), and the piece is commentary without a named survey methodology, so it does not clear the reliability-3 downgrade threshold; it is recorded as contested context rather than a score-moving contradiction.\n\nFor enterprise IT organizations, the practical implication is a resourcing one: data engineering and data platform teams are the operational unit that builds the \"foundation\" both Gartner and MIT CISR describe, making investment in that function \u2014 architecture, pipeline reliability, governance tooling, data-quality processes \u2014 a leading indicator of whether adjacent AI initiatives will scale rather than stall in pilot.",
+      "summary": "A Gartner survey of 353 data-and-analytics and AI leaders (fielded November-December 2025) finds that organizations reporting successful AI initiatives invest up to four times more, as a share of revenue, in foundational data work -- data quality, governance, AI-ready people, and change management -- than organizations with poor AI outcomes; the same survey finds only 39% of technology leaders are confident their current AI investments will positively affect financial performance [e:gartner-2026-04-16]. This reframes 'data engineering' from a background utility function into the organizational variable that best predicts whether an AI program scales or stalls.\n\nMIT CISR's case-study research on Caterpillar's multiyear data-liquidity program supplies a documented, quantified example of the same pattern: investing in three 'data liquidity levers' -- data architecture, data preparation, and data permissioning -- helped grow services revenue from $14 billion (2016) to $24 billion (2025) [e:mit-cisr-2025-11-01]. MIT CISR's separate 349-executive Data Monetization survey generalizes beyond the single case: data capabilities, AI capabilities, and 'data democracy' together explain 53% of the variation in data monetization value across firms, which in turn explains 36% of the variance in overall firm performance [e:mit-cisr-2025-11-20].\n\nIDC's Office of the CDO Survey 2025 (417 senior data and analytics leaders, published May 2026) adds a third independent institution and a leadership-and-process angle rather than a spending-ratio one: AI has restructured the data agenda rather than merely expanding it, consolidating data-leadership models and rebalancing executive time toward strategy as data quality becomes the top investment priority, while skills shortages and ROI pressure remain the leading barriers to production-grade AI. IDC's own performance scorecard finds organizations scoring highest on data-management maturity achieve roughly three times the financial and operational KPI gains of lower-scoring peers and are far more likely to run production-grade AI and high-performing data-product practices [e:idc-2026-05-01].\n\nA Deloitte perspective piece complicates a purely mechanical reading of this pattern: it argues the ROI gap is not simply a data-quality shortfall but a function of integration, governance, and organizational alignment -- a reasonable refinement rather than a disconfirmation, since Deloitte's own framing still treats data/governance investment as necessary, just not sufficient alone; the piece is commentary without a named survey methodology, so it does not clear the reliability-3 downgrade threshold and is recorded as contested context. For enterprise IT organizations, the practical implication is a resourcing one: data engineering and data platform teams build the 'foundation' that Gartner, MIT CISR, and now IDC all independently describe, making investment in that function -- architecture, pipeline reliability, governance tooling, data-quality processes, and data leadership itself -- a leading indicator of whether adjacent AI initiatives scale or stall in pilot.",
       "maturity": "Growing Adoption",
       "evidenceScore": 4,
       "roleTags": [
@@ -3425,21 +3479,32 @@
           "institution": "MIT Center for Information Systems Research (CISR)",
           "studyId": "mit-cisr-2025-11-20",
           "peerReviewed": null
+        },
+        {
+          "sourceName": "IDC (Office of the CDO Survey 2025)",
+          "sourceTier": "it_analyst_firms",
+          "reliabilityScore": 3,
+          "url": "https://my.idc.com/getdoc.jsp?containerId=US52932525",
+          "publishedDate": "2026-05-01",
+          "whatItShows": "Annual primary research survey of 417 senior data and analytics leaders, published May 2026: finds data management has moved from a background discipline to the foundational layer AI outcomes, governance integrity, and business performance depend on, with data-leadership models consolidating and executive time rebalancing toward strategy as data quality becomes the top investment priority. IDC's own performance scorecard finds organizations scoring highest on data-management maturity achieve roughly 3x the financial and operational KPI gains of lower-scoring peers and are far more likely to run production-grade AI and high-performing data-product practices -- an independent third institution confirming the Gartner/MIT CISR pattern from a leadership-and-process-maturity angle rather than a spending-ratio angle.",
+          "institution": "IDC",
+          "studyId": "idc-2026-05-01",
+          "peerReviewed": null
         }
       ],
       "firstSeen": "2026-08-24",
-      "lastUpdated": "2026-08-24",
+      "lastUpdated": "2026-10-05",
       "status": "active",
-      "shortSummary": "A disclosed-methodology Gartner survey of 353 D&A/AI leaders finds organizations with successful AI initiatives invest up to 4x more in data quality, governance, and AI-ready people than those with poor outcomes, and MIT CISR's Caterpillar case study and 349-executive Data Monetization survey independently corroborate that foundational data investment predicts AI scaling success. Deloitte offers a plausible refinement (integration and governance matter alongside data quality) rather than a disconfirmation.",
+      "shortSummary": "A Gartner survey of 353 D&A/AI leaders finds AI-successful organizations invest up to 4x more in data foundations than those with poor outcomes; MIT CISR's Caterpillar case study and 349-executive Data Monetization survey corroborate; and a new IDC survey of 417 data leaders independently confirms that data-management maturity, not just technology, predicts whether AI scales -- high scorers see roughly 3x the KPI gains of peers. Deloitte offers a plausible refinement (people/governance matter too) rather than a disconfirmation.",
       "evidenceStrength": 4,
       "evidenceStrengthRationale": "Best: MIT CISR's documented, quantified Caterpillar case study (large-enterprise outcome tied to a specific data-investment program). Corroborated by a disclosed-methodology Gartner 353-leader survey and MIT CISR's separate 349-executive Data Monetization survey.",
-      "corroborationBreadth": 3,
+      "corroborationBreadth": 4,
       "breadthBasis": {
-        "independentInstitutions": 2,
-        "distinctStudies": 3,
+        "independentInstitutions": 3,
+        "distinctStudies": 4,
         "tiersRepresented": 2
       },
-      "previousEvidenceScore": null,
+      "previousEvidenceScore": 4,
       "contested": true,
       "contradictingEvidence": [
         {
@@ -3456,9 +3521,9 @@
           "contradicts": "Complicates a purely data-quality-centric reading of the founding thesis by arguing data investment alone is not sufficient. Commentary/perspective piece with no named survey methodology disclosed \u2014 reliability 2, below the \u22653 downgrade threshold, so it is recorded as contested context only; no score change."
         }
       ],
-      "lastRedTeamedDate": "2026-09-28",
+      "lastRedTeamedDate": "2026-10-05",
       "companySize": "Large Enterprise",
-      "newestEvidenceDate": "2026-04-16",
+      "newestEvidenceDate": "2026-05-01",
       "stale": false,
       "relatedTo": [
         "ai-bifurcates-it-staffing-support-contracts-infra-grows"
@@ -3498,6 +3563,13 @@
           "unit": "%",
           "population": "349 executives, 2023-2024",
           "studyId": "mit-cisr-2025-11-20"
+        },
+        {
+          "name": "Financial/operational KPI gain multiple for high data-maturity scorers vs. lower-scoring peers",
+          "value": 3,
+          "unit": "x",
+          "population": "417 senior data leaders, IDC Office of the CDO Survey 2025",
+          "studyId": "idc-2026-05-01"
         }
       ]
     },
