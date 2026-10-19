@@ -202,7 +202,7 @@
       "previousEvidenceScore": 5,
       "contested": false,
       "contradictingEvidence": [],
-      "lastRedTeamedDate": "2026-10-12",
+      "lastRedTeamedDate": "2026-10-19",
       "companySize": "Large Enterprise",
       "newestEvidenceDate": "2026-06-03",
       "stale": false,
@@ -645,7 +645,7 @@
       "previousEvidenceScore": 5,
       "contested": false,
       "contradictingEvidence": [],
-      "lastRedTeamedDate": "2026-10-12",
+      "lastRedTeamedDate": "2026-10-19",
       "companySize": "Cross-size / Unspecified",
       "newestEvidenceDate": "2026-07-07",
       "stale": false,
@@ -688,7 +688,7 @@
     {
       "id": "ai-bifurcates-it-staffing-support-contracts-infra-grows",
       "title": "AI Deflection Bifurcates IT Staffing: Frontline Support Contracts While Infrastructure & Data Roles Expand",
-      "summary": "Official U.S. government projections and real early-adopter case data agree on a clear bifurcation within IT occupations tied to automatability. The Bureau of Labor Statistics' 2024-34 Employment Projections show computer support specialists at -3% employment change through 2034 as organizations deploy chatbots for troubleshooting, and customer service representatives at -5%, driven by self-service systems — though both retain substantial replacement-driven annual openings [e:u-s-bureau-of-labor-statistics-2025-08-28]. By contrast, infrastructure- and data-adjacent roles are projected to grow well above the all-occupation average: computer network architects at +12%, database administrators at +8.2%, and database architects at +10.8% [e:u-s-bureau-of-labor-statistics-2025-08-28]; software developers at +15.8% (267,000+ jobs, the largest absolute increase of any occupation examined), with information security analysts, actuaries, operations research analysts, and computer/information research scientists all at 19.0%+ [e:u-s-bureau-of-labor-statistics-2026-07-16]. The broader computer/mathematical group is projected to grow 10.1% over the decade, with data scientists the fourth-fastest-growing occupation in the economy at +33.5% [e:u-s-bureau-of-labor-statistics-2026-01-01].\n\nForrester's service desk research puts real numbers behind the contraction side at specific organizations: a financial services firm reduced frontline support from 30 to 12 agents (a 60% cut) while maintaining service levels; a retail organization automated one-third of 57,000 annual service requests; a global technology company's virtual agent now resolves 65% of initial contacts without human intervention [e:forrester-2025-08-12]. A Brookings Institution study adds a complicating nuance: studying career pathways for over 70 million US workers who reached good jobs through alternative routes, it finds computer support specialists specifically as an occupation where AI could augment work and shorten the skill-distance to higher-wage roles — an upgrade pathway for some frontline support workers rather than a uniform displacement story, though it does not overturn the BLS-projected net contraction [e:brookings-institution-2026-04-02].\n\nA red-team search this run surfaced a genuine complication on the contraction side, though from an adjacent population: a Gartner survey of 321 customer service and support leaders (fielded October 2025) found only 20% report AI-driven headcount reduction, with 55% reporting stable staffing while handling higher volume — and a companion Gartner forecast predicts half of the companies that did cut customer-service staff due to AI will rehire by 2027 [e:gartner-2025-12-02]. This is a broader customer-service/contact-center population, not IT help-desk support specifically, so it does not directly refute the BLS occupational projection. But it undercuts the general mechanism this opportunity leans on — that AI deflection produces durable net headcount contraction in frontline support work — and Gartner's own rehiring forecast suggests any contraction observed elsewhere may be more transient than structural.\n\nThis remains the most concretely quantified reallocation signal in the catalog — a specific, government-confirmed and case-validated split between automatable, low-complexity support work (contracting, per BLS's own occupational data) and infrastructure, data, security, and AI-adjacent technical work (expanding sharply) — directly actionable for workforce sizing decisions, though now read alongside genuine evidence that the contraction side may be shallower or more reversible than the raw BLS projection alone implies.",
+      "summary": "Official U.S. government projections and real early-adopter case data agree on a clear bifurcation within IT occupations tied to automatability, and a new 2025-35 projection cycle (released August 2026) sharpens rather than overturns it. The prior 2024-34 cycle found computer support specialists at -3% through 2034 and infrastructure/data roles expanding sharply: computer network architects +12%, database administrators +8.2%, database architects +10.8% [e:u-s-bureau-of-labor-statistics-2025-08-28]; software developers +15.8% (267,000+ jobs), with information security analysts, actuaries, and computer/information research scientists all at 19.0%+ [e:u-s-bureau-of-labor-statistics-2026-07-16]; computer/mathematical occupations overall +10.1%, with data scientists the 4th-fastest-growing occupation in the economy at +33.5% [e:u-s-bureau-of-labor-statistics-2026-01-01]. The new 2025-35 cycle confirms the pattern and adds a notable new contracting-side occupation: computer support specialists' -3% decline is now shown to be entirely a user-support phenomenon, since network support specialists are separately projected to GROW +1% within the same occupational family, and computer programmers newly join the contracting side at -7% (-8,100 jobs), which BLS explicitly attributes in part to AI automating programming tasks. Growth continues on the infrastructure/data side (network architects +8%, data scientists accelerating to +35%), and BLS's new companion AI-exposure-categories data product gives every projected occupation a relative exposure tier for the first time [e:u-s-bureau-of-labor-statistics-2026-08-27].\n\nForrester's service desk research and a Brookings Institution study add corroborating detail at the organizational and worker-pathway level. Forrester documents real early-adopter case data behind the contraction side: a financial services firm reduced frontline support from 30 to 12 agents (a 60% cut) while maintaining service levels; a retail organization automated one-third of 57,000 annual service requests; a global technology company's virtual agent now resolves 65% of initial contacts without human intervention [e:forrester-2025-08-12]. Brookings adds a complicating nuance from the worker-pathway side: studying career pathways for over 70 million US workers who reached good jobs through alternative routes, it finds computer support specialists specifically as an occupation where AI could augment work and shorten the skill-distance to higher-wage roles -- an upgrade pathway for some frontline support workers rather than a uniform displacement story, though it does not overturn the BLS-projected net contraction [e:brookings-institution-2026-04-02].\n\nA red-team search in a prior run surfaced a genuine complication on the contraction side, though from an adjacent population: a Gartner survey of 321 customer service and support leaders (fielded October 2025) found only 20% report AI-driven headcount reduction, with 55% reporting stable staffing while handling higher volume -- and a companion Gartner forecast predicts half of the companies that did cut customer-service staff due to AI will rehire by 2027 [e:gartner-2025-12-02]. This is a broader customer-service/contact-center population, not IT help-desk support specifically, so it does not directly refute the BLS occupational projection, but it undercuts the general mechanism this opportunity leans on -- that AI deflection produces durable net headcount contraction in frontline support work. A fresh disconfirmation search this run (customer-service and help-desk automation outcomes) surfaced no new allowlist-qualifying contradiction beyond this existing Gartner complication.\n\nThis remains the most concretely quantified reallocation signal in the catalog, now reinforced by a second, independent BLS projection cycle rather than resting on a single release: a specific, government-confirmed and case-validated split between automatable, low-complexity support and (now) routine-programming work contracting, and infrastructure, data, security, and AI-adjacent technical work expanding sharply -- directly actionable for workforce sizing decisions, though still read alongside genuine evidence that the support-side contraction may be shallower or more reversible than the raw BLS projection alone implies.",
       "maturity": "Common/Mainstream",
       "evidenceScore": 4,
       "roleTags": [
@@ -782,18 +782,29 @@
           "institution": "Brookings Institution",
           "studyId": "brookings-institution-2026-04-02",
           "peerReviewed": null
+        },
+        {
+          "sourceName": "U.S. Bureau of Labor Statistics, Employment Projections 2025-35",
+          "sourceTier": "government_intergovernmental",
+          "reliabilityScore": 5,
+          "url": "https://www.bls.gov/news.release/ecopro.nr0.htm",
+          "publishedDate": "2026-08-27",
+          "whatItShows": "New 2025-35 projection cycle (released Aug 27, 2026) updates and sharpens the bifurcation. Computer support specialists still shrink -3% (-24,300 jobs), but the decline is now concentrated entirely in user-support roles, while network support specialists are separately projected to GROW +1% (+1,900 jobs) -- a bifurcation inside the support occupation itself. Computer programmers newly enter the contracting side at -7% (-8,100 jobs), which BLS attributes partly to automation of programming tasks via AI -- a new occupation on the contracting side, distinct from support roles. On the expansion side: computer network architects +8% (+14,100 jobs), data scientists +35% (+95,400 jobs, accelerating from the prior cycle's +33.5%), and computer/mathematical occupations overall +7.3% (5th-fastest-growing major group, vs +10.1% in the prior cycle). BLS also published a companion AI-exposure-categories data product sorting every projected occupation into four relative exposure tiers (low/moderate/high/very high) from the median percentile rank across three theoretical and two observed-evidence exposure measures; its 'very high' tier includes web developers, customer service representatives, and personal financial advisors.",
+          "institution": "U.S. Bureau of Labor Statistics",
+          "studyId": "u-s-bureau-of-labor-statistics-2026-08-27",
+          "peerReviewed": null
         }
       ],
       "firstSeen": "2026-07-08",
-      "lastUpdated": "2026-08-10",
+      "lastUpdated": "2026-10-19",
       "status": "active",
-      "shortSummary": "Official BLS projections and Forrester case data show frontline IT support contracting (-3% to -5% through 2034) while infrastructure, data, and security roles expand sharply (network architects +12%, software developers +15.8%/267,000+ jobs, info security analysts 19%+). A newly surfaced Gartner survey of customer-service leaders complicates the contraction side -- only 20% report AI-driven cuts and Gartner forecasts half will rehire by 2027 -- pulling the score from 5 to 4.",
+      "shortSummary": "A second, independent BLS projection cycle (2025-35, released Aug 2026) confirms and sharpens the bifurcation: computer support specialists -3% (now shown to be a user-support-only decline, with network support specialists actually growing +1%) and computer programmers newly contracting -7% (AI-attributed), against infrastructure/data roles expanding sharply (network architects +8%, data scientists +35%, software developers +15.8%/267,000+ jobs in the prior cycle). A Gartner survey of customer-service leaders still complicates the contraction side -- only 20% report AI-driven cuts and Gartner forecasts half will rehire by 2027 -- keeping the score at 4, down from a raw 5.",
       "evidenceStrength": 5,
       "evidenceStrengthRationale": "Best: BLS official occupational employment projections — a national statistical agency series, which rubric 4a scores 5.",
       "corroborationBreadth": 4,
       "breadthBasis": {
         "independentInstitutions": 3,
-        "distinctStudies": 5,
+        "distinctStudies": 6,
         "tiersRepresented": 3
       },
       "previousEvidenceScore": 5,
@@ -812,9 +823,9 @@
           "peerReviewed": null
         }
       ],
-      "lastRedTeamedDate": "2026-10-12",
+      "lastRedTeamedDate": "2026-10-19",
       "companySize": "Cross-size / Unspecified",
-      "newestEvidenceDate": "2026-07-16",
+      "newestEvidenceDate": "2026-08-27",
       "stale": false,
       "relatedTo": [
         "ai-automates-tier1-security-operations",
@@ -857,6 +868,20 @@
           "unit": "%",
           "population": "321 customer service/support leaders",
           "studyId": "gartner-2025-12-02"
+        },
+        {
+          "name": "Computer programmers, projected employment change 2025-35",
+          "value": -7,
+          "unit": "%",
+          "population": "BLS national projections",
+          "studyId": "u-s-bureau-of-labor-statistics-2026-08-27"
+        },
+        {
+          "name": "Data scientists, projected growth 2025-35",
+          "value": 35,
+          "unit": "%",
+          "population": "BLS national projections",
+          "studyId": "u-s-bureau-of-labor-statistics-2026-08-27"
         }
       ]
     },
@@ -1150,7 +1175,7 @@
           "contradicts": "A causally-identified RCT finding the productivity-gain premise itself does not hold in a skill-acquisition setting — a more fundamental disconfirmation than the downstream attenuation this opportunity documents, though on a different population (novices learning a new library) than NBER's experienced-developer production data. Reliability 3 (preprint ceiling) clears the ≥3 threshold; contradicting strength (4) is below the supporting trail's (5), so this applies a -1 downgrade per rubric 4e."
         }
       ],
-      "lastRedTeamedDate": "2026-10-12",
+      "lastRedTeamedDate": "2026-10-19",
       "companySize": "Cross-size / Unspecified",
       "newestEvidenceDate": "2026-07-01",
       "stale": false,
@@ -1381,7 +1406,7 @@
       "previousEvidenceScore": 5,
       "contested": false,
       "contradictingEvidence": [],
-      "lastRedTeamedDate": "2026-10-12",
+      "lastRedTeamedDate": "2026-10-19",
       "companySize": "Cross-size / Unspecified",
       "newestEvidenceDate": "2026-07-01",
       "stale": false,
@@ -1604,7 +1629,7 @@
       "previousEvidenceScore": 4,
       "contested": false,
       "contradictingEvidence": [],
-      "lastRedTeamedDate": "2026-10-12",
+      "lastRedTeamedDate": "2026-10-19",
       "companySize": "Large Enterprise",
       "newestEvidenceDate": "2026-08-01",
       "stale": false,
@@ -1721,7 +1746,7 @@
     {
       "id": "entry-level-hiring-contraction-mixed-evidence",
       "title": "Entry-Level Hiring Is Contracting Alongside AI Adoption, But Causal Attribution to AI Remains Contested",
-      "summary": "A January 2026 World Economic Forum report developed with PwC finds entry-level roles down 35% in the US, that more than one in three young workers globally hold jobs with medium-to-high AI task exposure, and that unemployment among early-career workers aged 22-27 stands at 7.1% — roughly three points above the overall workforce rate [e:world-economic-forum-2026-01-01]. IDC's 2025 Employee Experience survey corroborates from the practitioner side: 66% of enterprises are actively reducing entry-level hiring as they deploy AI, and 91% report roles changed or partially automated [e:idc-2026-01-08]. A Gartner survey of 110 CHROs (fielded 4Q25, published July 2026) adds a third independent voice: 22% report at least one business leader has stopped hiring for entry-level roles due to AI automation [e:gartner-2026-07-27]. PwC's 2026 Global AI Jobs Barometer sharpens this with the largest labor-market dataset in this trail — over one billion job postings across 27 countries — finding AI-exposed entry-level roles demanding senior-level judgement and leadership grew 35% since 2019, while other, less-AI-exposed entry-level roles declined 10% over the same period: independent, much larger-sample confirmation of the same bifurcation pattern the January WEF/PwC report first flagged [e:pwc-2026-07-31].\n\nTwo Stanford sources and a Census Bureau working paper sharpen the picture with realized-employment rather than survey data, specifically for software engineering. Stanford Digital Economy Lab's 'Canaries in the Coal Mine' analysis uses high-frequency ADP payroll administrative data with a difference-in-differences design and finds early-career workers (22-25) in the most AI-exposed occupations, including software development, saw a 13% relative employment decline even controlling for firm-level shocks, while less-exposed and more experienced workers held stable or grew [e:stanford-2025-11-01]. Stanford HAI's 2026 AI Index Economy chapter corroborates: software developer employment for ages 22-25 has fallen nearly 20% since 2024 [e:stanford-2026-01-01]. A Census Bureau working paper (Tucker, April 2026) adds a quasi-experimental data point on the AI-attribution side: using Quarterly Workforce Indicators administrative payroll data and a design keyed to ChatGPT's release, it finds a regression-adjusted 12% relative decline in early-career (22-24) hiring in the most AI-exposed industry-state cells over the following ten quarters, even after accounting for monetary-policy shocks — hiring largely recovered by early 2025, off a smaller employment base [e:u-s-census-bureau-2026-04-27].\n\nThree independent Federal Reserve/NY Fed analyses complicate a clean AI-attribution story at the aggregate, cross-occupation level, and a fourth government paper now complicates the measurement strategy underlying the AI-attribution side itself. A May 2026 Federal Reserve Bank of New York job-postings analysis (2018-2026, Anthropic-derived AI-exposure metric plus Lightcast postings data) finds AI-exposed occupation posting declines predate ChatGPT's release and that junior and senior roles decline in parallel, with no AI-specific divergence [e:federal-reserve-bank-of-new-york-2026-05-14]. An independent March 2026 Federal Reserve Board FEDS Note (Liu & Webber) reaches a similar conclusion from a different job-postings dataset: no divergence in labor demand between junior and senior positions within AI-exposed occupations [e:federal-reserve-board-2026-03-27]. A third, also from the New York Fed (Emanuel, Harrington & Pallais, June 2026), estimates remote work explains 64% of the recent rise in unemployment among young college graduates in remotable occupations, with timing that tracks the rise of remote work rather than generative AI's release [e:federal-reserve-bank-of-new-york-2026-06-01]. A newly surfaced September 2026 Census Bureau working paper adds a methodological complication that cuts across this whole trail rather than re-testing employment directly: linking 14 published occupational AI-exposure measures to firms' actual AI adoption in BTOS, it finds exposure predicts real adoption only weakly (a one-standard-deviation increase in exposure raises adoption probability by just 1-8 percentage points after controls) — meaning the 'AI-exposed occupation' classification this trail's causal designs lean on is an incomplete proxy for which workers are actually affected by AI specifically, as opposed to other occupation-level trends exposure happens to correlate with [e:u-s-census-bureau-2026-09-01].\n\nThe result is a genuinely contested question rather than a settled one: practitioner-facing surveys (WEF/PwC, IDC, Gartner) and the two Stanford studies using realized software-engineering employment data point toward AI-specific entry-level contraction, while three independent government analyses are skeptical that AI is the specific driver at the broader cross-occupation level, and a fourth now questions how cleanly 'AI exposure' identifies AI's effect at all. A June 2026 HBR piece adds a plausible structural mechanism connecting entry-level contraction to another catalogued trend: using an illustrative case of a firm eliminating a 200-person analyst/associate program to demonstrate AI ROI, it argues that cutting entry-level cohorts removes the headcount base that has traditionally justified mid-level manager roles — a single case illustration, not disclosed survey data, but a plausible link between entry-level contraction and the middle-management strain documented elsewhere in this catalog [e:harvard-business-review-2026-06-29].",
+      "summary": "A January 2026 World Economic Forum report developed with PwC finds entry-level roles down 35% in the US, that more than one in three young workers globally hold jobs with medium-to-high AI task exposure, and that unemployment among early-career workers aged 22-27 stands at 7.1% -- roughly three points above the overall workforce rate [e:world-economic-forum-2026-01-01]. IDC's 2025 Employee Experience survey corroborates from the practitioner side: 66% of enterprises are actively reducing entry-level hiring as they deploy AI, and 91% report roles changed or partially automated [e:idc-2026-01-08]. A Gartner survey of 110 CHROs (fielded 4Q25, published July 2026) adds a third independent voice: 22% report at least one business leader has stopped hiring for entry-level roles due to AI automation [e:gartner-2026-07-27]. PwC's 2026 Global AI Jobs Barometer sharpens this with the largest labor-market dataset in this trail -- over one billion job postings across 27 countries -- finding AI-exposed entry-level roles demanding senior-level judgement and leadership grew 35% since 2019, while other, less-AI-exposed entry-level roles declined 10% over the same period: independent, much larger-sample confirmation of the same bifurcation pattern the January WEF/PwC report first flagged [e:pwc-2026-07-31].\n\nTwo Stanford sources and a Census Bureau working paper sharpen the picture with realized-employment rather than survey data, specifically for software engineering. Stanford Digital Economy Lab's 'Canaries in the Coal Mine' analysis uses high-frequency ADP payroll administrative data with a difference-in-differences design and finds early-career workers (22-25) in the most AI-exposed occupations, including software development, saw a 13% relative employment decline even controlling for firm-level shocks, while less-exposed and more experienced workers held stable or grew [e:stanford-2025-11-01]. Stanford HAI's 2026 AI Index Economy chapter corroborates: software developer employment for ages 22-25 has fallen nearly 20% since 2024 [e:stanford-2026-01-01]. A Census Bureau working paper (Tucker, April 2026) adds a quasi-experimental data point on the AI-attribution side: using Quarterly Workforce Indicators administrative payroll data and a design keyed to ChatGPT's release, it finds a regression-adjusted 12% relative decline in early-career (22-24) hiring in the most AI-exposed industry-state cells over the following ten quarters, even after accounting for monetary-policy shocks -- hiring largely recovered by early 2025, off a smaller employment base [e:u-s-census-bureau-2026-04-27].\n\nFour independent sources now complicate a clean AI-attribution story at the aggregate, cross-occupation level. Three Federal Reserve/NY Fed analyses: a May 2026 NY Fed job-postings analysis (2018-2026, Anthropic-derived AI-exposure metric plus Lightcast postings data) finds AI-exposed occupation posting declines predate ChatGPT's release and that junior and senior roles decline in parallel, with no AI-specific divergence [e:federal-reserve-bank-of-new-york-2026-05-14]; an independent March 2026 Federal Reserve Board FEDS Note (Liu & Webber) reaches a similar conclusion from a different job-postings dataset [e:federal-reserve-board-2026-03-27]; a third, also from the NY Fed (Emanuel, Harrington & Pallais, June 2026), estimates remote work explains 64% of the recent rise in unemployment among young college graduates in remotable occupations, with timing that tracks remote work's rise rather than generative AI's release [e:federal-reserve-bank-of-new-york-2026-06-01]. A September 2026 Census Bureau working paper adds a methodological complication cutting across the whole trail: linking 14 published occupational AI-exposure measures to firms' actual AI adoption in BTOS, it finds exposure predicts real adoption only weakly (1-8pp after controls), meaning the 'AI-exposed occupation' classification this trail's causal designs lean on is an incomplete proxy for AI's effect specifically [e:u-s-census-bureau-2026-09-01]. A newly surfaced NBER working paper (Fairlie & Wu, September 2026) tests the headline claim most directly: using CPS microdata across eight specifications, it finds recent-graduate unemployment did not spike in summer 2026 relative to the prior four summers, and AI-exposure interaction terms were not statistically significant -- a direct, government-microdata-based test of the same population this opportunity's lead WEF/PwC evidence covers [e:national-bureau-of-economic-research-2026-09-01-w35796].\n\nThe result is a genuinely contested question rather than a settled one: practitioner-facing surveys (WEF/PwC, IDC, Gartner) and the two Stanford studies using realized software-engineering employment data point toward AI-specific entry-level contraction, while four independent government/academic analyses are now skeptical that AI is the specific driver at the broader cross-occupation level, and a fifth questions how cleanly 'AI exposure' identifies AI's effect at all. A June 2026 HBR piece adds a plausible structural mechanism connecting entry-level contraction to another catalogued trend: using an illustrative case of a firm eliminating a 200-person analyst/associate program to demonstrate AI ROI, it argues that cutting entry-level cohorts removes the headcount base that has traditionally justified mid-level manager roles -- a single case illustration, not disclosed survey data, but a plausible link between entry-level contraction and the middle-management strain documented elsewhere in this catalog [e:harvard-business-review-2026-06-29].",
       "maturity": "Emerging Practice",
       "evidenceScore": 4,
       "roleTags": [
@@ -1824,9 +1849,9 @@
         }
       ],
       "firstSeen": "2026-07-08",
-      "lastUpdated": "2026-10-12",
+      "lastUpdated": "2026-10-19",
       "status": "active",
-      "shortSummary": "A WEF/PwC report, an IDC survey, a Gartner CHRO survey, and PwC's 2026 Global AI Jobs Barometer (1B+ job postings, 27 countries) all find enterprises reducing entry-level hiring alongside AI adoption, and a new Census Bureau QWI working paper adds a quasi-experimental data point: a 12% relative decline in AI-exposed early-career hiring in the ten quarters after ChatGPT's release. But three independent government analyses now complicate clean AI attribution: two Federal Reserve job-postings studies find no AI-specific divergence between junior and senior roles, and a third NY Fed study attributes 64% of the youth-unemployment rise to remote work, not AI, based on timing. Two Stanford studies using actual payroll data still sharpen the picture for software engineering specifically: a 13% relative employment decline for AI-exposed 22-25 year-olds, and software-developer employment for that age group down nearly 20% since 2024.",
+      "shortSummary": "A WEF/PwC report, an IDC survey, a Gartner CHRO survey, and PwC's 2026 Global AI Jobs Barometer (1B+ job postings, 27 countries) all find enterprises reducing entry-level hiring alongside AI adoption, and a Census Bureau QWI working paper adds a quasi-experimental data point: a 12% relative decline in early-career hiring in the most AI-exposed cells. Four independent government/academic sources now complicate direct AI attribution -- three Federal Reserve analyses and, newly this run, an NBER paper (Fairlie & Wu) finding no AI-exposure-linked spike in recent-graduate unemployment through summer 2026 -- keeping the score contested at 4.",
       "evidenceStrength": 5,
       "evidenceStrengthRationale": "Best: Stanford difference-in-differences on ADP payroll administrative microdata — causal identification per rubric 4a.",
       "corroborationBreadth": 5,
@@ -1889,9 +1914,22 @@
           "publishedDate": "2026-09-01",
           "whatItShows": "Dey, Dinlersoz, Foster, Grim, Haltiwanger, Meyer, Pabilonia, Pande, Stinson, Wang & Wolf link 14 firm-level AI-exposure measures (built from published occupational-exposure estimates and BLS occupational employment shares) to actual firm-level AI adoption from BTOS. Exposure predicts adoption only weakly: a one-standard-deviation increase in exposure raises adoption probability by 4-11 percentage points, falling to 1-8 points after year and sub-sector fixed effects, with substantial heterogeneity by firm size and sector. Conclusion: occupational AI-exposure is 'an informative but incomplete signal' of whether a firm has actually adopted AI.",
           "contradicts": "Does not re-test entry-level employment directly, but undercuts the measurement strategy most of this trail's AI-attribution side depends on: the Stanford, Census-Tucker, and Federal Reserve analyses all classify workers as 'AI-affected' via occupational exposure scores, treating exposure as a stand-in for actual AI adoption. This paper finds that stand-in is only weakly linked to real adoption (1-8pp effect after controls), meaning some share of the 'AI-exposed occupation' employment declines documented elsewhere in this trail may reflect occupation-level trends correlated with exposure for reasons other than firms actually having adopted AI. Reliability 5 clears the downgrade threshold; evidenceStrength is scored 3 here (rigorous administrative-data regression analysis, but indirect to the employment claim itself rather than a direct re-test) -- below the supporting trail's best (5, Stanford's difference-in-differences), so this does not add to the existing -1 downgrade already applied. [e:u-s-census-bureau-2026-09-01]"
+        },
+        {
+          "sourceName": "National Bureau of Economic Research (NBER Working Paper w35796)",
+          "institution": "National Bureau of Economic Research",
+          "sourceTier": "academic_research",
+          "reliabilityScore": 4,
+          "evidenceStrength": 4,
+          "studyId": "national-bureau-of-economic-research-2026-09-01-w35796",
+          "peerReviewed": false,
+          "url": "https://www.nber.org/papers/w35796",
+          "publishedDate": "2026-09-01",
+          "whatItShows": "Fairlie & Wu use CPS microdata to test directly for an AI-driven unemployment spike among recent college graduates in June-August 2026. Unemployment for 22-25-year-old graduates (7.3%) fell within the range of the prior four summers (7.1%, 6.3%, 7.8%, 7.2%), did not rise significantly relative to older graduates or non-degree young workers, and an expanded 'sidelined job-seeker' measure also showed no statistically significant 2026 increase. Interaction terms between occupation-level AI exposure and summer 2026 were not statistically significant across all eight specifications tested; remote-work suitability, not AI exposure, showed the clearer relationship.",
+          "contradicts": "Directly tests the same population and type of claim this opportunity's lead evidence rests on (WEF/PwC's 7.1% unemployment figure for 22-27 year-olds), using government CPS microdata across eight specifications rather than a one-time survey, and finds no AI-exposure-linked unemployment spike in summer 2026. Reliability 4 clears the downgrade threshold; evidenceStrength (4 -- rigorous multi-specification CPS analysis, but a pre-peer-review working paper and an 'early test' by the authors' own framing) stays below the supporting trail's best (5, Stanford's ADP difference-in-differences), so per rubric 4e's non-stacking rule this does not add to the -1 downgrade already applied from the three existing Federal Reserve/Census contradictions; evidenceScore arithmetic is unchanged at 4."
         }
       ],
-      "lastRedTeamedDate": "2026-10-12",
+      "lastRedTeamedDate": "2026-10-19",
       "companySize": "Cross-size / Unspecified",
       "newestEvidenceDate": "2026-07-31",
       "stale": false,
@@ -2283,7 +2321,7 @@
     {
       "id": "engineers-shift-to-orchestration-oversight",
       "title": "Software Engineers Shift from Code Production to AI Orchestration and Spec/Architecture Oversight",
-      "summary": "Deloitte's analysis of the AI-native software development lifecycle documents concrete, role-by-role shifts: software architects using LLMs to generate and edit standardized diagrams, developers producing initial designs directly from GenAI-converted user stories, data engineers automating pipeline optimization, DevSecOps engineers embedding security earlier via AI-accelerated delivery, and QA teams cutting manual effort through synthetic test-data and automated test-scenario generation. The piece cites a GitHub survey of roughly 2,000 global developers in which 97% had used AI coding tools at work and 88% of US developers reported at least some company support for AI use.\n\nMcKinsey's companion research on \"rewiring software delivery for the agentic era\" describes the same shift from the organizational-design side: as agentic AI takes on more end-to-end execution, engineers are pushed toward full-stack fluency, structured specification-writing, and architectural/systems trade-off judgment, rather than being valued primarily for code output. Two EY pieces add QA-specific corroboration, describing generative AI automating test design and execution and freeing testers to focus on test strategy rather than manual execution — one citing EY's Reimagining Industry Futures Study (1,405 enterprises, 43% investing in generative AI).\n\nThis run adds the first quantified, named case-study evidence for the QA/test-specific piece of this shift: a Forrester report combining practitioner interviews with quantitative analysis documents a named enterprise case (Intesa Sanpaolo) showing a 40% efficiency gain specifically in test design, alongside 30% in development and 15% in requirements gathering — moving the QA portion of this thesis from directional description toward case-study-grade evidence. Gartner market-sizing research adds tooling-layer context: an estimated $9.8-11.0B annualized enterprise AI coding-agent market (April 2026) and a prediction that by 2027 more than 65% of engineering teams using agentic coding will treat IDEs as optional.\n\nWith five independent institutions across two tiers, and now a named quantified case study anchoring the QA-specific claim, this clears the bar for a well-documented, moderately-evidenced organizational shift. A red-team search this run found no contradicting evidence — the closest dissenting material (academic literature on \"hybrid\" engineering roles) argues engineers are shifting toward orchestration without wholesale abandonment of code authorship, which is consistent with, not contrary to, this opportunity's thesis.",
+      "summary": "Deloitte's analysis of the AI-native software development lifecycle documents concrete, role-by-role shifts: software architects using LLMs to generate and edit standardized diagrams, developers producing initial designs directly from GenAI-converted user stories, data engineers automating pipeline optimization, DevSecOps engineers embedding security earlier via AI-accelerated delivery, and QA teams cutting manual effort through synthetic test-data and automated test-scenario generation. The piece cites a GitHub survey of roughly 2,000 global developers in which 97% had used AI coding tools at work and 88% of US developers reported at least some company support for AI use [e:deloitte-insights-2025-08-08].\n\nMcKinsey's companion research on \"rewiring software delivery for the agentic era\" describes the same shift from the organizational-design side: as agentic AI takes on more end-to-end execution, engineers are pushed toward full-stack fluency, structured specification-writing, and architectural/systems trade-off judgment, rather than being valued primarily for code output [e:mckinsey-company-2026-05-28]. Two EY pieces add QA-specific corroboration, describing generative AI automating test design and execution and freeing testers to focus on test strategy rather than manual execution -- one citing EY's Reimagining Industry Futures Study (1,405 enterprises, 43% investing in generative AI) [e:ey-2026-04-17] [e:ey-2026-04-06].\n\nA Forrester report combining practitioner interviews with quantitative analysis documents a named enterprise case (Intesa Sanpaolo) showing a 40% efficiency gain specifically in test design, alongside 30% in development and 15% in requirements gathering -- moving the QA portion of this thesis from directional description toward case-study-grade evidence [e:forrester-2025-11-12]. A separate Forrester follow-up quantifies the ceiling on that shift: interviews with 37 enterprise customers of autonomous testing platforms find average test automation of 51-60% and a real 21-30% uplift over traditional tools, but full autonomy -- platforms generating, maintaining, and running tests with minimal human input -- is rated just 2.2 out of 5 even by committed, paying adopters, confirming the orchestration/oversight framing over a claim of wholesale QA automation [e:forrester-2026-04-03]. Gartner market-sizing research adds tooling-layer context: an estimated $9.8-11.0B annualized enterprise AI coding-agent market (April 2026) and a prediction that by 2027 more than 65% of engineering teams using agentic coding will treat IDEs as optional [e:gartner-2026-05-20].\n\nWith five independent institutions across two tiers, a named quantified case study anchoring the QA-specific claim, and now a second Forrester study quantifying the limits of full test-automation autonomy, this clears the bar for a well-documented, moderately-evidenced organizational shift. A red-team search this run (targeting a reversal of the orchestration-shift thesis) found no contradicting evidence -- the closest dissenting material (academic literature on \"hybrid\" engineering roles) argues engineers are shifting toward orchestration without wholesale abandonment of code authorship, which is consistent with, not contrary to, this opportunity's thesis.",
       "maturity": "Growing Adoption",
       "evidenceScore": 4,
       "roleTags": [
@@ -2362,24 +2400,35 @@
           "institution": "Forrester",
           "studyId": "forrester-2025-11-12",
           "peerReviewed": null
+        },
+        {
+          "sourceName": "Forrester",
+          "sourceTier": "it_analyst_firms",
+          "reliabilityScore": 3,
+          "url": "https://www.forrester.com/blogs/beyond-the-wave-what-customers-really-think-about-autonomous-testing-platforms/",
+          "publishedDate": "2026-04-03",
+          "whatItShows": "Diego Lo Giudice's follow-up to Forrester's Q4 2025 Autonomous Testing Platforms Wave: interviews with 37 enterprise customers of autonomous testing platforms find average test automation of 51-60% (some advanced teams past 80%) and a 21-30% uplift over traditional automation tools, but customers rate full autonomy (platforms generating, maintaining, and running tests with minimal human input) just 2.2 out of 5 -- quantifying a real ceiling on how far testing automation has displaced QA judgment even among committed, paying adopters.",
+          "institution": "Forrester",
+          "studyId": "forrester-2026-04-03",
+          "peerReviewed": null
         }
       ],
       "firstSeen": "2026-07-08",
-      "lastUpdated": "2026-08-24",
+      "lastUpdated": "2026-10-19",
       "status": "active",
-      "shortSummary": "Deloitte, McKinsey, two EY pieces, and now a named-case-study Forrester report (Intesa Sanpaolo: +40% efficiency in test design) all document software engineers and QA teams shifting from raw code/test production toward AI orchestration and architectural oversight. A red-team pass this run found no disconfirming evidence.",
+      "shortSummary": "Deloitte, McKinsey, two EY pieces, a named-case-study Forrester report (Intesa Sanpaolo: +40% efficiency in test design), and now a second Forrester study (37 autonomous-testing-platform customers: 51-60% average automation, but full autonomy rated just 2.2/5) all document software engineers and QA teams shifting from raw code/test production toward orchestration, specification, and architectural oversight as AI absorbs routine execution -- with real limits on how far that automation currently reaches.",
       "evidenceStrength": 4,
       "evidenceStrengthRationale": "Best: Forrester's named-methodology report combining practitioner interviews with a quantified, named enterprise case study (Intesa Sanpaolo) — documented case study with quantified outcomes.",
       "corroborationBreadth": 4,
       "breadthBasis": {
         "independentInstitutions": 5,
-        "distinctStudies": 6,
+        "distinctStudies": 7,
         "tiersRepresented": 2
       },
       "previousEvidenceScore": 3,
       "contested": false,
       "contradictingEvidence": [],
-      "lastRedTeamedDate": "2026-10-12",
+      "lastRedTeamedDate": "2026-10-19",
       "companySize": "Large Enterprise",
       "newestEvidenceDate": "2026-05-28",
       "stale": false,
@@ -2387,7 +2436,15 @@
         "ai-compresses-engineering-team-size-junior-pipeline",
         "it-io-teams-adopt-ai-cost-optimization-stall-roi"
       ],
-      "metrics": []
+      "metrics": [
+        {
+          "name": "Full test-automation autonomy rating among adopting customers",
+          "value": 2.2,
+          "unit": "/5",
+          "population": "37 enterprise customers of autonomous testing platforms (Forrester)",
+          "studyId": "forrester-2026-04-03"
+        }
+      ]
     },
     {
       "id": "it-io-teams-adopt-ai-cost-optimization-stall-roi",
@@ -2960,7 +3017,7 @@
       "previousEvidenceScore": 4,
       "contested": false,
       "contradictingEvidence": [],
-      "lastRedTeamedDate": "2026-10-12",
+      "lastRedTeamedDate": "2026-10-19",
       "companySize": "Cross-size / Unspecified",
       "newestEvidenceDate": "2026-07-01",
       "stale": false,
@@ -3061,7 +3118,7 @@
       "previousEvidenceScore": 3,
       "contested": false,
       "contradictingEvidence": [],
-      "lastRedTeamedDate": "2026-10-12",
+      "lastRedTeamedDate": "2026-10-19",
       "companySize": "Cross-size / Unspecified",
       "newestEvidenceDate": "2026-07-31",
       "stale": false,
@@ -3103,8 +3160,8 @@
     {
       "id": "ai-workforce-impact-slowly-rising-tide",
       "title": "AI's Labor-Market Impact Looks Like a Slowly Rising Tide of Task Capability, Not a Sudden Displacement Wave",
-      "shortSummary": "An MIT study of 17,000+ task-level worker evaluations and an independent NBER survey of roughly 750 corporate executives both find AI's labor-market effect unfolding as a gradual capability curve rather than a sudden displacement event -- task-completion success rates are rising slowly, and executives report well under a 1% aggregate 2026 employment effect.",
-      "summary": "MIT's Initiative on the Digital Economy (Thompson, Fleming, Mertens, Li, and Harris) evaluated AI performance against more than 17,000 real work tasks, rated by the workers who actually perform them, across a broad span of occupations. The headline finding is a pacing argument, not a magnitude argument: AI's current task-completion success rate, at a 'minimally sufficient quality' bar, ranges from 47% to 73% depending on job category, projected to rise to 80-95% by 2029 -- a meaningful five-year trajectory rather than an abrupt jump [e:mit-initiative-on-the-digital-economy-2026-05-13].\n\nA March 2026 NBER survey of roughly 750 corporate executives (already cited elsewhere in this catalog, in ai-productivity-reallocated-not-cut, for its reallocation finding) independently corroborates the gradual-impact reading from the realized-employment side rather than the task-capability side: firm-size-and-sector-weighted aggregate employment is expected to decline by less than 0.4% in 2026 because of AI, even as executives report AI already delivering positive, if modest and unevenly distributed, productivity gains concentrated in high-skill services and finance. The survey's job-function index finds AI's negative effect concentrated in the most routine roles, not a broad cross-occupation shock [e:national-bureau-of-economic-research-2026-03-01].\n\nNeither study is IT-specific, but both bear directly on enterprise IT workforce planning: together they offer two independently derived, empirically grounded pacing models -- one from task-level capability measurement, one from realized firm-level employment -- against which IT leaders can calibrate reskilling timelines, hiring plans, and the urgency of role-redesign decisions documented elsewhere in this catalog. For workforce planning purposes, the practical implication is that the 2026-2029 window is likely to be the period in which AI capability crosses from 'partial, unreliable' to 'reliable at scale' for a majority of task categories -- a rough clock against which to plan team-size, hiring, and skills-investment decisions, rather than treating AI capability as either already complete or perpetually nascent.",
+      "shortSummary": "An MIT study of 17,000+ task-level worker evaluations, an NBER survey of roughly 750 corporate executives, and now a second NBER cross-country industry-panel study (US + 6 European countries) all find AI's labor-market effect unfolding as a gradual capability curve rather than a sudden displacement event -- task-completion success rates are rising slowly, aggregate 2026 employment effects are well under 1%, and industry-level AI adoption tracks productivity gains with no clear systematic employment link.",
+      "summary": "MIT's Initiative on the Digital Economy (Thompson, Fleming, Mertens, Li, and Harris) evaluated AI performance against more than 17,000 real work tasks, rated by the workers who actually perform them, across a broad span of occupations. The headline finding is a pacing argument, not a magnitude argument: AI's current task-completion success rate, at a 'minimally sufficient quality' bar, ranges from 47% to 73% depending on job category, projected to rise to 80-95% by 2029 -- a meaningful five-year trajectory rather than an abrupt jump [e:mit-initiative-on-the-digital-economy-2026-05-13].\n\nA March 2026 NBER survey of roughly 750 corporate executives (already cited elsewhere in this catalog, in ai-productivity-reallocated-not-cut, for its reallocation finding) independently corroborates the gradual-impact reading from the realized-employment side rather than the task-capability side: firm-size-and-sector-weighted aggregate employment is expected to decline by less than 0.4% in 2026 because of AI, even as executives report AI already delivering positive, if modest and unevenly distributed, productivity gains concentrated in high-skill services and finance. The survey's job-function index finds AI's negative effect concentrated in the most routine roles, not a broad cross-occupation shock [e:national-bureau-of-economic-research-2026-03-01].\n\nA red-team search this run aimed at finding a reversal of this gradual-impact thesis instead surfaced a second, independent NBER design that corroborates it from a third angle: a separate March 2026 working paper (Bick, Blandin, Deming, Fuchs-Schundeln & Jessen) uses 2025-26 US/European worker and firm surveys to find that industry-level AI adoption tracks faster productivity growth but shows no clear link to systematic employment change in either region -- a cross-country industry-panel result pointing the same gradual-reallocation direction as the task-capability and executive-survey evidence above, from a population (cross-country industry panels) distinct from both [e:national-bureau-of-economic-research-2026-03-01-w34995].\n\nNeither IT-specific study is alone, but all three now bear directly on enterprise IT workforce planning: together they offer three independently derived, empirically grounded pacing models -- task-level capability measurement, realized firm-level employment, and cross-country industry-adoption panels -- against which IT leaders can calibrate reskilling timelines, hiring plans, and the urgency of role-redesign decisions documented elsewhere in this catalog. For workforce planning purposes, the practical implication is that the 2026-2029 window is likely to be the period in which AI capability crosses from 'partial, unreliable' to 'reliable at scale' for a majority of task categories -- a rough clock against which to plan team-size, hiring, and skills-investment decisions, rather than treating AI capability as either already complete or perpetually nascent.",
       "maturity": "Growing Adoption",
       "evidenceScore": 4,
       "roleTags": [
@@ -3135,23 +3192,34 @@
           "institution": "National Bureau of Economic Research",
           "studyId": "national-bureau-of-economic-research-2026-03-01",
           "peerReviewed": null
+        },
+        {
+          "sourceName": "National Bureau of Economic Research (NBER Working Paper w34995)",
+          "sourceTier": "academic_research",
+          "reliabilityScore": 4,
+          "url": "https://www.nber.org/papers/w34995",
+          "publishedDate": "2026-03-01",
+          "whatItShows": "Bick, Blandin, Deming, Fuchs-Schundeln & Jessen use 2025-26 worker/firm surveys across the US and six European countries to document large AI-adoption gaps between and within regions, explained partly by workforce demographics, firm composition, and management practices (whether firms actively push workers to use AI). Industries with higher AI adoption show statistically significant, similarly-sized productivity growth in both the US and Europe (explicitly correlational, not causal, per the authors), but the paper finds no clear evidence that industry-level AI adoption is linked to systematic employment changes in either region.",
+          "institution": "National Bureau of Economic Research",
+          "studyId": "national-bureau-of-economic-research-2026-03-01-w34995",
+          "peerReviewed": false
         }
       ],
       "firstSeen": "2026-07-14",
-      "lastUpdated": "2026-10-05",
+      "lastUpdated": "2026-10-19",
       "status": "active",
       "evidenceStrength": 4,
       "evidenceStrengthRationale": "Best: MIT IDE 17,000+ worker-rated task-level evaluations — large-scale primary measurement.",
       "corroborationBreadth": 3,
       "breadthBasis": {
         "independentInstitutions": 2,
-        "distinctStudies": 2,
+        "distinctStudies": 3,
         "tiersRepresented": 1
       },
       "previousEvidenceScore": 3,
       "contested": false,
       "contradictingEvidence": [],
-      "lastRedTeamedDate": "2026-10-12",
+      "lastRedTeamedDate": "2026-10-19",
       "companySize": "Cross-size / Unspecified",
       "newestEvidenceDate": "2026-05-13",
       "stale": false,
@@ -3391,7 +3459,7 @@
       "previousEvidenceScore": 3,
       "contested": false,
       "contradictingEvidence": [],
-      "lastRedTeamedDate": "2026-10-12",
+      "lastRedTeamedDate": "2026-10-19",
       "companySize": "Cross-size / Unspecified",
       "newestEvidenceDate": "2026-04-23",
       "stale": false,
@@ -3534,7 +3602,7 @@
           "contradicts": "Complicates a purely data-quality-centric reading of the founding thesis by arguing data investment alone is not sufficient. Commentary/perspective piece with no named survey methodology disclosed — reliability 2, below the ≥3 downgrade threshold, so it is recorded as contested context only; no score change."
         }
       ],
-      "lastRedTeamedDate": "2026-10-12",
+      "lastRedTeamedDate": "2026-10-19",
       "companySize": "Large Enterprise",
       "newestEvidenceDate": "2026-05-01",
       "stale": false,
