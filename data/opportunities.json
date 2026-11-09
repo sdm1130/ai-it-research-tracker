@@ -1,7 +1,7 @@
 {
   "_readme": "Canonical living catalog of 'opportunities'. Schema documented alongside; see AGENT_PROMPT.md and rubric.md. This local file mirrors what is embedded in the published Artifact. Each opportunity has both 'shortSummary' (~2 plain sentences, always shown on the card) and 'summary' (multi-paragraph analyst-memo text, shown on click-to-expand) — keep both in sync when an opportunity's evidence changes.",
   "generatedBy": "weekly research update (scheduled run)",
-  "lastRunDate": "2026-10-26",
+  "lastRunDate": "2026-11-09",
   "opportunities": [
     {
       "id": "agentic-ai-governance-outpaces-readiness",
@@ -202,7 +202,7 @@
       "previousEvidenceScore": 5,
       "contested": false,
       "contradictingEvidence": [],
-      "lastRedTeamedDate": "2026-11-02",
+      "lastRedTeamedDate": "2026-11-09",
       "companySize": "Large Enterprise",
       "newestEvidenceDate": "2026-06-03",
       "stale": false,
@@ -252,7 +252,7 @@
     {
       "id": "ai-productivity-reallocated-not-cut",
       "title": "AI Productivity Gains Are Being Reinvested Into Skilled Technical Roles, Not Broad IT Headcount Cuts",
-      "summary": "Contrary to a straightforward automation-eliminates-jobs narrative, the strongest available evidence — spanning academic labor economics, three Federal Reserve regional banks, and three independent consulting surveys — shows enterprises reinvesting AI-driven productivity gains into new capability rather than aggressively cutting technology headcount. A March 2026 NBER working paper (survey of ~750 corporate executives) found little evidence of near-term aggregate employment decline from AI, but substantial compositional change beneath that stability: declining routine clerical positions alongside rising demand for skilled technical roles (engineers, data analysts, scientists). A Federal Reserve Bank of St. Louis analysis of occupational AI exposure found a positive association between AI exposure and employment growth specifically in high-computer-use occupations — the category most enterprise IT roles fall into. Two other regional Fed banks corroborate directly this run: the Dallas Fed's May 2026 Texas Business Outlook Survey special questions find AI adoption reached 59% of Texas firms (up from 38% in April 2024), with fewer than a third of AI-using firms expecting AI to reduce their workforce needs [e:federal-reserve-bank-of-dallas-2026-05-01]. An Atlanta Fed working paper on corporate-executive AI expectations finds 2025's realized headcount impact was negligible and 2026's forecast is also near zero on average, with an expected 0.76-point decline in the share of routine clerical roles offset by growth in skilled technical roles — the same compositional pattern the NBER paper documents, now replicated in a second, independent firm survey [e:federal-reserve-bank-of-atlanta-2026-03-25].\n\nConsulting-tier surveys corroborate the same reallocation pattern with harder numbers. EY's Wave 4 AI Pulse Survey (500 US senior leaders) found 96% of AI-investing organizations reported productivity gains, yet only 17% of those organizations reduced headcount — instead, 47% expanded AI capabilities, 41% strengthened cybersecurity, and 38% funded upskilling. Accenture's Pulse of Change survey (3,650 C-suite executives plus 3,350 workers, 20 industries/countries) found 86% of leaders plan increased 2026 AI investment, but only 32% report sustained enterprise-wide impact, with talent and workforce alignment — not infrastructure — cited as the primary constraint. BCG Henderson Institute's occupational modeling (roughly 1,500 occupation types, 165 million US jobs) puts a number on the reshaping-versus-elimination distinction: 50-55% of US jobs will be reshaped over the next two to three years, versus only 10-15% genuinely vulnerable to elimination.\n\nAdditional corroboration reinforces the reallocation-not-contraction reading. A Federal Reserve Board speech by Governor Barr cites research finding that AI assistants deliver the largest productivity gains to the least-experienced workers, a leveling effect distinct from simple job substitution. Gartner's CHRO-focused survey found only 1% of H1 2025 layoffs were attributable to AI actually delivering realized productivity gains. LinkedIn hiring data cited by the World Economic Forum shows 1.3 million net new AI-related jobs added globally over two years. A Census Bureau working paper (Bonney et al., April 2026), using the 2026 AI supplement to the Business Trends and Outlook Survey, adds direct primary-data confirmation from real firm microdata: AI-related employment decreases are rare, occurring in only 2% of firms, and firm commercial performance correlates positively with the breadth of AI integration; most AI users (66%) rely on it solely to augment tasks rather than substitute for them.\n\nThis run's red-team pass surfaced a genuine, methodologically disclosed complication that moves the score. A Gartner survey of 350 global business executives at $1B+-revenue organizations (fielded Q3 2025, all piloting or deploying AI agents, intelligent automation, or autonomous technologies) found roughly 80% report workforce reductions — but reduction rates were nearly identical between respondents reporting higher ROI and those seeing only modest or negative returns, meaning the cuts are not tracking realized value, and some organizations are already rehiring where agents underperformed [e:gartner-2026-05-05]. Because this clears the rubric's reliability-≥3 downgrade threshold (a named, disclosed survey, unlike the previously recorded no-methodology Deloitte figure citing the same ~80% headline, which appears to draw on this same underlying Gartner research rather than constitute independent corroboration), evidenceScore moves from 4 to 3 this run. The population is narrower than this opportunity's core claim — advanced autonomous/agentic adopters at large firms, not the broader AI-investment population the EY/Accenture/BCG figures describe — so the reallocation thesis is not overturned, but it no longer holds cleanly at the top of the catalog's confidence scale.",
+      "summary": "Contrary to a straightforward automation-eliminates-jobs narrative, the strongest available evidence — spanning academic labor economics, three Federal Reserve regional banks, and three independent consulting surveys — shows enterprises reinvesting AI-driven productivity gains into new capability rather than aggressively cutting technology headcount. A March 2026 NBER working paper (survey of ~750 corporate executives) found little evidence of near-term aggregate employment decline from AI, but substantial compositional change beneath that stability: declining routine clerical positions alongside rising demand for skilled technical roles (engineers, data analysts, scientists). A Federal Reserve Bank of St. Louis analysis of occupational AI exposure found a positive association between AI exposure and employment growth specifically in high-computer-use occupations — the category most enterprise IT roles fall into; an October 2026 St. Louis Fed write-up of a May 2026 Eighth District business survey adds a direct staffing-intentions figure from the same institution, finding AI adoption still early-stage (about a third of firms report limited or no adoption) and most firms expecting little to no AI-related staffing change over the next year, though nearly 20% expect slight reductions [e:federal-reserve-bank-of-st-louis-2026-10-01]. Two other regional Fed banks corroborate directly this run: the Dallas Fed's May 2026 Texas Business Outlook Survey special questions find AI adoption reached 59% of Texas firms (up from 38% in April 2024), with fewer than a third of AI-using firms expecting AI to reduce their workforce needs [e:federal-reserve-bank-of-dallas-2026-05-01]. An Atlanta Fed working paper on corporate-executive AI expectations finds 2025's realized headcount impact was negligible and 2026's forecast is also near zero on average, with an expected 0.76-point decline in the share of routine clerical roles offset by growth in skilled technical roles — the same compositional pattern the NBER paper documents, now replicated in a second, independent firm survey [e:federal-reserve-bank-of-atlanta-2026-03-25].\n\nConsulting-tier surveys corroborate the same reallocation pattern with harder numbers. EY's Wave 4 AI Pulse Survey (500 US senior leaders) found 96% of AI-investing organizations reported productivity gains, yet only 17% of those organizations reduced headcount — instead, 47% expanded AI capabilities, 41% strengthened cybersecurity, and 38% funded upskilling. Accenture's Pulse of Change survey (3,650 C-suite executives plus 3,350 workers, 20 industries/countries) found 86% of leaders plan increased 2026 AI investment, but only 32% report sustained enterprise-wide impact, with talent and workforce alignment — not infrastructure — cited as the primary constraint. BCG Henderson Institute's occupational modeling (roughly 1,500 occupation types, 165 million US jobs) puts a number on the reshaping-versus-elimination distinction: 50-55% of US jobs will be reshaped over the next two to three years, versus only 10-15% genuinely vulnerable to elimination.\n\nAdditional corroboration reinforces the reallocation-not-contraction reading. A Federal Reserve Board speech by Governor Barr cites research finding that AI assistants deliver the largest productivity gains to the least-experienced workers, a leveling effect distinct from simple job substitution. Gartner's CHRO-focused survey found only 1% of H1 2025 layoffs were attributable to AI actually delivering realized productivity gains. LinkedIn hiring data cited by the World Economic Forum shows 1.3 million net new AI-related jobs added globally over two years. A Census Bureau working paper (Bonney et al., April 2026), using the 2026 AI supplement to the Business Trends and Outlook Survey, adds direct primary-data confirmation from real firm microdata: AI-related employment decreases are rare, occurring in only 2% of firms, and firm commercial performance correlates positively with the breadth of AI integration; most AI users (66%) rely on it solely to augment tasks rather than substitute for them.\n\nThis run's red-team pass surfaced a genuine, methodologically disclosed complication that moves the score. A Gartner survey of 350 global business executives at $1B+-revenue organizations (fielded Q3 2025, all piloting or deploying AI agents, intelligent automation, or autonomous technologies) found roughly 80% report workforce reductions — but reduction rates were nearly identical between respondents reporting higher ROI and those seeing only modest or negative returns, meaning the cuts are not tracking realized value, and some organizations are already rehiring where agents underperformed [e:gartner-2026-05-05]. Because this clears the rubric's reliability-≥3 downgrade threshold (a named, disclosed survey, unlike the previously recorded no-methodology Deloitte figure citing the same ~80% headline, which appears to draw on this same underlying Gartner research rather than constitute independent corroboration), evidenceScore moves from 4 to 3 this run. The population is narrower than this opportunity's core claim — advanced autonomous/agentic adopters at large firms, not the broader AI-investment population the EY/Accenture/BCG figures describe — so the reallocation thesis is not overturned, but it no longer holds cleanly at the top of the catalog's confidence scale.",
       "maturity": "Growing Adoption",
       "evidenceScore": 3,
       "roleTags": [
@@ -396,10 +396,21 @@
           "institution": "Federal Reserve Bank of New York",
           "studyId": "federal-reserve-bank-of-new-york-2026-09-01",
           "peerReviewed": null
+        },
+        {
+          "sourceName": "Federal Reserve Bank of St. Louis",
+          "sourceTier": "government_intergovernmental",
+          "reliabilityScore": 5,
+          "url": "https://www.frbsf.org/research-and-insights/publications/system-research-st-louis-fed/2026/10/new-survey-findings-ai-adoption-effects-employment-productivity/",
+          "publishedDate": "2026-10-01",
+          "whatItShows": "St. Louis Fed analysis (Gutkowski, Gascon & Silvanus) of a May 2026 survey of Eighth District businesses: AI adoption remains early-stage, with about one-third of firms reporting limited or no adoption (citing skills, data, infrastructure, or business-need gaps). Adopters report efficiency gains concentrated in reduced time on administrative/routine tasks. On staffing, most firms expect little to no AI-related staffing change over the next year, though nearly 20% expect slight reductions in staffing needs -- a modest but non-trivial minority, consistent with the reallocation-not-mass-contraction pattern this opportunity tracks.",
+          "institution": "Federal Reserve Bank of St. Louis",
+          "studyId": "federal-reserve-bank-of-st-louis-2026-10-01",
+          "peerReviewed": null
         }
       ],
       "firstSeen": "2026-07-08",
-      "lastUpdated": "2026-09-07",
+      "lastUpdated": "2026-11-09",
       "status": "active",
       "shortSummary": "Nine independent sources — NBER, three Federal Reserve banks (St. Louis, Dallas, Atlanta), EY, Accenture, BCG, and the Census Bureau's own firm microdata — find AI productivity gains are mostly being reinvested into skilled technical capability rather than driving broad IT headcount cuts. A disclosed-methodology Gartner survey of 350 executives at large autonomous-AI adopters found workforce cuts uncorrelated with realized ROI, pulling the score to 3 in a prior run; this run adds a NY Fed regional-survey update confirming the same pattern (layoffs uncommon, retraining is the primary adjustment), plus a BEA industry-accounts paper linking AI intensity to lower labor-cost contributions at the aggregate level -- a real but macro, not IT-specific, complication that does not change the score.",
       "evidenceStrength": 4,
@@ -407,7 +418,7 @@
       "corroborationBreadth": 5,
       "breadthBasis": {
         "independentInstitutions": 12,
-        "distinctStudies": 13,
+        "distinctStudies": 14,
         "tiersRepresented": 4
       },
       "previousEvidenceScore": 4,
@@ -455,7 +466,7 @@
       ],
       "lastRedTeamedDate": "2026-09-07",
       "companySize": "Cross-size / Unspecified",
-      "newestEvidenceDate": "2026-09-01",
+      "newestEvidenceDate": "2026-10-01",
       "stale": false,
       "relatedTo": [
         "genai-adoption-plateau-scaling-gap",
@@ -668,7 +679,7 @@
       "previousEvidenceScore": 5,
       "contested": false,
       "contradictingEvidence": [],
-      "lastRedTeamedDate": "2026-11-02",
+      "lastRedTeamedDate": "2026-11-09",
       "companySize": "Cross-size / Unspecified",
       "newestEvidenceDate": "2026-09-29",
       "stale": false,
@@ -854,7 +865,7 @@
           "peerReviewed": null
         }
       ],
-      "lastRedTeamedDate": "2026-11-02",
+      "lastRedTeamedDate": "2026-11-09",
       "companySize": "Cross-size / Unspecified",
       "newestEvidenceDate": "2026-08-27",
       "stale": false,
@@ -1214,7 +1225,7 @@
           "contradicts": "A causally-identified RCT finding the productivity-gain premise itself does not hold in a skill-acquisition setting — a more fundamental disconfirmation than the downstream attenuation this opportunity documents, though on a different population (novices learning a new library) than NBER's experienced-developer production data. Reliability 3 (preprint ceiling) clears the ≥3 threshold; contradicting strength (4) is below the supporting trail's (5), so this applies a -1 downgrade per rubric 4e."
         }
       ],
-      "lastRedTeamedDate": "2026-11-02",
+      "lastRedTeamedDate": "2026-11-09",
       "companySize": "Cross-size / Unspecified",
       "newestEvidenceDate": "2026-07-01",
       "stale": false,
@@ -1445,7 +1456,7 @@
       "previousEvidenceScore": 5,
       "contested": false,
       "contradictingEvidence": [],
-      "lastRedTeamedDate": "2026-11-02",
+      "lastRedTeamedDate": "2026-11-09",
       "companySize": "Cross-size / Unspecified",
       "newestEvidenceDate": "2026-07-01",
       "stale": false,
@@ -1680,7 +1691,7 @@
       "previousEvidenceScore": 4,
       "contested": false,
       "contradictingEvidence": [],
-      "lastRedTeamedDate": "2026-11-02",
+      "lastRedTeamedDate": "2026-11-09",
       "companySize": "Large Enterprise",
       "newestEvidenceDate": "2026-09-29",
       "stale": false,
@@ -2009,7 +2020,7 @@
           "contradicts": "Directly tests the same population and type of claim this opportunity's lead evidence rests on (WEF/PwC's 7.1% unemployment figure for 22-27 year-olds), using government CPS microdata across eight specifications rather than a one-time survey, and finds no AI-exposure-linked unemployment spike in summer 2026. Reliability 4 clears the downgrade threshold; evidenceStrength (4 -- rigorous multi-specification CPS analysis, but a pre-peer-review working paper and an 'early test' by the authors' own framing) stays below the supporting trail's best (5, Stanford's ADP difference-in-differences), so per rubric 4e's non-stacking rule this does not add to the -1 downgrade already applied from the three existing Federal Reserve/Census contradictions; evidenceScore arithmetic is unchanged at 4."
         }
       ],
-      "lastRedTeamedDate": "2026-11-02",
+      "lastRedTeamedDate": "2026-11-09",
       "companySize": "Cross-size / Unspecified",
       "newestEvidenceDate": "2026-09-01",
       "stale": false,
@@ -2133,13 +2144,14 @@
     {
       "id": "product-squads-replace-project-teams",
       "title": "Product-Oriented Cross-Functional Squads Replace Project-Based IT Delivery",
-      "summary": "IT organizations are moving away from project-based delivery teams toward lean, product-oriented, cross-functional squads aligned to value streams rather than time-boxed projects. Deloitte's 2025 Tech Executive Survey of 622 US technology leaders found 57% of respondents already transitioning from project-based teams to this squad model, with \"forward-deployed engineers\" embedded directly alongside product teams rather than sitting in a separate delivery organization.\n\nBCG's 2026 operating-model research reinforces the same structural direction: most organizations that deploy copilots and bots without redesigning the underlying \"operating system of work\" fail to capture value at scale (BCG cites 60% still stuck at this stage), whereas organizations that redesign end-to-end processes around agentic workflows report substantially better outcomes. BCG's own client examples cite up to a three-fold productivity increase and 60%+ cost reduction for \"early agentic\" redesigns, though the number and rigor of underlying case studies is not disclosed.\n\nTogether, a large, methodologically disclosed executive survey (Deloitte) and directional operating-model guidance (BCG) point to the same shift: the unit of IT organization design is moving from the project to the persistent, cross-functional product/value-stream squad.",
+      "summary": "IT organizations are moving away from project-based delivery teams toward lean, product-oriented, cross-functional squads aligned to value streams rather than time-boxed projects. Deloitte's 2025 Tech Executive Survey of 622 US technology leaders found 57% of respondents already transitioning from project-based teams to this squad model, with \"forward-deployed engineers\" embedded directly alongside product teams rather than sitting in a separate delivery organization [e:deloitte-insights-2025-12-09].\n\nBCG's 2026 operating-model research reinforces the same structural direction: most organizations that deploy copilots and bots without redesigning the underlying \"operating system of work\" fail to capture value at scale (BCG cites 60% still stuck at this stage), whereas organizations that redesign end-to-end processes around agentic workflows report substantially better outcomes. BCG's own client examples cite up to a three-fold productivity increase and 60%+ cost reduction for \"early agentic\" redesigns, though the number and rigor of underlying case studies is not disclosed [e:bcg-2026-01-01].\n\nA third independent-institution corroboration, newly added this run, sharpens who is doing this restructuring and why it reaches Product Management specifically: McKinsey's October 2026 people-and-organization research (State of AI Global Survey, n=1,719; 700+ executive interviews) finds the companies furthest along in AI reinvention organize teams around end-to-end products and customer journeys rather than functional silos, with one illustrative product-development function shrinking from pods of 8-10 to hybrid teams of 4-6 people supported by agents [e:mckinsey-company-2026-10-05]. The same research underscores how uneven this remains: 80% of respondents report improved individual productivity, but only 37% report positive EBIT impact and just 6% qualify as AI high performers, while 70% feel personally ready for AI versus only 27% who say their organization is structurally ready [e:mckinsey-company-2026-10-05].\n\nTogether, a large methodologically-disclosed executive survey (Deloitte), operating-model guidance citing undisclosed client results (BCG), and a second independent survey-plus-interview program (McKinsey) now agree: the unit of IT organization design is moving from the project to the persistent, cross-functional product/value-stream squad, with Product Management as the discipline most directly reshaped by the smaller, agent-supported team model. All three sources remain within the top-tier-consulting source tier, so corroboration breadth stays capped at 3 despite three independent institutions now agreeing.",
       "maturity": "Growing Adoption",
       "evidenceScore": 3,
       "roleTags": [
         "Program/Project Management",
         "Software Engineering",
-        "IT Leadership/Org Design & Strategy"
+        "IT Leadership/Org Design & Strategy",
+        "Product Management"
       ],
       "dimensionTags": [
         "Team Structure & Span of Control",
@@ -2167,27 +2179,38 @@
           "institution": "BCG",
           "studyId": "bcg-2026-01-01",
           "peerReviewed": null
+        },
+        {
+          "sourceName": "McKinsey & Company",
+          "sourceTier": "top_tier_consulting",
+          "reliabilityScore": 3,
+          "url": "https://www.mckinsey.com/capabilities/people-and-organization/our-insights/ai-is-changing-work-now-it-has-to-change-the-organization",
+          "publishedDate": "2026-10-05",
+          "whatItShows": "Based on McKinsey's 2026 State of AI Global Survey (n=1,719, fielded May 4-June 8, 2026) plus qualitative research with 700+ executives and senior leaders: companies furthest along in AI reinvention organize cross-functional teams around end-to-end products, customer journeys, and processes rather than functional silos. One illustrative organization moved its product-development function from traditional pods of 8-10 people to hybrid teams of 4-6 people supported by AI agents. Survey context: 80% of respondents report AI improved individual productivity, but only 37% report positive EBIT impact and just 6% qualify as 'AI high performers'; 70% say they personally feel ready for AI, versus only 27% who say their organization is ready for the structural shifts required.",
+          "institution": "McKinsey & Company",
+          "studyId": "mckinsey-company-2026-10-05",
+          "peerReviewed": null
         }
       ],
       "firstSeen": "2026-07-08",
-      "lastUpdated": "2026-07-08",
+      "lastUpdated": "2026-11-09",
       "status": "active",
-      "shortSummary": "IT organizations are shifting from project-based delivery teams to lean, cross-functional product squads aligned to value streams — Deloitte finds 57% of organizations already making this transition. BCG's operating-model research reinforces that redesigning workflows around agentic AI, not just layering AI onto existing structures, is what captures value at scale.",
+      "shortSummary": "IT organizations are shifting from project-based delivery teams to lean, cross-functional product squads aligned to value streams — Deloitte finds 57% of organizations already making this transition, and McKinsey's October 2026 research adds a second independent survey finding the furthest-along adopters organize around end-to-end products with smaller, agent-supported teams (one case: pods of 8-10 shrinking to 4-6). BCG's operating-model research reinforces that redesigning workflows around agentic AI, not just layering AI onto existing structures, is what captures value at scale.",
       "evidenceStrength": 3,
-      "evidenceStrengthRationale": "Best: Deloitte 622-leader survey. BCG entry is an operating-model POV citing undisclosed clients.",
+      "evidenceStrengthRationale": "Best: Deloitte 622-leader survey and McKinsey's 1,719-respondent State of AI survey, both disclosed-sample multi-firm surveys (strength 3). BCG entry is an operating-model POV citing undisclosed clients.",
       "corroborationBreadth": 3,
       "breadthBasis": {
-        "independentInstitutions": 2,
-        "distinctStudies": 2,
+        "independentInstitutions": 3,
+        "distinctStudies": 3,
         "tiersRepresented": 1
       },
-      "previousEvidenceScore": 4,
+      "previousEvidenceScore": 3,
       "contested": false,
       "contradictingEvidence": [],
       "lastRedTeamedDate": null,
       "companySize": "Large Enterprise",
-      "newestEvidenceDate": "2026-01-01",
-      "stale": true,
+      "newestEvidenceDate": "2026-10-05",
+      "stale": false,
       "relatedTo": [
         "ai-spine-cross-functional-operating-model",
         "it-teams-need-product-management-discipline-for-ai"
@@ -2199,6 +2222,20 @@
           "unit": "%",
           "population": "622 leaders",
           "studyId": "deloitte-insights-2025-12-09"
+        },
+        {
+          "name": "Leaders reporting improved individual AI productivity",
+          "value": 80,
+          "unit": "%",
+          "population": "McKinsey State of AI Global Survey, n=1,719, May-June 2026",
+          "studyId": "mckinsey-company-2026-10-05"
+        },
+        {
+          "name": "Respondents reporting positive EBIT impact from AI",
+          "value": 37,
+          "unit": "%",
+          "population": "McKinsey State of AI Global Survey, n=1,719, May-June 2026",
+          "studyId": "mckinsey-company-2026-10-05"
         }
       ]
     },
@@ -2526,7 +2563,7 @@
       "previousEvidenceScore": 3,
       "contested": false,
       "contradictingEvidence": [],
-      "lastRedTeamedDate": "2026-11-02",
+      "lastRedTeamedDate": "2026-11-09",
       "companySize": "Large Enterprise",
       "newestEvidenceDate": "2026-10-02",
       "stale": false,
@@ -3153,7 +3190,7 @@
       "previousEvidenceScore": 4,
       "contested": false,
       "contradictingEvidence": [],
-      "lastRedTeamedDate": "2026-11-02",
+      "lastRedTeamedDate": "2026-11-09",
       "companySize": "Cross-size / Unspecified",
       "newestEvidenceDate": "2026-07-01",
       "stale": false,
@@ -3254,7 +3291,7 @@
       "previousEvidenceScore": 3,
       "contested": false,
       "contradictingEvidence": [],
-      "lastRedTeamedDate": "2026-11-02",
+      "lastRedTeamedDate": "2026-11-09",
       "companySize": "Cross-size / Unspecified",
       "newestEvidenceDate": "2026-07-31",
       "stale": false,
@@ -3355,7 +3392,7 @@
       "previousEvidenceScore": 3,
       "contested": false,
       "contradictingEvidence": [],
-      "lastRedTeamedDate": "2026-11-02",
+      "lastRedTeamedDate": "2026-11-09",
       "companySize": "Cross-size / Unspecified",
       "newestEvidenceDate": "2026-05-13",
       "stale": false,
@@ -3626,7 +3663,7 @@
       "previousEvidenceScore": 3,
       "contested": false,
       "contradictingEvidence": [],
-      "lastRedTeamedDate": "2026-11-02",
+      "lastRedTeamedDate": "2026-11-09",
       "companySize": "Cross-size / Unspecified",
       "newestEvidenceDate": "2026-04-23",
       "stale": false,
@@ -3769,7 +3806,7 @@
           "contradicts": "Complicates a purely data-quality-centric reading of the founding thesis by arguing data investment alone is not sufficient. Commentary/perspective piece with no named survey methodology disclosed — reliability 2, below the ≥3 downgrade threshold, so it is recorded as contested context only; no score change."
         }
       ],
-      "lastRedTeamedDate": "2026-11-02",
+      "lastRedTeamedDate": "2026-11-09",
       "companySize": "Large Enterprise",
       "newestEvidenceDate": "2026-05-01",
       "stale": false,
